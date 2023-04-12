@@ -6,6 +6,26 @@
 	
 };
 
+.categories__item {
+	margin-bottom: 32px;
+};
+
+
 .categories__link {
 	text-decoration: none;
+	font-family: 'DM Sans';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 24px;
+	/* identical to box height, or 133% */
+
+	letter-spacing: -0.02em;
+
+	color: rgba(17, 17, 17, 0.6);
+};
+
+.categories__link-all{
+	font-weight: 700;
+	text-transform: uppercase;
 }
