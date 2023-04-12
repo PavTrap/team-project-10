@@ -3,4 +3,8 @@
   height: 228px;
   background-attachment: scroll;
   overflow: scroll;
+}
+
+.categories__link {
+  text-decoration: none;
 }/*# sourceMappingURL=index.css.map */

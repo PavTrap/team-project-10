@@ -13,3 +13,4 @@ const fetchArray = fetch('https://books-backend.p.goit.global/books/category-lis
 	console.log(array)
 	return array;
 });
+
