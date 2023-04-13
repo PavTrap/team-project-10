@@ -1,60 +1,23 @@
 const infoBlock = document.querySelector('#info-block');
 
+let shoppingList = [];
 
-// let shoppingList = [];
+const fetchArray = fetch('https://books-backend.p.goit.global/books/top-books')
+.then(response => response.json())
+.then(data => {
+	 data.map(({ books }) => {
+    for (let i = 0; i < 2; i++) {
+      let book = books[i]
+      // console.log(book)
+      shoppingList.push(book)
+    }
+    
+	})
+	
+  checkingShoppingListLenght(shoppingList);
+});
 
-let shoppingList = [
-  {
-    _id: "642fd89ac8cf5ee957f12361",
-    list_name: "Middle Grade Paperback Monthly",    
-    amazon_product_url: "https://www.amazon.com/Wish-Barbara-OConnor/dp/1250144051?tag=NYTBSREV-20",    
-    author: "Barbara O'Connor",
-    description: "When we can and cannot trust our intuitions in making business and personal decisions.",
-    book_image: "https://storage.googleapis.com/du-prd/books/images/9781250144058.jpg",    
-     
-    title: "WISH",    
-    buy_links: [
-      {
-        name: "Amazon",
-        url: "https://www.amazon.com/Wish-Barbara-OConnor/dp/1250144051?tag=NYTBSREV-20"
-      },
-      {
-        name: "Apple Books",
-        url: "https://goto.applebooks.apple/9781250144058?at=10lIEQ"
-      },      
-      {
-        name: "Bookshop",
-        url: "https://du-gae-books-dot-nyt-du-prd.appspot.com/redirect?url1=https%3A%2F%2Fbookshop.org%2Fa%2F3546%2F9781250144058&url2=https%3A%2F%2Fbookshop.org%2Fbooks%3Faffiliate%3D3546%26keywords%3DWISH"
-      },      
-    ],    
-  },
-  {
-    _id: "642fd89ac8cf5ee957f122df",
-    list_name: "Paperback Nonfiction",    
-    amazon_product_url: "https://www.amazon.com/Killers-Flower-Moon-Osage-Murders/dp/0385534248?tag=NYTBSREV-20",    
-    author: "David Grann",
-    book_image: "https://storage.googleapis.com/du-prd/books/images/9780385534246.jpg",    
-    book_review_link: "https://www.nytimes.com/2017/04/28/books/review/killers-of-the-flower-moon-david-grann.html",    
-    description: "The story of a murder spree in 1920s Oklahoma that targeted Osage Indians, whose lands contained oil. The fledgling F.B.I. intervened, ineffectively.",
-    title: "KILLERS OF THE FLOWER MOON",    
-    buy_links: [
-      {
-        name: "Amazon",
-        url: "https://www.amazon.com/Killers-Flower-Moon-Osage-Murders/dp/0385534248?tag=NYTBSREV-20"
-      },
-      {
-        name: "Apple Books",
-        url: "https://goto.applebooks.apple/9780307742483?at=10lIEQ"
-      },
-      {
-        name: "Bookshop",
-        url: "https://du-gae-books-dot-nyt-du-prd.appspot.com/redirect?url1=https%3A%2F%2Fbookshop.org%2Fa%2F3546%2F9780307742483&url2=https%3A%2F%2Fbookshop.org%2Fbooks%3Faffiliate%3D3546%26keywords%3DKILLERS%2BOF%2BTHE%2BFLOWER%2BMOON"
-      },
-    ]
-  }
-];
 
-checkingShoppingListLenght(shoppingList);
 
 function checkingShoppingListLenght(shoppingList) {
   console.log(shoppingList.length);
