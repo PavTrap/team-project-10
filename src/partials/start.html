@@ -1,0 +1,46 @@
+
+<div class="backdrop is-hidden" data-modal>
+  <div class="modal">
+    <button class="modal__button" data-modal-close>
+      <svg class="modal__item"  width="14px" height="14px">
+        <!-- Добавить в use href для иконки -->
+        <use></use> 
+      </svg>
+    </button>
+
+    <form class="modal-start">
+    <div class="modal-form__group">
+        <label class="modal-form__label-name" for="user_person">NAME</label>
+        <div class="modal-form__wrapper">
+            <input class="modal-form__field-input" type="text" name="person" id="user_person" autofocus required>
+        </div>
+
+        <label class="modal-form__label-name" for="user_email">EMAIL</label>
+        <div class="modal-form__wrapper">
+            <input class="modal-form__field-input" type="email" name="email" id="user_email" required>
+            <svg class="modal-form__icon" width="28px" height="28px">
+                <!-- Добавить в use href для иконки -->
+                <use></use>
+            </svg>
+        </div>
+    
+        <label class="modal-form__label-name" for="user_password">PASSWORD</label>
+        <div class="modal-form__wrapper">
+            <input class="modal-form__field-input" type="password" name="password" id="user_password" minlength="5" maxlength="12" required>
+            <svg class="modal-form__icon" width="28px" height="28px">
+                <!-- Добавить в use href для иконки -->
+                <use></use>
+            </svg>
+        </div>
+
+        <button class="modal-form__btn btn" type="submit">SIGN UP</button>
+
+        <!-- Добавить ссылку -->
+        <a class="modal-form__link" href="" rel="noopener noreferrer" aria-label="link sing up">SIGN UP</a>
+        <a class="modal-form__link" href="" rel="noopener noreferrer" aria-label="link sing in">SIGN IN</a>
+    
+    </div>
+    </form>
+  </div>
+</div>
+
