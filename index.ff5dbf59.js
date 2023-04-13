@@ -1,2 +1,0 @@
-document.querySelector(".foudation__list");const e={categoriesList:document.querySelector(".categories__list")};e.categoriesList.style.listStyle="none";fetch("https://books-backend.p.goit.global/books/category-list").then((e=>e.json())).then((t=>{const o=t.map((({list_name:e})=>`<li class = "categories__item"><a href = "" class = "categories__link">${e}</a></li>`));return e.categoriesList.insertAdjacentHTML("beforeend",o.join("")),console.log(o),o}));
-//# sourceMappingURL=index.ff5dbf59.js.map

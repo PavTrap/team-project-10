@@ -1,0 +1,1 @@
+{"mappings":"khBAAAA,EAAA,SAEyBC,SAASC,cAAc,mB","sources":["src/js/markup-foundation.js"],"sourcesContent":["import { nameFoundation } from './array_foundation';\n\nconst foundationListEl = document.querySelector(\".foudation__list\");\n\n\n\n"],"names":["parcelRequire","document","querySelector"],"version":3,"file":"shoppinglist.9478c1d1.js.map"}
