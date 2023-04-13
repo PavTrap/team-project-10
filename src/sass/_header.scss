@@ -32,17 +32,17 @@ border-radius: 0px 0px 8px 8px;
 }
 }
 
-.logo{
-    // margin-right: auto;
-}
+// .logo{
+//     margin-right: 32px;
+// }
 
 .nav-list {
 display: none;
   @media screen and (min-width: 768px) {
     display: flex;
-    // margin-left: 32px;
+    margin-left: 32px;
     //     gap: 48px;
-    margin-right: auto;
+    // margin-right: auto;
     // margin-left: auto;
 }
 }
