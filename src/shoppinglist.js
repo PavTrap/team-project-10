@@ -1,23 +1,23 @@
 const infoBlock = document.querySelector('#info-block');
 
 let shoppingList = [];
+localStorage.removeItem('myArray');
 
 const fetchArray = fetch('https://books-backend.p.goit.global/books/top-books')
-.then(response => response.json())
-.then(data => {
-	 data.map(({ books }) => {
-    for (let i = 0; i < 2; i++) {
-      let book = books[i]
-      // console.log(book)
-      shoppingList.push(book)
-    }
-    
-	})
-	
-  checkingShoppingListLenght(shoppingList);
-});
-
-
+  .then(response => response.json())
+  .then(data => {
+    data.map(({ books }) => {
+      for (let i = 0; i < 2; i++) {
+        let book = books[i];
+        // console.log(book)
+        shoppingList.push(book);
+      }
+    });
+    localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+    const storedArray = localStorage.getItem('shoppingList');
+    const myArray = JSON.parse(storedArray);
+    checkingShoppingListLenght(myArray);
+  });
 
 function checkingShoppingListLenght(shoppingList) {
   console.log(shoppingList.length);
@@ -37,21 +37,21 @@ function createEmptyPage() {
 
 function createShoppingListPage(shoppingList) {
   clearList();
-  let amazonUrl = ''
-  let appleUrl = ''
-  let bookshopUrl = ''
+  let amazonUrl = '';
+  let appleUrl = '';
+  let bookshopUrl = '';
   for (let i = 0; i < shoppingList.length; i++) {
     const shop = shoppingList[i];
     let buyLinks = shop.buy_links;
     for (let j = 0; j < buyLinks.length; j++) {
-      if (buyLinks[j].name === "Amazon") {
-        amazonUrl = buyLinks[j].url;      
+      if (buyLinks[j].name === 'Amazon') {
+        amazonUrl = buyLinks[j].url;
       }
-      if (buyLinks[j].name === "Apple Books") {
-        appleUrl = buyLinks[j].url;      
+      if (buyLinks[j].name === 'Apple Books') {
+        appleUrl = buyLinks[j].url;
       }
-      if (buyLinks[j].name === "Bookshop") {
-        bookshopUrl = buyLinks[j].url;      
+      if (buyLinks[j].name === 'Bookshop') {
+        bookshopUrl = buyLinks[j].url;
       }
     }
 
@@ -113,17 +113,17 @@ function createShoppingListPage(shoppingList) {
   }
 
   const buttons = document.querySelectorAll('.button');
-  buttons.forEach((button) => {
+  buttons.forEach(button => {
     button.addEventListener('click', () => {
       const index = button.dataset.index;
       shoppingList.splice(index, 1);
-      console.log(shoppingList)
+      localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+      console.log(shoppingList);
       checkingShoppingListLenght(shoppingList);
       // createShoppingListPage(shoppingList);
     });
   });
 }
-
 
 function clearList() {
   infoBlock.innerHTML = '';
