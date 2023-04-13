@@ -26,10 +26,6 @@
 
 .categories__link {
 	text-decoration: none;
-
-}
-
-
 	font-family: 'DM Sans';
 	font-style: normal;
 	font-weight: 400;
@@ -40,6 +36,7 @@
 
 	transition: all 250ms var(--transition-timing-function);
 };
+
 .categories__link:hover{
 	font-weight: 700;
 	text-transform: uppercase;
