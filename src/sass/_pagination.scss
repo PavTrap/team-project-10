@@ -1,0 +1,119 @@
+div.tui-pagination {
+  margin-top: 20px;
+  margin-bottom: 60px;
+  height: 44px;
+}
+
+div.tui-pagination .tui-page-btn {
+  background-color: transparent;
+  border: 1px solid #111111;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &.tui-last {
+    background-color: #eac645;
+    border: 1px solid #111111;
+  }
+  &.tui-next {
+    background-color: #eac645;
+    border: 1px solid #111111;
+  }
+  &.tui-prev {
+    background-color: #eac645;
+    border: 1px solid #111111;
+  }
+  &.tui-first {
+    background-color: #eac645;
+    border: 1px solid #111111;
+  }
+  &:hover,
+  &:focus {
+    background-color: #111111;
+    color: #ffffff;
+    border: 1px solid #111111;
+    outline: none;
+  }
+}
+
+.tui-is-disabled {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+div.tui-pagination .tui-is-selected,
+div.tui-pagination strong {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+div.tui-pagination .tui-first-child.tui-is-selected {
+  border: 1px solid #111111;
+}
+
+div.tui-pagination .tui-last-child.tui-is-selected {
+  border: 1px solid #111111;
+}
+
+div.tui-pagination .tui-ico-next,
+div.tui-pagination .tui-ico-last,
+div.tui-pagination .tui-ico-prev,
+div.tui-pagination .tui-ico-first,
+div.tui-pagination .tui-ico-ellip {
+  background-image: none;
+}
+
+div.tui-pagination .tui-page-btn.tui-next::after {
+  content: '›';
+  position: absolute;
+  color: inherit;
+  font-size: 28px;
+}
+
+div.tui-pagination .tui-page-btn.tui-last::after {
+  content: '»';
+  position: absolute;
+  color: inherit;
+  font-size: 28px;
+}
+
+div.tui-pagination .tui-page-btn.tui-prev::after {
+  content: '‹';
+  position: absolute;
+  color: inherit;
+  font-size: 28px;
+}
+
+div.tui-pagination .tui-page-btn.tui-first::after {
+  content: '«';
+  position: absolute;
+  color: inherit;
+  font-size: 28px;
+}
+
+div.tui-pagination .tui-prev-is-ellip::after,
+div.tui-pagination .tui-next-is-ellip::after {
+  content: '...';
+  position: absolute;
+  color: inherit;
+  font-size: 18px;
+}
+
+div.tui-pagination .tui-prev {
+  margin-right: 24px;
+}
+
+div.tui-pagination .tui-page-btn {
+  margin-left: 8px;
+}
+
+div.tui-pagination .tui-next {
+  margin-left: 24px;
+}
