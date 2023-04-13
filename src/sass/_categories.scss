@@ -3,11 +3,24 @@
 	height: 228px;
 	background-attachment: scroll;
 	overflow: scroll;
+
+	@media screen and (min-width: 768px) {
+		width: 337px;
+		height: 472px;
+	};
+	@media screen and (min-width: 1195px) {
+		width: 356px;
+		height: 472px;
+	};
 	
 };
 
 .categories__item {
-	margin-bottom: 32px;
+	margin-bottom: 24px;
+
+	@media screen and (min-width: 768px) {
+		margin-bottom: 32px;
+	};
 };
 
 
@@ -17,15 +30,26 @@
 	font-style: normal;
 	font-weight: 400;
 	font-size: 18px;
-	line-height: 24px;
-	/* identical to box height, or 133% */
-
+	line-height: (24/18)px;
 	letter-spacing: -0.02em;
-
 	color: rgba(17, 17, 17, 0.6);
-};
 
-.categories__link-all{
+	transition: all 250ms var(--transition-timing-function);
+};
+.categories__link:hover{
 	font-weight: 700;
 	text-transform: uppercase;
+	color: var(--violette);
+	
+}
+
+.categories__link-all{
+	font-weight: 400;
+	transition: all 250ms var(--transition-timing-function),
+}
+.categories__link-all:hover{
+	font-weight: 700;
+	text-transform: uppercase;
+	color: var(--violette);
+	
 }
