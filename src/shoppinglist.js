@@ -1,15 +1,27 @@
+
 const infoBlock = document.querySelector('#info-block');
 
-let shoppingList = [];
-localStorage.removeItem('myArray');
-
+// перевіряємо наявність в local storage масиву книг
+// якщо нема то створюємо пустий масив та записуємо його у local storage
+if (localStorage.getItem('shoppingList') === null) {
+  console.log("5555555")
+  let shoppingList = [];
+  localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
+} 
+// Зчитуємо массив з local storage
+const storedArray = localStorage.getItem('shoppingList');
+shoppingList = JSON.parse(storedArray);
+// ===========================================================================
+// Створуємо масив через APi (тимчасово)
+localStorage.removeItem('shoppingList');
+shoppingList = [];
 const fetchArray = fetch('https://books-backend.p.goit.global/books/top-books')
   .then(response => response.json())
   .then(data => {
     data.map(({ books }) => {
       for (let i = 0; i < 2; i++) {
         let book = books[i];
-        // console.log(book)
+        
         shoppingList.push(book);
       }
     });
@@ -18,7 +30,9 @@ const fetchArray = fetch('https://books-backend.p.goit.global/books/top-books')
     const myArray = JSON.parse(storedArray);
     checkingShoppingListLenght(myArray);
   });
+// =================================================
 
+// Перевірка чи не пустий масив
 function checkingShoppingListLenght(shoppingList) {
   console.log(shoppingList.length);
   if (shoppingList.length === 0) {
@@ -27,14 +41,14 @@ function checkingShoppingListLenght(shoppingList) {
     createShoppingListPage(shoppingList);
   }
 }
-
+// функція створення пустої сторінки
 function createEmptyPage() {
   clearList();
   const emptyPage =
     '<li><p>"This page is empty, add some books and proceed to order."</p><img src="./images/IMG_9606 1.png" alt=""></li>';
   infoBlock.insertAdjacentHTML('afterbegin', emptyPage);
 }
-
+// функція створення розмітки списку книг
 function createShoppingListPage(shoppingList) {
   clearList();
   let amazonUrl = '';
@@ -54,7 +68,7 @@ function createShoppingListPage(shoppingList) {
         bookshopUrl = buyLinks[j].url;
       }
     }
-
+    // розмітка списку карток
     const listBooks = `<li class="book-card ${shop._id}" >
       <img src="${shop.book_image}" alt="" />
       <div class="info">
@@ -108,10 +122,9 @@ function createShoppingListPage(shoppingList) {
         </div>
       </div>
     </li>`;
-
     infoBlock.insertAdjacentHTML('afterbegin', listBooks);
   }
-
+// видалення книг з масиву по кліку на кнопку 
   const buttons = document.querySelectorAll('.button');
   buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -120,11 +133,10 @@ function createShoppingListPage(shoppingList) {
       localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
       console.log(shoppingList);
       checkingShoppingListLenght(shoppingList);
-      // createShoppingListPage(shoppingList);
-    });
+      });
   });
 }
-
+// очистка сторінки
 function clearList() {
   infoBlock.innerHTML = '';
 }
