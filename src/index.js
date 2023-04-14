@@ -3,4 +3,7 @@ import './js/markup-foundation';
 import './js/categories';
 import './shoppinglist';
 import './js/header';
+
+import './js/bestsellers';
+
 import './js/modal-window';
