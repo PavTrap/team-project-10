@@ -44,10 +44,18 @@
 
 .foundation__list{
     list-style: none;
+    
 }
 
 .foundation__item{
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
 }
 
 .foundation__link{
@@ -61,9 +69,6 @@
 }
 
 .foundation__img{
-height: 55px;
-width: 149px;
-
 }
 
 
@@ -73,9 +78,8 @@ width: 149px;
     font-size: 14px;
     line-height: 18px;
 
+    margin-right: 16px;
+
     // color: #FFFFFF;
 }
 
-
-
-  

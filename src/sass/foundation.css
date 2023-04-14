@@ -37,7 +37,13 @@
 }
 
 .foundation__item {
+  display: flex;
+  align-items: center;
   margin-bottom: 20px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
 }
 
 .foundation__link {
@@ -49,14 +55,10 @@
   display: none;
 }
 
-.foundation__img {
-  height: 55px;
-  width: 149px;
-}
-
 .foundation__count {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
+  margin-right: 16px;
 }/*# sourceMappingURL=foundation.css.map */
