@@ -1,4 +1,4 @@
-import { nameFoundation } from './array_foundation';
+import { nameFoundation } from './array_foundation'
 
 const foundationListEl = document.querySelector(".foundation__list");
 
