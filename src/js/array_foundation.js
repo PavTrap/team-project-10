@@ -1,0 +1,49 @@
+
+export const nameFoundation = [
+  {
+    title: 'Save the Children',
+    url:
+      'https://www.savethechildren.net/what-we-do/emergencies/ukraine-crisis',
+    img: `~../image/founds/Save_children.png`,
+  },
+  {
+    title: 'Project HOPE',
+    url: 'https://www.projecthope.org/country/ukraine/',
+    img: '~./image/founds/project-hope.png',
+  },
+  {
+    title: 'UNITED24',
+    url: 'https://u24.gov.ua/uk',
+    img: './image/founds/united.png',
+  },
+  {
+    title: 'International Medical Corps',
+    url: 'https://internationalmedicalcorps.org/country/ukraine/',
+    img: null,
+  },
+  {
+    title: 'Medicins Sans Frontieres',
+    url: 'https://www.msf.org/ukraine',
+    img: null,
+  },
+  {
+    title: 'RAZOM',
+    url: 'https://www.razomforukraine.org/',
+    img: null,
+  },
+  {
+    title: 'Action against hunger',
+    url: 'https://www.actionagainsthunger.org/location/europe/ukraine/',
+    img: './image/founds/AAH.png',
+  },
+  {
+    title: 'World vision',
+    url: 'https://www.wvi.org/emergencies/ukraine',
+    img: null,
+  },
+  {
+    title: 'Serhiy Prytula Charity Foundation',
+    url: 'https://prytulafoundation.org/en',
+    img: '',
+  },
+]
