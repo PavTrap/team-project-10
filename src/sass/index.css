@@ -312,6 +312,7 @@ p {
 
 .foundation__item {
   display: flex;
+  align-items: center;
   margin-bottom: 20px;
   font-style: normal;
   font-weight: 400;
@@ -333,6 +334,7 @@ p {
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
+  margin-right: 16px;
 }
 
 .categories__list {

@@ -27,11 +27,24 @@
 
     letter-spacing: -0.04em;
     color: #FFFFFF;
-}
+    &::after{
+        content: "";
+        display: inline-block;
+        margin: auto 0 auto 12px;
+        vertical-align: middle;
+        width: 20px;
+        height: 32px;
+        background-repeat: no-repeat;
+        background-image: url(../image/founds/gerb.svg.svg);
+        }
+    }
 
 
 .foundation__btn{
-    display: block;
+    display: flex;
+        justify-content: center;
+        align-items: center;
+
     margin: 0 auto;
     width: 38px;
     height: 38px;
@@ -83,3 +96,9 @@
     // color: #FFFFFF;
 }
 
+.btnLoadMore__icon{
+    height: 10px;
+    width: 22px;
+    transform: rotate(90deg);
+    fill:  #4F2EE8;;
+}
