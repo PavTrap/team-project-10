@@ -7,6 +7,7 @@ const refs = {
   allCategoryContainer: document.querySelector('.bestSellers__container'),
   cardsQuantityByCategory: 1,
   tabletWidth: 768,
+  pcWidth: 1440,
 };
 //------------------Змінні
 
@@ -14,6 +15,20 @@ const refs = {
 function checkWindowWidth() {
   return document.documentElement.clientWidth;
 }
+function reloadPage() {
+  let currentRenderWidth = 375;
+
+  addEventListener('resize', event => {
+    // if (
+    //   (window.innerWidth > 767 && currentRenderWidth < 768) ||
+    //   (window.innerWidth > 1439 && currentRenderWidth < 1440) ||
+    //   (window.innerWidth < 1440 && currentRenderWidth > 1439) ||
+    //   (window.innerWidth < 768 && currentRenderWidth > 767)
+    // ) {
+    location.reload();
+  });
+}
+
 function seeMoreButtonsHandler() {
   let buttonsList = document.querySelectorAll('.button');
   for (button of buttonsList) {
@@ -49,8 +64,12 @@ const fetchBook = async () => {
 
 //------------------Функція запроса даних по ТОП книгам в категорії
 const fetchedArrayByTop = async () => {
+  cardsQuantityByCategory = 1;
   if (checkWindowWidth() >= refs.tabletWidth) {
     refs.cardsQuantityByCategory = 3;
+  }
+  if (checkWindowWidth() >= refs.pcWidth) {
+    refs.cardsQuantityByCategory = 5;
   }
   const data = await fetchBook().then(item => {
     const result = item.map(value => {
@@ -68,14 +87,14 @@ const fetchedArrayByTop = async () => {
 //------------------Шаблон рендера карток
 function mobileRenderByTop(obj) {
   return (refs.cardMarkup = `
-    <ul class='shop-card'>
-    <li class='shop-card__category'>${obj.list_name}</li>
+    <ul class='bestseller-card'>
+    <li class='bestseller-card__category'>${obj.list_name}</li>
     <li class='image-block'>
         <img class='image-block__image' src='${obj.book_image}' data-id='${obj._id}'/>
     </li>
-    <ul class='shop-card__meta'>
-      <li class='shop-card__title'>${obj.title}</li>
-      <li class='shop-card__author'>${obj.author}</li>
+    <ul class='bestseller-card__meta'>
+      <li class='bestseller-card__title'>${obj.title}</li>
+      <li class='bestseller-card__author'>${obj.author}</li>
     </ul
     <li><button class='button' type='button' data-category='${obj.list_name}'>See more</button>
     </li>
@@ -84,13 +103,13 @@ function mobileRenderByTop(obj) {
 }
 function tabletRenderByTop(obj) {
   return (refs.cardMarkup = `
-    <ul class='shop-card'>
+    <ul class='bestseller-card'>
     <li class='image-block'>
     <img class='image-block__image' src='${obj.book_image}' data-id='${obj._id}'/>
     </li>
-    <ul class='shop-card__meta'>
-      <li class='shop-card__title'>${obj.title}</li>
-      <li class='shop-card__author'>${obj.author}</li>
+    <ul class='bestseller-card__meta'>
+      <li class='bestseller-card__title'>${obj.title}</li>
+      <li class='bestseller-card__author'>${obj.author}</li>
     </ul
     
     </li>
@@ -107,6 +126,7 @@ function renderButton(category) {
 //------------------Фукнція рендера карток
 async function renderFetch() {
   promise = await fetchedArrayByTop();
+  console.log(promise);
   for (let i = 0; i < promise.length; i++) {
     categoryContainer = document.createElement('div');
     categoryContainer.classList.add('category-container');
@@ -142,3 +162,4 @@ async function renderFetch() {
 //------------------Фукнція рендера карток
 
 renderFetch();
+reloadPage();
