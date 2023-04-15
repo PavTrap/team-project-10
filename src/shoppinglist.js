@@ -1,3 +1,5 @@
+import './js/theme-switch';
+
 
 const infoBlock = document.querySelector('#info-block');
 

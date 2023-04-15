@@ -26,7 +26,7 @@ img {
 
 body{
     font-family: 'DM Sans';
-    background-color: #D0D0D0;
+    background-color: var(--body-color);
 }
 
 ul {
@@ -54,4 +54,18 @@ li {
 
 .no-scroll {
   overflow-y: hidden;
+}
+
+
+.theme-light {
+  --body-color: #D0D0D0;
+  // --color-secondary: #fbfbfe;
+  // --color-accent: #fd6f53;
+  // --font-color: #000000;
+}
+.theme-dark {
+  --body-color: #202024;
+  // --color-secondary: #2a2c2d;
+  // --color-accent: #12cdea;
+  // --font-color: #ffffff;
 }
