@@ -75,6 +75,7 @@ window.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
         formEl.style.display = "none";
         backdropEl.style.display = "none";
+        // backdropEl.classList.toggle('is-hidden');
     }
 });
 
