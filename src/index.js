@@ -11,3 +11,7 @@ import './js/bestsellers';
 
 import './js/modal-window';
 
+import './js/selected-category';
+
+
+
