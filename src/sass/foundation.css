@@ -20,9 +20,21 @@
   letter-spacing: -0.04em;
   color: #FFFFFF;
 }
+.foundation__title::after {
+  content: "";
+  display: inline-block;
+  margin: auto 0 auto 12px;
+  vertical-align: middle;
+  width: 20px;
+  height: 32px;
+  background-repeat: no-repeat;
+  background-image: url(../image/founds/gerb.svg.svg);
+}
 
 .foundation__btn {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   width: 38px;
   height: 38px;
@@ -37,7 +49,13 @@
 }
 
 .foundation__item {
+  display: flex;
+  align-items: center;
   margin-bottom: 20px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
 }
 
 .foundation__link {
@@ -49,14 +67,17 @@
   display: none;
 }
 
-.foundation__img {
-  height: 55px;
-  width: 149px;
-}
-
 .foundation__count {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
+  margin-right: 16px;
+}
+
+.btnLoadMore__icon {
+  height: 10px;
+  width: 22px;
+  transform: rotate(90deg);
+  fill: #4F2EE8;
 }/*# sourceMappingURL=foundation.css.map */
