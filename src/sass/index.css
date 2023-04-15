@@ -8,11 +8,16 @@
 }
 
 :root {
+
+  --light-grey: #F6F6F6;
+  --dark-white: #F3F3F3;
+
   --primary-grey-color: #F6F6F6;
   --primary-black-color: #111111;
   --primary-white-color: #F3F3F3;
   --accent-color: #4F2EE8;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .list {
@@ -46,9 +51,22 @@ p {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  fill: var(--dark-black);
+}
+@media screen and (min-width: 768px) {
+  .modal__button {
+    top: 24px;
+    right: 24px;
+  }
+}
+.modal__button:focus, .modal__button:hover {
+  fill: var(--violette);
+
 }
 .modal__button:focus {
   fill: var(--accent-color);
+
 }
 
 .backdrop {
@@ -57,9 +75,15 @@ p {
   z-index: 1;
   width: 100%;
   height: 100%;
+
+  background-color: var(--violette);
+  overflow: scroll;
+  transition: opacity 250ms var(--transition-timing-function), visibility 250ms var(--transition-timing-function);
+
   background-color: var(--accent-color);
   overflow: scroll;
   transition: opacity 250ms var(--timing-function), visibility 250ms var(--timing-function);
+
 }
 .backdrop.is-hidden {
   opacity: 0;
@@ -67,34 +91,60 @@ p {
   pointer-events: none;
 }
 
+
+.modal-start {
+
 .modal {
+
   position: absolute;
   width: 335px;
   height: 384px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  border: 2px solid var(--dark-black);
+  background-color: var(--light-grey);
+  border-radius: 18px;
+  transition: transform 250ms var(--transition-timing-function), opacity 250ms var(--transition-timing-function);
+}
+@media screen and (min-width: 768px) {
+  .modal-start {
+
   background-color: var(--primary-white-color);
   border-radius: 18px;
   transition: transform 250ms var(--timing-function), opacity 250ms var(--timing-function);
 }
 @media screen and (min-width: 768px) {
   .modal {
+
     min-width: 579px;
     height: 516px;
   }
 }
+
+.backdrop.is-hidden .modal-start {
+
 .backdrop.is-hidden .modal {
+
   opacity: 0;
   transform: scale(0.75);
 }
 
 .modal__item {
+
+  fill: var(--dark-black);
+  transition: fill 250ms var(--transition-timing-function);
+}
+.modal__item:hover, .modal__item:focus {
+  fill: var(--violette);
+
   fill: var(--logo-color-black);
   transition: fill 250ms var(--timing-function);
 }
 .modal__item:hover, .modal__item:focus {
   fill: var(--accent-color);
+
 }
 
 .modal-form__group {
@@ -118,13 +168,20 @@ p {
   left: 24px;
   height: 18px;
   font-family: "DM Sans";
+
+
   font-style: normal;
+
   font-weight: 700;
   font-size: 16px;
   line-height: 1.125;
   letter-spacing: -0.01em;
   text-transform: uppercase;
+
+  color: var(--dark-black);
+
   color: var(--primary-black-color);
+
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -137,7 +194,11 @@ p {
     height: 24px;
     font-size: 18px;
     line-height: 1.3333333333;
+
+    color: var(--dark-black);
+
     color: var(--primary-black-color);
+
   }
 }
 
@@ -152,8 +213,13 @@ p {
   margin-bottom: 24px;
   width: 295px;
   height: 50px;
+
+  background-color: var(--light-grey);
+  border: 2px solid var(--dark-black);
+
   background-color: var(--primary-white-color);
   border: 2px solid var(--primary-black-color);
+
   border-radius: 40px;
   flex: none;
   order: 0;
@@ -168,6 +234,11 @@ p {
   }
 }
 
+.modal-form__field-input:hover, .modal-form__field-input:focus {
+  border: 2px solid var(--violette);
+}
+
+
 @media screen and (min-width: 768px) {
   .modal-form__group--input {
     margin-bottom: 40px;
@@ -177,6 +248,17 @@ p {
 .modal-form__icon {
   position: absolute;
   top: 50%;
+
+  left: 253px;
+  transform: translateY(-50%);
+  fill: var(--dark-black);
+}
+@media screen and (min-width: 768px) {
+  .modal-form__icon {
+    top: 50%;
+    left: 439px;
+  }
+
   right: 50%;
   transform: translateY(-50%);
   transition: fill 250ms var(--timing-function);
@@ -184,6 +266,7 @@ p {
 
 .modal-form__field-input:focus + .modal-form__icon {
   fill: var(--accent-color);
+
 }
 
 .modal-form__btn {
@@ -196,6 +279,18 @@ p {
   margin-bottom: 14px;
   width: 294px;
   height: 50px;
+
+  background: var(--dark-black);
+  border-radius: 40px;
+  font-family: "DM Sans";
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.125;
+  width: auto;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--dark-white);
+
   background: var(--primary-black-color);
   border-radius: 40px;
   flex: none;
@@ -209,6 +304,7 @@ p {
   letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--primary-white-color);
+
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -219,15 +315,34 @@ p {
     margin-bottom: 20px;
     width: 499px;
     height: 64px;
+
+    font-size: 17px;
+    line-height: 1.33;
+  }
+}
+.modal-form__btn:hover, .modal-form__btn:focus {
+  background: var(--violette);
+}
+
     font-size: 18px;
     line-height: 1.3333333333;
   }
 }
 
+
 .modal-form__link {
   gap: 20px;
   height: 18px;
   font-family: "DM Sans";
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  color: var(--violette);
+
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -236,6 +351,7 @@ p {
   text-decoration-line: underline;
   text-transform: uppercase;
   color: var(--accent-color);
+
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -251,18 +367,35 @@ p {
   width: 60px;
   height: 18px;
   font-family: "DM Sans";
+
+
   font-style: normal;
+
   font-weight: 700;
   font-size: 14px;
   line-height: 1.2857142857;
   letter-spacing: -0.01em;
   text-decoration-line: underline;
   text-transform: uppercase;
+
+  color: var(--violette);
+
   color: var(--accent-color);
+
   flex: none;
   order: 0;
   flex-grow: 0;
 }
+
+@media screen and (min-width: 768px) {
+  .modal-form__link {
+    width: 69px;
+    height: 24px;
+    font-size: 18px;
+    line-height: 1.3333333333;
+  }
+}
+
 
 .modal-form__link .sing-up {
   width: 54px;
@@ -334,7 +467,10 @@ p {
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
+
+
   margin-right: 16px;
+
 }
 
 .categories__list {
@@ -392,6 +528,7 @@ p {
   font-weight: 700;
   text-transform: uppercase;
   color: var(--violette);
+
 }
 
 .list {
@@ -613,4 +750,5 @@ p {
     font-size: 32px;
     line-height: 1.18;
   }
+
 }/*# sourceMappingURL=index.css.map */
