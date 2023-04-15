@@ -133,38 +133,38 @@
   color: #b4afaf;
 }
 
-.button {
-  margin-top: 8px;
-  margin-left: auto;
-  width: 124px;
-  height: 46px;
-  border: 2px solid rgba(79, 46, 232, 1);
-  background-color: #ffffff;
-  border-radius: 40px;
+// .button {
+//   margin-top: 8px;
+//   margin-left: auto;
+//   width: 124px;
+//   height: 46px;
+//   border: 2px solid rgba(79, 46, 232, 1);
+//   background-color: #ffffff;
+//   border-radius: 40px;
 
-  font-family: 'DM Sans';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 18px;
+//   font-family: 'DM Sans';
+//   font-style: normal;
+//   font-weight: 700;
+//   font-size: 14px;
+//   line-height: 18px;
 
-  /* identical to box height, or 129% */
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
+//   /* identical to box height, or 129% */
+//   letter-spacing: -0.01em;
+//   text-transform: uppercase;
 
-  color: rgba(17, 17, 17, 1);
-  cursor: pointer;
+//   color: rgba(17, 17, 17, 1);
+//   cursor: pointer;
 
-  transition: 250ms ease-in-out;
-  transition-property: background-color, color;
+//   transition: 250ms ease-in-out;
+//   transition-property: background-color, color;
 
-  @media screen and(min-width: 768px) {
-    margin: 0;
-    margin-left: auto;
-    padding: 0;
-  }
-}
-.button:hover {
-  background-color: rgba(79, 46, 232, 1);
-  color: #ffffff;
-}
+//   @media screen and(min-width: 768px) {
+//     margin: 0;
+//     margin-left: auto;
+//     padding: 0;
+//   }
+// }
+// .button:hover {
+//   background-color: rgba(79, 46, 232, 1);
+//   color: #ffffff;
+// }
