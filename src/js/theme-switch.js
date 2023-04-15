@@ -1,27 +1,26 @@
 
 
-// function to set a given theme/color-scheme
-        function setTheme(themeName) {
-            localStorage.setItem('theme', themeName);
-            document.documentElement.className = themeName;
-        }
+const slider = document.querySelector('.switch_input');
+console.log(slider)
+// Выбираем настройки темы из localStorage
+const currentTheme = localStorage.getItem("theme");
+// Если текущая тема в localStorage равна "dark"…
+if (currentTheme == "dark") {
+  // …тогда мы используем класс .dark-theme
+  document.body.classList.add("dark-theme");
+}
 
-        // function to toggle between light and dark theme
-        function toggleTheme() {
-            if (localStorage.getItem('theme') === 'theme-dark') {
-                setTheme('theme-light');
-            } else {
-                setTheme('theme-dark');
-            }
-        }
-
-        // Immediately invoked function to set the theme on initial load
-        (function () {
-            if (localStorage.getItem('theme') === 'theme-dark') {
-                setTheme('theme-dark');
-                document.querySelector('#slider').checked = true;
-            } else {
-                setTheme('theme-light');
-                document.querySelector('#slider').checked = false;
-            }
-        })();
+// Отслеживаем щелчок по кнопке
+slider.addEventListener("click", function () {
+  // Переключаем класс .dark-theme при каждом щелчке
+  document.body.classList.toggle("dark-theme");
+  // Допустим, тема светлая
+  let theme = "light";
+  // Если <body> содержит класс .dark-theme…
+  if (document.body.classList.contains("dark-theme")) {
+    // …тогда делаем тему тёмной
+    theme = "dark";
+  }
+  // После чего сохраняем выбор в localStorage
+  localStorage.setItem("theme", theme);
+});

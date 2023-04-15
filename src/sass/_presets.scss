@@ -24,9 +24,21 @@ img {
   overflow-y: none;
 }
 
-body{
-    font-family: 'DM Sans';
-    background-color: var(--body-color);
+
+// body{
+//     font-family: 'DM Sans';
+//     background-color: var(--body-color);
+// }
+
+body {
+  --bkg-color: #D0D0D0;
+}
+body.dark-theme {
+  --bkg-color: #202024;
+}
+
+body {
+  background: var(--bkg-color);
 }
 
 ul {
@@ -57,15 +69,15 @@ li {
 }
 
 
-.theme-light {
-  --body-color: #D0D0D0;
-  // --color-secondary: #fbfbfe;
-  // --color-accent: #fd6f53;
-  // --font-color: #000000;
-}
-.theme-dark {
-  --body-color: #202024;
-  // --color-secondary: #2a2c2d;
-  // --color-accent: #12cdea;
-  // --font-color: #ffffff;
-}
+// .theme-light {
+//   --body-color: #D0D0D0;
+//   // --color-secondary: #fbfbfe;
+//   // --color-accent: #fd6f53;
+//   // --font-color: #000000;
+// }
+// .theme-dark {
+//   --body-color: #202024;
+//   // --color-secondary: #2a2c2d;
+//   // --color-accent: #12cdea;
+//   // --font-color: #ffffff;
+// }
