@@ -6,14 +6,14 @@ const backdropEl = document.querySelector('.backdrop');
 
 const nameLabelEl = document.querySelector('label[for="user_person"]');
 console.log(nameLabelEl);
-const nameInputEl = document.querySelector('#user_person');
+const nameInputEl = document.querySelector('#name');
 console.log(nameInputEl);
 
 const emailLabelEl = document.querySelector('label[for="user_email"]');
-const emailInputEl = document.querySelector('#user_email')
+const emailInputEl = document.querySelector('#email')
 
 const passwordLabelEl = document.querySelector('label[for="user_password"]');
-const passwordInputEl = document.querySelector('#user_password');
+const passwordInputEl = document.querySelector('#password');
 
 const signUpBtn = document.querySelector('.modal-form__btn')
 
@@ -94,33 +94,38 @@ const firebaseConfig = {
   appId: "1:958492509119:web:1ad6921d152768cc92570a"
 };
 
-firebase.initializeApp(firebaseConfig);
+// init firebase
+ firebase.initializeApp(firebaseConfig);
 
-const AuthFormDB = firebase.database().ref('project-auth');
 
-signUpBtn.addEventListener('click', OnFormClick)
+const contactForm = firebase.database().ref('contactForm');
 
-function OnFormClick(e) {
+formEl.addEventListener('submit', OnFormSub)
 
-  let name = getElementVal('user_person')
-  let email = getElementVal('user_email');
-  let password = getElementVal('user_password')
+const STORAGE_KEY = 'User-name'
 
-  console.log(name, email, password)
+function OnFormSub(e) {
+    e.preventDefault()
+ let name = getElementVal('name')
+let  email = getElementVal('email')
+ let password =  getElementVal('password')
+    console.log(name,email,password)
+
+  saveMessage(name, email, password)
   
-  SaveMessages(name,email,password)
+  localStorage.setItem(STORAGE_KEY, name);
 }
 
-const SaveMessages = (name, email, password) => {
-  const newAuthForm = AuthFormDB.push();
-  
-  newAuthForm.set({
-    name,
-    email,
-    password
-  })
+const saveMessage = (name, email, password) => {
+    const NewContactForm = contactForm.push()
+
+    NewContactForm.set({
+        name,
+        email,
+        password
+    })
 }
 
 const getElementVal = (id) => {
-  return document.getElementById(id).value
+    return document.getElementById(id).value
 }
