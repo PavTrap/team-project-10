@@ -15,6 +15,8 @@ const emailInputEl = document.querySelector('#user_email')
 const passwordLabelEl = document.querySelector('label[for="user_password"]');
 const passwordInputEl = document.querySelector('#user_password');
 
+const signUpBtn = document.querySelector('.modal-form__btn')
+
 // Поднимаем label при фокусе на инпут
 nameInputEl.addEventListener('focus', e => console.log(nameLabelEl.style.top = "5%"));
 emailInputEl.addEventListener('focus', e => console.log(emailLabelEl.style.top = "5%"));
@@ -80,5 +82,45 @@ window.addEventListener('keydown', e => {
 });
 
 
+// firebase
 
+const firebaseConfig = {
+  apiKey: "AIzaSyCPAlxQ2RWBbDKvemdYbKuU8Oz5kWwwzVg",
+  authDomain: "project-auth-a38b4.firebaseapp.com",
+  databaseURL: "https://project-auth-a38b4-default-rtdb.firebaseio.com",
+  projectId: "project-auth-a38b4",
+  storageBucket: "project-auth-a38b4.appspot.com",
+  messagingSenderId: "958492509119",
+  appId: "1:958492509119:web:1ad6921d152768cc92570a"
+};
 
+firebase.initializeApp(firebaseConfig);
+
+const AuthFormDB = firebase.database().ref('project-auth');
+
+signUpBtn.addEventListener('click', OnFormClick)
+
+function OnFormClick(e) {
+
+  let name = getElementVal('user_person')
+  let email = getElementVal('user_email');
+  let password = getElementVal('user_password')
+
+  console.log(name, email, password)
+  
+  SaveMessages(name,email,password)
+}
+
+const SaveMessages = (name, email, password) => {
+  const newAuthForm = AuthFormDB.push();
+  
+  newAuthForm.set({
+    name,
+    email,
+    password
+  })
+}
+
+const getElementVal = (id) => {
+  return document.getElementById(id).value
+}
