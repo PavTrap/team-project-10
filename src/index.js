@@ -2,8 +2,10 @@
 import './js/categories';
 
 
-// import './js/header';
-// import './js/modal-window';
+
+import './js/header';
+import './js/modal-window';
+
 import './js/start';
 import './js/start-open-close';
 
@@ -18,7 +20,13 @@ import './js/bestsellers';
 import './js/shoppinglist';
 
 
-// import './js/modal-window';
+
+import './js/modal-window';
+
+import './js/selected-category';
+
+import './js/cards-books'
+
 
 
 // import './js/theme-switch';

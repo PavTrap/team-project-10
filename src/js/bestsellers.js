@@ -1,5 +1,7 @@
 //------------------Імпорт пакетів/стилі/шаблонів
-
+// import mobileRenderByTop from './cards-books';
+// import tabletRenderByTop from './cards-books';
+// import renderButton from './cards-books';
 //------------------Імпорт пакетів/стилі/шаблонів
 
 //------------------Змінні
