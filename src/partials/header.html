@@ -2,36 +2,35 @@
     <div class="container header-container">
 
         <nav class="header-navigation">
-            <a href="index.html" class="logo link" lang="en"
-            >BOOK</a>
+            <a href="index.html" class="logo link" lang="en">
+            <svg class="logo__link"><use xlink:href="./image/header/symbol-defs.svg#icon-logo-white"></use></svg>
+            </a>
             <ul class="nav-list list">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link link current">Home</a>
+                    <a href="./index.html" class="nav-link link" data-href="index">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Shopping list <svg class="" width="16" height="12">
-                <use ></use></svg</a>
+                    <a href="./shoppinglist.html" class="nav-link" data-href="shoppinglist">Shopping list <svg class="" width="16" height="12">
+                        <use></use></svg></a>
                 </li>
             </ul>
         </nav>
 
         <div class="header-options">
             <div class="switches">
-                <label class="switch">
-                    <input type="checkbox" class="switch_input" />
-                    <span class="switch_slider"></span>
+                <label id="switch" class="switch">
+                    <input type="checkbox" class="switch__input" id="slider"/>
+                    <span class="switch__slider"></span>
                 </label>
             </div>
             
-            <button type="button" class="button button-menu-open" data-menu-open>
+            <button type="button" class="button button-menu-open" data-menu-open data-modal-start-open>
                 <!-- <svg class="button__meny-open-icon" width="54" height="36"> -->
                     <!-- <use href="./images/icons.svg#icon-sandwich"></use> -->
                 </svg>
             </button>
 
-            <button type="button" class="login-btn">Sign up <svg class="login-icon" width="20" height="20">
-                <use ></use></svg>
-            </button>
+            <button type="button" class="login-btn" data-modal-start-open--sing-up>Sign up</button>
         </div>
         
             
@@ -39,8 +38,8 @@
 
 
     </div>
-
-    <div class="mobile is-hiddden" data-menu>
+    
+    <div class="mobile mobile-is-hidden" data-menu>
         <div class="mobile-container">
         <div class="header header-container">
             <a href="index.html" class="logo link" lang="en"
@@ -54,7 +53,7 @@
         </div>
 
         <div class="mobile-meny">
-            <button type="button" class="login-mob-btn">Sign up <svg class="login-mob-icon" width="20" height="20">
+            <button type="button" class="login-mob-btn" data-modal-start-open--sing-up>Sign up <svg class="login-mob-icon" width="20" height="20">
                 <use ></use></svg>
             </button>
             <!-- <ul class="mobile-list list">
@@ -69,4 +68,5 @@
         </div>
         </div>
     </div>
+    <script type="module" src="./js/current-page.js"></script>
 </header>

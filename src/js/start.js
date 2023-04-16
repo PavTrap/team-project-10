@@ -1,8 +1,7 @@
 'use strict';
-
 // элементы разметки
 const formEl = document.querySelector('.modal-start')
-const backdropEl = document.querySelector('.backdrop');
+const backdropEl = document.querySelector('.backdrop-start');
 
 const nameLabelEl = document.querySelector('label[for="user_person"]');
 console.log(nameLabelEl);
@@ -64,7 +63,8 @@ function handleOnSendForm(e) {
     console.log('Form send!');
 
     // Закрываем модальное окно
-    backdropEl.classList.add('is-hidden');
+    backdropEl.classList.add('is-hidden-start');
+    backdropEl.style.display = "none";
   } else {
     // Действия при ошибке валидации
     console.log('Error!');
@@ -75,9 +75,9 @@ window.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
         formEl.style.display = "none";
         backdropEl.style.display = "none";
-        // backdropEl.classList.toggle('is-hidden');
     }
 });
+
 
 
 

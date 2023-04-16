@@ -1,0 +1,29 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
+	xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs>
+		<symbol id="icon-logo-white" viewBox="0 0 98 32" width="86" height="28">
+			<path fill="#f6f6f6" style="fill: var(--color1, #f6f6f6)"
+				d="M0 1.714l14.592 14.439 13.98 14.133v-28.571h-28.571z"></path>
+			<path fill="#f6f6f6" style="fill: var(--color1, #f6f6f6)"
+				d="M3.98 5.49l10.663 10.561 10.051 10.255h-20.714v-20.816z"></path>
+			<path fill="#4f2ee8" style="fill: var(--color2, #4f2ee8)"
+				d="M24.762 26.373l-10.663-10.561-10.051-10.255h20.714v20.816z"></path>
+			<path fill="#4f2ee8" style="fill: var(--color2, #4f2ee8)" d="M8.265 9.776l12.143 12.143h-12.143v-12.143z">
+			</path>
+			<path fill="#f6f6f6" style="fill: var(--color1, #f6f6f6)" d="M8.265 9.776l12.143 12.143v-12.143h-12.143z">
+			</path>
+			<path fill="var(--color-header-border)" style="fill: var(--color-header-border)"
+				d="M52.391 11.076c0-3.061-2.315-4.791-6.317-4.791h-8.36v19.029h8.822c4.030 0 6.617-1.89 6.617-5.562 0-2.848-1.743-4.312-3.785-4.658v-0.053c1.607-0.532 3.023-1.623 3.023-3.966zM40.955 14.164v-5.19h5.201c1.933 0 2.995 0.931 2.995 2.608s-0.871 2.582-3.186 2.582h-5.010zM40.955 16.532h5.691c2.042 0 3.268 1.091 3.268 3.034 0 1.783-0.844 3.061-3.621 3.061h-5.337v-6.095z">
+			</path>
+			<path fill="var(--color-header-border)" style="fill: var(--color-header-border)"
+				d="M61.467 25.714c-4.357 0-6.998-2.954-6.998-7.186s2.641-7.186 6.998-7.186 6.998 2.954 6.998 7.186c0 4.232-2.641 7.186-6.998 7.186zM61.467 23.425c2.723 0 4.139-2.103 4.139-4.897 0-2.821-1.416-4.897-4.139-4.897s-4.139 2.076-4.139 4.897c0 2.794 1.416 4.897 4.139 4.897z">
+			</path>
+			<path fill="var(--color-header-border)" style="fill: var(--color-header-border)"
+				d="M76.704 25.714c-4.357 0-6.998-2.954-6.998-7.186s2.641-7.186 6.998-7.186c4.357 0 6.998 2.954 6.998 7.186s-2.641 7.186-6.998 7.186zM76.704 23.425c2.723 0 4.139-2.103 4.139-4.897 0-2.821-1.416-4.897-4.139-4.897s-4.139 2.076-4.139 4.897c0 2.794 1.416 4.897 4.139 4.897z">
+			</path>
+			<path fill="var(--color-header-border)" style="fill: var(--color-header-border)"
+				d="M85.678 6.286v19.029h2.859v-4.924l1.933-1.783 4.384 6.707h3.431l-5.854-8.543 5.283-5.057h-3.513l-5.664 5.456v-10.885h-2.859z">
+			</path>
+		</symbol>
+	</defs>
+</svg>

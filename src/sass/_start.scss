@@ -1,18 +1,18 @@
 :root {
-    --light-grey: #F6F6F6;
-    --dark-white: #F3F3F3;
+  --light-grey: #f6f6f6;
+  --dark-white: #f3f3f3;
 }
 
 .list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 h1,
@@ -22,302 +22,292 @@ h4,
 h5,
 h6,
 p {
-    margin: 0;
+  margin: 0;
 }
 
 .modal__button {
-    position: absolute;
-    top: 14px;
-    right: 14px;
+  position: absolute;
+  top: 14px;
+  right: 14px;
 
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    fill: var(--dark-black);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  fill: var(--color-black);
 
-    @media screen and (min-width: 768px) {
-        top: 24px;
-        right: 24px;
-        }
+  @media screen and (min-width: 768px) {
+    top: 24px;
+    right: 24px;
+  }
 
-
-    &:focus, &:hover {
-        fill: var(--violette);
-        }
+  &:focus,
+  &:hover {
+    fill: var(--color-blue);
+  }
 }
 
-.backdrop {
-    position: fixed;
-    top: 0;
-    z-index: 1;
+.backdrop-start {
+  position: fixed;
+  top: 0;
+  z-index: 5;
 
-    width: 100%;
-    height: 100%;
-    background-color: var(--violette);
-    overflow: scroll;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-blue);
+  overflow: scroll;
 
-    transition: opacity 250ms var(--transition-timing-function), visibility 250ms var(--transition-timing-function);
+  transition: opacity 250ms var(--transition-timing-func),
+    visibility 250ms var(--transition-timing-func);
 
-    &.is-hidden {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
+  &.is-hidden-start {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 .modal-start {
-    position: absolute;
-    width: 335px;
-    height: 384px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  width: 335px;
+  height: 384px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    border: 2px solid var(--dark-black);
-    background-color: var(--light-grey);
-    border-radius: 18px;
-    
-    
-    transition: transform 250ms var(--transition-timing-function), opacity 250ms var(--transition-timing-function);
+  border: 2px solid var(--color-black);
+  background-color: var(--light-grey);
+  border-radius: 18px;
 
-    @media screen and (min-width: 768px){
+  transition: transform 250ms var(--transition-timing-func),
+    opacity 250ms var(--transition-timing-func);
+
+  @media screen and (min-width: 768px) {
     min-width: 579px;
     height: 516px;
-    }
+  }
 
-    .backdrop.is-hidden & {
-        opacity: 0;
-        transform: scale(0.75);
-    }
+  .backdrop-start.is-hidden-start & {
+    opacity: 0;
+    transform: scale(0.75);
+  }
 }
 
-
 .modal__item {
-    fill: var(--dark-black);
-    transition: fill 250ms var(--transition-timing-function);
+  fill: var(--color-black);
+  transition: fill 250ms var(--transition-timing-func);
 
-    &:hover,
-    &:focus {
-        fill: var(--violette);
-        }
+  &:hover,
+  &:focus {
+    fill: var(--color-blue);
+  }
 }
 
 .modal-form__group {
-    padding: 40px 20px;
+  padding: 40px 20px;
 
-    @media screen and (min-width: 768px) {
-        padding: 80px 40px 40px 40px;
-        }
+  @media screen and (min-width: 768px) {
+    padding: 80px 40px 40px 40px;
+  }
 }
 
 .modal-form__wrapper {
-    position: relative;
-    padding: 0;
-    margin: 0;
-
+  position: relative;
+  padding: 0;
+  margin: 0;
 }
 
 .modal-form__label-name {
-    position: absolute;
-    top: 16px;
-    left: 24px;
-    height: 18px;
-    
-    font-family: 'DM Sans';
-    font-weight: 700;
-    font-size: 16px;
-    line-height: calc(18 / 16);
-    
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    
-    color: var(--dark-black);
-    
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    z-index: 5;
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  height: 18px;
 
-    @media screen and (min-width: 768px) {
-                top: 20px;
-                left: 40px;
-                height: 24px;
+  font-family: 'DM Sans';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: calc(18 / 16);
 
-                font-size: 18px;
-                line-height: calc(24 / 18);
-            
-                color: var(--dark-black);
-            }
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
 
+  color: var(--color-black);
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  z-index: 5;
+
+  @media screen and (min-width: 768px) {
+    top: 20px;
+    left: 40px;
+    height: 24px;
+
+    font-size: 18px;
+    line-height: calc(24 / 18);
+
+    color: var(--color-black);
+  }
 }
 
 .modal-form__field-input {
-        position: relative;
-        box-sizing: border-box;
-    
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 16px 173px 16px 24px;
-        gap: 10px;
-        margin-bottom: 24px;
-    
-        width: 295px;
-        height: 50px;
-    
-        background-color: var(--light-grey);
-        border: 2px solid var(--dark-black);
-        border-radius: 40px;
-    
-        flex: none;
-        order: 0;
-        flex-grow: 0;
-       
+  position: relative;
+  box-sizing: border-box;
 
-    @media screen and (min-width: 768px) {
-        width: 499px;
-        height: 64px;
-        margin-bottom: 28px;
-        padding: 20px 173px 20px 40px;
-     }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 173px 16px 24px;
+  gap: 10px;
+  margin-bottom: 24px;
 
-    &:hover,
-    &:focus {
-    border: 2px solid var(--violette);
+  width: 295px;
+  height: 50px;
+
+  background-color: var(--light-grey);
+  border: 2px solid var(--color-black);
+  border-radius: 40px;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+  @media screen and (min-width: 768px) {
+    width: 499px;
+    height: 64px;
+    margin-bottom: 28px;
+    padding: 20px 173px 20px 40px;
+  }
+
+  &:hover,
+  &:focus {
+    border: 2px solid var(--color-blue);
+  }
 }
-}
-
-// .modal-form__field-input:focus {
-//     border: 2px solid var(--violette);
-// }
-
 
 .modal-form__group--input {
-    @media screen and (min-width: 768px) {
-        margin-bottom: 40px;
-    }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
+  }
 }
 
 .modal-form__icon {
-    position: absolute;
-    top: 50%;
-    left: 253px;
-    transform: translateY(-50%);
-    fill: var(--dark-black);
+  position: absolute;
+  top: 50%;
+  left: 253px;
+  transform: translateY(-50%);
+  fill: var(--color-black);
 
-        @media screen and (min-width: 768px) {
-            top: 50%;
-            left: 439px;
-            }
+  @media screen and (min-width: 768px) {
+    top: 50%;
+    left: 439px;
+  }
 }
 
-
 .modal-form__btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 16px 116px;
-    gap: 10px;
-    margin-bottom: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 16px 116px;
+  gap: 10px;
+  margin-bottom: 14px;
 
-    width: 294px;
-    height: 50px;
+  width: 294px;
+  height: 50px;
 
-    background: var(--dark-black);
-    border-radius: 40px;
+  background: var(--color-black);
+  border-radius: 40px;
 
-    font-family: 'DM Sans';
-    font-weight: 700;
-    font-size: 14px;
-    line-height: calc(18 / 16);
-    width: auto;
-    
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    
-    color: var(--dark-white);
-    
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+  font-family: 'DM Sans';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(18 / 16);
+  width: auto;
 
-    @media screen and (min-width: 768px) {
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+
+  color: var(--dark-white);
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+  @media screen and (min-width: 768px) {
     padding: 20px 215px;
     margin-bottom: 20px;
     width: 499px;
     height: 64px;
     font-size: 17px;
     line-height: 1.33;
-}
+  }
 
- &:hover,
- &:focus {
-    background: var(--violette);
- }
+  &:hover,
+  &:focus {
+    background: var(--color-blue);
+  }
 }
 
 .modal-form__link {
-    gap: 20px;
-    height: 18px;
-    
-    font-family: 'DM Sans';
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.29;
+  gap: 20px;
+  height: 18px;
 
-    letter-spacing: -0.01em;
-    text-decoration-line: underline;
-    text-transform: uppercase;
-    
-    color: var(--violette);
-    
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+  font-family: 'DM Sans';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+
+  letter-spacing: -0.01em;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+
+  color: var(--color-blue);
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
 
 .modal-form__conteiner {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .modal-form__link {
-    
-    width: 60px;
-    height: 18px;
-        
-    font-family: 'DM Sans';
-    font-weight: 700;
-    font-size: 14px;
-    line-height: calc(18 / 14);
-        
-    letter-spacing: -0.01em;
-    text-decoration-line: underline;
-    text-transform: uppercase;
-        
-    color: var(--violette);
-        
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+  width: 60px;
+  height: 18px;
 
-    @media screen and (min-width: 768px) {
+  font-family: 'DM Sans';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+
+  letter-spacing: -0.01em;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+
+  color: var(--color-blue);
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+  @media screen and (min-width: 768px) {
     width: 69px;
     height: 24px;
 
     font-size: 18px;
     line-height: calc(24 / 18);
-        }
+  }
 }
 
 .modal-form__link .sing-up {
-    width: 54px;
+  width: 54px;
 }
 
 .modal-form__link .sing-in {
-    width: 50px;
+  width: 50px;
 }

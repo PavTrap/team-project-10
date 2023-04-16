@@ -1,15 +1,37 @@
+.bestSellers {
+  max-width: 335px;
+  margin: 0 auto;
+  margin-top: 40px;
+  background-color: var(--color-background);
+
+  @media screen and (min-width: 768px) {
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    max-width: 704px;
+  }
+  @media screen and (min-width: 1440px) {
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    max-width: 996px;
+  }
+}
 .category-container {
-  display: flex;
+  margin-bottom: 40px;
 
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 25px;
+    column-gap: 25px;
+  }
+  @media screen and (min-width: 1440px) {
+    column-gap: 24px;
   }
 }
-.bestseller-title {
-  margin-top: 40px;
+.section-title {
+  // margin-top: 40px;
 
   font-family: 'DM Sans';
   font-style: normal;
@@ -20,52 +42,57 @@
   /* identical to box height, or 119% */
   letter-spacing: -0.04em;
 
-  color: #111111;
-}
-.bestseller-title--highlight {
-  color: rgba(79, 46, 232, 1);
-}
-.bestSellers {
-  max-width: 335px;
-  margin: 0 auto;
+  color: var(--color-text-primary);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   @media screen and (min-width: 768px) {
-    max-width: none;
-    display: flex;
-    flex-direction: column;
-    max-width: 704px;
+    font-size: 48px;
+    line-height: 52px;
   }
 }
-.bestSellers__container {
-  @media screen and (min-width: 768px) {
-    max-width: none;
-    display: flex;
-    flex-direction: column;
-    max-width: 704px;
-  }
+.section-title--highlight {
+  color: var(--color-blue);
 }
 .category-title {
-  width: 100%;
-  padding: 0;
-  margin: 0;
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 24px;
+  line-height: 18px;
+  width: 100%;
 
-  /* identical to box height, or 171% */
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  color: var(--color-grey-light);
 
-  color: #b4afaf;
+  @media screen and (min-width: 768px) {
+    line-height: 24px;
+    margin-bottom: 18px;
+  }
 }
 
-.shop-card {
-  display: flex;
-  flex-wrap: wrap;
+.bestSellers__container {
+  margin-top: 40px;
+  @media screen and (min-width: 768px) {
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    max-width: 704px;
+  }
+  @media screen and (min-width: 1440px) {
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    max-width: 996px;
+  }
+}
+.bestseller-card {
+  // display: flex;
+  // flex-wrap: wrap;
   margin: 0;
-  margin-bottom: 40px;
   list-style: none;
   padding: 0;
   cursor: auto;
@@ -73,6 +100,78 @@
   @media screen and (min-width: 768px) {
     width: 218px;
     margin: 0;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 180px;
+    // height: 306px;
+    margin: 0;
+  }
+  &.--margin {
+    margin-bottom: 40px;
+  }
+
+  &__category {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+
+    @media screen and (min-width: 768px) {
+      line-height: 24px;
+    }
+  }
+  &__meta {
+    margin-top: 14px;
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+  }
+  &__title {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  &__author {
+    font-family: 'DM Sans';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+
+    letter-spacing: -0.04em;
+    color: var(--color-grey-light);
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+.image-block {
+  @media screen and (min-width: 768px) {
+    width: 218px;
+    height: 316px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 180px;
+    height: 256px;
   }
 }
 .image-block__image {
@@ -93,53 +192,24 @@
     height: 316px;
     margin-top: 0;
   }
+  @media screen and (min-width: 1440px) {
+    width: 180px;
+    height: 256px;
+  }
 }
 .image-block__image:hover {
-  box-shadow: 1px 1px 2px rgba(79, 46, 232, 1);
+  box-shadow: 1px 1px 2px var(--color-blue);
   transform: scale(1.005);
-}
-.shop-card__meta {
-  margin-top: 14px;
-  display: flex;
-  gap: 4px;
-  flex-direction: column;
-  width: 100%;
-  list-style: none;
-  padding: 0;
-}
-.shop-card__title {
-  font-family: 'DM Sans';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 18px;
-
-  /* identical to box height, or 112% */
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-
-  color: rgba(17, 17, 17, 1);
-}
-.shop-card__author {
-  font-family: 'DM Sans';
-  font-style: italic;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
-
-  /* identical to box height, or 117% */
-  letter-spacing: -0.04em;
-
-  color: #b4afaf;
 }
 
 .button {
+  display: block;
   margin-top: 8px;
   margin-left: auto;
   width: 124px;
   height: 46px;
-  border: 2px solid rgba(79, 46, 232, 1);
-  background-color: #ffffff;
+  border: 2px solid var(--color-blue);
+  background-color: var(--color-background);
   border-radius: 40px;
 
   font-family: 'DM Sans';
@@ -148,23 +218,21 @@
   font-size: 14px;
   line-height: 18px;
 
-  /* identical to box height, or 129% */
   letter-spacing: -0.01em;
   text-transform: uppercase;
-
-  color: rgba(17, 17, 17, 1);
+  color: var(--color-text-primary);
   cursor: pointer;
 
-  transition: 250ms ease-in-out;
+  transition: 250ms var(--transition-timing-func);
   transition-property: background-color, color;
 
+  &:hover {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+  }
   @media screen and(min-width: 768px) {
-    margin: 0;
+    margin-top: 20px;
     margin-left: auto;
     padding: 0;
   }
-}
-.button:hover {
-  background-color: rgba(79, 46, 232, 1);
-  color: #ffffff;
 }
