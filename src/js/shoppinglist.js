@@ -1,10 +1,4 @@
 import './theme-switch';
-
-// імпортуємо Pagination та стилі з бібліотеки 'tui-pagination'
-// import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
-// знаходимо контейнер для пагінації та елемент для відображення інформації
-const paginationEl = document.querySelector('#tui-pagination-container');
 const infoBlock = document.querySelector('#info-block');
 // задаємо масив ідентифікаторів для використання в пагінації та зберігаємо його в local storage
 let listID = [
@@ -17,13 +11,13 @@ let listID = [
   // '643282b1e85766588626a087',
   // '643282b1e85766588626a0b6',
   // '643282b1e85766588626a081',
-  // '643282b1e85766588626a0aa',
-  // '643282b1e85766588626a07a',
-  // '643282b1e85766588626a0a8',
-  // '643282b1e85766588626a07b',
-  // '643282b1e85766588626a0a6',
-  // '643282b1e85766588626a088',
-  // '643282b1e85766588626a0b8',
+  '643282b1e85766588626a0aa',
+  '643282b1e85766588626a07a',
+  '643282b1e85766588626a0a8',
+  '643282b1e85766588626a07b',
+  '643282b1e85766588626a0a6',
+  '643282b1e85766588626a088',
+  '643282b1e85766588626a0b8',
   // '643282b1e85766588626a07c',
   // '643282b1e85766588626a0a0',
   // '643282b1e85766588626a07d',
@@ -57,88 +51,40 @@ if (localStorage.getItem('listID') === null) {
 const storeArray = localStorage.getItem('listID');
 listID = JSON.parse(storeArray);
 
-// Налаштування параметрів для бібліотеки Pagination
-let options = {
-  totalItems: listID.length, // загальна кількість елементів у списку
-  itemsPerPage: 3, // кількість елементів, що будуть відображатись на одній сторінці
-  visiblePages: Math.ceil(listID.length / 3 - 1), // кількість видимих сторінок
-  centerAlign: true, // вирівнювання по центру
-  firstItemClassName: 'tui-first-child', // клас для першого елементу
-  lastItemClassName: 'tui-last-child', // клас для останнього елементу
-  template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>', // шаблон для звичайної сторінки
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>', // шаблон для поточної сторінки
-    moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</a>', // шаблон для кнопки "перейти на попередню/наступну сторінку"
-    disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</span>', // шаблон для вимкненої кнопки "перейти на попередню/наступну сторінку"
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>', // шаблон для кнопки "більше сторінок"
-  },
-};
+// Перевірка довжини масиву listID і виведення відповідного контенту на сторінку
+checkingShoppingListLenght(listID);
 
-// Ініціалізація об'єкту Pagination
-// let pagination = new Pagination(paginationEl, options); // paginationEl - елемент, в який буде виводитись пагінація
+function checkingShoppingListLenght(listID) {
+  // Якщо listID порожній, то приховуємо пагінацію і створюємо порожню сторінку
+  if (listID.length === 0) {
+    createEmptyPage();
+  } else if (listID.length > 0) {
+    
+    // Якщо listID не порожній
 
-// // Перевірка довжини масиву listID і виведення відповідного контенту на сторінку
-// checkingShoppingListLenght(listID);
+    const fetchID = async () => {
+      try {
+        const shoppingList = await fetchBooks(listID);
 
-// function checkingShoppingListLenght(listID) {
-//   // Якщо listID порожній, то приховуємо пагінацію і створюємо порожню сторінку
-//   if (listID.length === 0) {
-//     paginationEl.style.display = 'none';
-//     createEmptyPage();
-//   } else if (listID.length > 0) {
-//     // Якщо listID не порожній
-//     if (listID.length <= 3) {
-//       // Якщо кількість елементів в listID менше або дорівнює 3, то приховуємо пагінацію
-//       paginationEl.style.display = 'none';
-//     }
+        createShoppingListPage(shoppingList);
+        console.log(shoppingList);
+      } catch (error) {
+        console.log(error.message);
+        
+      }
+    };
 
-//     // Додаємо обробник події 'afterMove' до пагінації, щоб отримувати поточну сторінку і виводити список товарів
-//     if (!pagination.hasListener('afterMove')) {
-//       pagination.on('afterMove', async event => {
-//         try {
-//           const currentPage = event.page;
-
-//           localStorage.setItem('currentPage', currentPage);
-//           const shoppingList = await fetchBooks(currentPage);
-
-//           createShoppingListPage(shoppingList);
-//         } catch (error) {
-//           console.log(error.message);
-//         }
-//       });
-//     }
-
-//     // Переміщуємося на збережену сторінку, якщо така є, інакше на першу сторінку
-//     const storedPage = localStorage.getItem('currentPage');
-//     if (storedPage) {
-//       pagination.movePageTo(Number(storedPage));
-//     } else {
-//       pagination.movePageTo(1);
-//     }
-//   }
-// }
+    fetchID();
+  }
+}
 // Асинхронна функція для отримання книг з серверу
 // Приймає номер сторінки (по замовчуванню 1)
 // Обчислює індекс першої та останньої книги на сторінці
 // Звертається до серверу за даними кожної книги і повертає масив промісів
 // Використовує Promise.all() для очікування результатів всіх промісів та повертає масив книг
-async function fetchBooks(page = 1) {
-  const start = (page - 1) * options.itemsPerPage + 1;
-  const end = start + options.itemsPerPage - 1;
-
-  const books = listID.slice(start - 1, end);
-
-  const arrayOfPromises = books.map(async book => {
+async function fetchBooks(listID) {
+  console.log(listID)
+  const arrayOfPromises = listID.map(async book => {
     const response = await fetch(
       `https://books-backend.p.goit.global/books/${book}`
     );
@@ -244,10 +190,7 @@ function createShoppingListPage(shoppingList) {
 
       localStorage.setItem('listID', JSON.stringify(listID));
       // оновлюємо значення для пагінації
-      pagination.reset();
-      options.totalItems = listID.length;
-      options.visiblePages = Math.ceil(listID.length / 3 - 1);
-      pagination = new Pagination(paginationEl, options);
+
       checkingShoppingListLenght(listID);
     });
   });
