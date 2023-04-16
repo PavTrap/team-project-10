@@ -48,7 +48,7 @@ p {
         }
 }
 
-.backdrop {
+.backdrop-start {
     position: fixed;
     top: 0;
     z-index: 1;
@@ -60,7 +60,7 @@ p {
 
     transition: opacity 250ms var(--transition-timing-function), visibility 250ms var(--transition-timing-function);
 
-    &.is-hidden {
+    &.is-hidden-start {
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
@@ -87,7 +87,7 @@ p {
     height: 516px;
     }
 
-    .backdrop.is-hidden & {
+    .backdrop-start.is-hidden-start & {
         opacity: 0;
         transform: scale(0.75);
     }
@@ -189,11 +189,6 @@ p {
 }
 }
 
-// .modal-form__field-input:focus {
-//     border: 2px solid var(--violette);
-// }
-
-
 .modal-form__group--input {
     @media screen and (min-width: 768px) {
         margin-bottom: 40px;
@@ -212,7 +207,6 @@ p {
             left: 439px;
             }
 }
-
 
 .modal-form__btn {
     display: flex;

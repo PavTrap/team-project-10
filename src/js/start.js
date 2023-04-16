@@ -2,7 +2,7 @@
 
 // элементы разметки
 const formEl = document.querySelector('.modal-start')
-const backdropEl = document.querySelector('.backdrop');
+const backdropEl = document.querySelector('.backdrop-start');
 
 const nameLabelEl = document.querySelector('label[for="user_person"]');
 console.log(nameLabelEl);
@@ -22,20 +22,20 @@ passwordInputEl.addEventListener('focus', e => console.log(passwordLabelEl.style
 
 // Валидация формы
 function validateForm() {
-    let isValid = true;
+  let isValid = true;
     
 // Проверяем поле Name
   if (nameInputEl.value.trim() === '') {
     nameInputEl.classList.add('modal-form__field-input--error');
+    nameInputEl.setCustomValidity("You gotta fill this out, yo!");
     isValid = false;
   } else {
     nameInputEl.classList.remove('modal-form__field-input--error');
   }
-
     
 // Проверяем поле Email
-  if (emailInputEl.value.trim() === '' || !emailInputEl.checkValidity()) {
-    emailInputEl.classList.add('modal-form__field-input--error');
+  if (emailInputEl.value.trim() === ''|| !emailInputEl.checkValidity()) {
+    passwordInputEl.classList.add('modal-form__field-input--error');
     isValid = false;
   } else {
     emailInputEl.classList.remove('modal-form__field-input--error');
@@ -43,14 +43,17 @@ function validateForm() {
     
   // Проверяем поле Password
   if (passwordInputEl.value.trim() === '' || passwordInputEl.length < 5 || passwordInputEl.value.length > 12) {
-    passwordInputEl.classList.add('modal-form__field-input--error');
+    passwordInput.classList.add('modal-form__field-input--error');
+    console.log('Please enter your password')
     isValid = false;
-  } else {
+  }
+  else {
     passwordInputEl.classList.remove('modal-form__field-input--error');
   }
 
   return isValid;
 }
+
 
 // Слушаем отправку формы
 formEl.addEventListener('submit', handleOnSendForm)
@@ -59,26 +62,32 @@ formEl.addEventListener('submit', handleOnSendForm)
 function handleOnSendForm(e) {
   e.preventDefault();
 
+  const { elements: { name, email, password } } = e.target;
+
   if (validateForm()) {
     // Действия при успешной валидации
     console.log('Form send!');
 
     // Закрываем модальное окно
-    backdropEl.classList.add('is-hidden');
+    formEl.style.display = "none";
+    backdropEl.style.display = "none";
   } else {
     // Действия при ошибке валидации
     console.log('Error!');
   }
+
+  const obj = {
+        name: nameInputEl.value,
+        email: emailInputEl.value,
+        password: passwordInputEl.value,
+    }
+    
+    console.log(obj);
 };
 
 window.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
         formEl.style.display = "none";
-        backdropEl.style.display = "none";
-        // backdropEl.classList.toggle('is-hidden');
+        backdropEl.style.display = "none"
     }
 });
-
-
-
-
