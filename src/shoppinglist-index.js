@@ -1,10 +1,7 @@
 import './js/categories';
 
 
-// import './js/header';
-// import './js/modal-window';
-// import './js/start';
-// import './js/start-open-close';
+
 
 import './js/header';
 
@@ -20,4 +17,4 @@ import './js/shoppinglist';
 import './js/modal-window';
 
 
-// import './js/theme-switch';
+import './js/theme-switch';
