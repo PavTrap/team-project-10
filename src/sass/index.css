@@ -1,10 +1,53 @@
+@charset "UTF-8";
 :root {
-  --dark-black: #111111;
-  --light-black: #202024;
-  --violette: #4F2EE8;
-  --yellow: #EAC645;
-  --white: #FFFFFF;
-  --transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) ;
+  --color-black: #111111;
+  --color-white: #ffffff;
+  --color-blue: #4f2ee8;
+  --color-yellow: #eac645;
+  --color-grey-darker: #202024;
+  --color-scroll: #e0e0e0;
+  --color-grey-light: #b4afaf;
+  --color-grey-lighter: #f6f6f6;
+  --color-background: var(--color-grey-lighter);
+  --color-header-background: var(--color-white);
+  --color-header-border: var(--color-black);
+  --color-text-primary: var(--color-black);
+  --color-text-secondary: var(--color-grey-light);
+  --color-category: rgba(17, 17, 17, 0.6);
+  --color-category-active: var(--color-blue);
+  --color-nav-scroll: var(--color-scroll);
+  --color-backdrop: rgba(17, 17, 17, 0.4);
+  --color-shop-card-background: var(--color-white);
+  --color-shop-list-text: var(--color-black);
+  --color-header-border: var(--color-black);
+  --menu-icon-color: var(--color-black);
+  --color-auth-form-background: var(--color-grey-lighter);
+  --color-auth-form-border: var(--color-black);
+  --font-family-primary: "DM Sans", sans-serif;
+  --transition-timing-func: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-delay: 250ms;
+  --transition-params: var(--transition-timing-func) var(--transition-delay);
+}
+
+/* 
+  Цвета для темной темы
+  Чтобы применить, добавляем класс(из js) следующим образом:
+  document.documentElement.classList.add('theme-dark'); 
+*/
+.theme-dark {
+  --color-text-primary: var(--color-white);
+  --color-text-secondary: var(--color-grey-lighter);
+  --color-category: rgba(255, 255, 255, 0.6);
+  --color-category-active: var(--color-yellow);
+  --color-nav-scroll: rgba(17, 17, 17, 0.6);
+  --color-header-background: var(--color-black);
+  --color-header-border: var(--color-white);
+  --menu-icon-color: var(--color-white);
+  --color-shop-card-background: var(--color-black);
+  --color-shop-list-text: var(--color-white);
+  --color-background: var(--color-grey-darker);
+  --color-auth-form-background: #202024;
+  --color-auth-form-border: var(--color-grey-lighter);
 }
 
 :root {
@@ -436,14 +479,14 @@ p {
   font-size: 18px;
   line-height: 1.3333333333 px;
   letter-spacing: -0.02em;
-  color: rgba(17, 17, 17, 0.6);
+  color: var(--color-category);
   transition: all 250ms var(--transition-timing-function);
 }
 
 .categories__link:hover {
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--violette);
+  color: var(--color-category-active);
 }
 
 .categories__link-all {
@@ -467,7 +510,7 @@ p {
 }
 
 .header {
-  background-color: #FFFFFF;
+  background-color: var(--color-header-background);
   border: 1.5px solid #111111;
   border-radius: 0px 0px 8px 8px;
   position: relative;
@@ -493,15 +536,12 @@ p {
 .header-navigation {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .logo {
-  display: block;
-}
-
-.logo-icon {
-  width: 25px;
-  height: 25px;
+  width: 86px;
+  height: 28px;
 }
 
 .nav-list {
@@ -529,11 +569,11 @@ p {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-link:hover, .nav-link:focus {
-  background-color: #EAC645;
+  background-color: #eac645;
 }
 
 .nav-link-current {
-  background-color: #EAC645;
+  background-color: #eac645;
 }
 
 .header-options {
@@ -549,13 +589,13 @@ p {
   display: flex;
 }
 
-.switch_input {
+.switch__input {
   height: 0;
   width: 0;
   opacity: 0;
 }
 
-.switch_slider {
+.switch__slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -563,12 +603,12 @@ p {
   bottom: 0;
   right: 0;
   border-radius: 20px;
-  background: linear-gradient(180deg, #4F2EE8 0%, #DCDCDC 100%);
-  border: 0.604701px solid #4F2EE8;
+  background: linear-gradient(180deg, #4f2ee8 0%, #dcdcdc 100%);
+  border: 0.604701px solid #4f2ee8;
   transition: 0.4s;
 }
 
-.switch_slider::before {
+.switch__slider::before {
   content: "";
   position: absolute;
   cursor: pointer;
@@ -577,16 +617,16 @@ p {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: linear-gradient(180deg, #FFFFFF 0%, #F7F7F7 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
   transition: 0.4s;
 }
 
-.switch_input:checked + .switch_slider {
-  background: linear-gradient(180deg, #4F2EE8 0%, #686868 100%);
+.switch__input:checked + .switch__slider {
+  background: linear-gradient(180deg, #4f2ee8 0%, #686868 100%);
 }
 
-.switch_input:checked + .switch_slider::before {
-  background: linear-gradient(180deg, #FFFFFF 0%, #F7F7F7 100%);
+.switch__input:checked + .switch__slider::before {
+  background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
   transform: translateX(21px);
   -webkit-transform: translateX(21px);
   -ms-transform: translateX(21px);
@@ -603,7 +643,7 @@ p {
   margin-left: 14px;
   margin-right: auto;
   border: none;
-  background-color: #EAC645;
+  background-color: #eac645;
   width: 16px;
   height: 16px;
 }
@@ -624,7 +664,7 @@ p {
     margin-left: 24px;
     padding: 14px;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    background: #4F2EE8;
+    background: #4f2ee8;
     border: 1.5px solid #111111;
     border-radius: 18px;
     font-family: "DM Sans";
@@ -633,9 +673,9 @@ p {
     font-size: 14px;
     line-height: 1.29;
     letter-spacing: -0.04em;
-    color: #FFFFFF;
+    color: #ffffff;
   }
-  .login-btn:hover, .login-btn:focus {
+  .login-btn:hover {
     background-color: #202024;
   }
 }
@@ -646,7 +686,7 @@ p {
   width: 100vw;
   height: 100vh;
   z-index: 10;
-  background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
+  background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4f2ee8 18.03%, #ffffff 100%);
 }
 @media screen and (min-width: 768px) {
   .mobile {
@@ -666,7 +706,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #EAC645;
+  background-color: #eac645;
   width: 16px;
   height: 16px;
 }
@@ -679,7 +719,7 @@ p {
   margin-left: 20px;
   padding: 14px;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  background: #4F2EE8;
+  background: #4f2ee8;
   border: 1.5px solid #111111;
   border-radius: 18px;
   font-family: "DM Sans";
@@ -688,7 +728,7 @@ p {
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: -0.04em;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .login-mob-btn:hover, .login-mob-btn:focus {
   background-color: #202024;
