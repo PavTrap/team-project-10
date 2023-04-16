@@ -1,7 +1,6 @@
 const refs = {
   categoriesList: document.querySelector('.categories__list'),
 };
-refs.categoriesList.style.listStyle = 'none';
 
 const fetchArray = fetch(
   'https://books-backend.p.goit.global/books/category-list'

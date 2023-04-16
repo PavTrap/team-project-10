@@ -3,7 +3,7 @@
 }
 
 .link {
-  display: block;
+  // display: block;
   text-decoration: none;
 }
 
@@ -38,11 +38,14 @@
 }
 
 .logo {
-  width: 86px;
-  height: 28px;
+  // width: 86px;
+  // height: 28px;
   fill: #686868;
 }
-
+.logo__link {
+  width: 86px;
+  height: 28px;
+}
 .nav-list {
   display: none;
   @media screen and (min-width: 768px) {
