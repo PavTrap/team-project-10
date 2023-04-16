@@ -2,6 +2,8 @@ import { nameFoundation } from './array_foundation'
 
 const foundationListEl = document.querySelector(".foundation__list");
 
+console.log(1+192929)
+
  const markupList = arr => {
     return arr.map((item, index) => {
       const { title, url, img } = item;
