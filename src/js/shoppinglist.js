@@ -1,9 +1,8 @@
-import './js/theme-switch';
-
+import './theme-switch';
 
 // імпортуємо Pagination та стилі з бібліотеки 'tui-pagination'
-import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+// import Pagination from 'tui-pagination';
+// import 'tui-pagination/dist/tui-pagination.css';
 // знаходимо контейнер для пагінації та елемент для відображення інформації
 const paginationEl = document.querySelector('#tui-pagination-container');
 const infoBlock = document.querySelector('#info-block');
@@ -86,48 +85,48 @@ let options = {
 };
 
 // Ініціалізація об'єкту Pagination
-let pagination = new Pagination(paginationEl, options); // paginationEl - елемент, в який буде виводитись пагінація
+// let pagination = new Pagination(paginationEl, options); // paginationEl - елемент, в який буде виводитись пагінація
 
-// Перевірка довжини масиву listID і виведення відповідного контенту на сторінку
-checkingShoppingListLenght(listID);
+// // Перевірка довжини масиву listID і виведення відповідного контенту на сторінку
+// checkingShoppingListLenght(listID);
 
-function checkingShoppingListLenght(listID) {
-  // Якщо listID порожній, то приховуємо пагінацію і створюємо порожню сторінку
-  if (listID.length === 0) {
-    paginationEl.style.display = 'none';
-    createEmptyPage();
-  } else if (listID.length > 0) {
-    // Якщо listID не порожній
-    if (listID.length <= 3) {
-      // Якщо кількість елементів в listID менше або дорівнює 3, то приховуємо пагінацію
-      paginationEl.style.display = 'none';
-    }
+// function checkingShoppingListLenght(listID) {
+//   // Якщо listID порожній, то приховуємо пагінацію і створюємо порожню сторінку
+//   if (listID.length === 0) {
+//     paginationEl.style.display = 'none';
+//     createEmptyPage();
+//   } else if (listID.length > 0) {
+//     // Якщо listID не порожній
+//     if (listID.length <= 3) {
+//       // Якщо кількість елементів в listID менше або дорівнює 3, то приховуємо пагінацію
+//       paginationEl.style.display = 'none';
+//     }
 
-    // Додаємо обробник події 'afterMove' до пагінації, щоб отримувати поточну сторінку і виводити список товарів
-    if (!pagination.hasListener('afterMove')) {
-      pagination.on('afterMove', async event => {
-        try {
-          const currentPage = event.page;
+//     // Додаємо обробник події 'afterMove' до пагінації, щоб отримувати поточну сторінку і виводити список товарів
+//     if (!pagination.hasListener('afterMove')) {
+//       pagination.on('afterMove', async event => {
+//         try {
+//           const currentPage = event.page;
 
-          localStorage.setItem('currentPage', currentPage);
-          const shoppingList = await fetchBooks(currentPage);
+//           localStorage.setItem('currentPage', currentPage);
+//           const shoppingList = await fetchBooks(currentPage);
 
-          createShoppingListPage(shoppingList);
-        } catch (error) {
-          console.log(error.message);
-        }
-      });
-    }
+//           createShoppingListPage(shoppingList);
+//         } catch (error) {
+//           console.log(error.message);
+//         }
+//       });
+//     }
 
-    // Переміщуємося на збережену сторінку, якщо така є, інакше на першу сторінку
-    const storedPage = localStorage.getItem('currentPage');
-    if (storedPage) {
-      pagination.movePageTo(Number(storedPage));
-    } else {
-      pagination.movePageTo(1);
-    }
-  }
-}
+//     // Переміщуємося на збережену сторінку, якщо така є, інакше на першу сторінку
+//     const storedPage = localStorage.getItem('currentPage');
+//     if (storedPage) {
+//       pagination.movePageTo(Number(storedPage));
+//     } else {
+//       pagination.movePageTo(1);
+//     }
+//   }
+// }
 // Асинхронна функція для отримання книг з серверу
 // Приймає номер сторінки (по замовчуванню 1)
 // Обчислює індекс першої та останньої книги на сторінці
