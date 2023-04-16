@@ -1,4 +1,3 @@
-
 export const nameFoundation = [
   {
     title: 'Save the Children',
@@ -10,11 +9,6 @@ export const nameFoundation = [
     title: 'Project HOPE',
     url: 'https://www.projecthope.org/country/ukraine/',
     img: new URL('../image/founds/project-hope2x.png', import.meta.url),
-  },
-  {
-    title: 'UNITED24',
-    url: 'https://u24.gov.ua/uk',
-    img: new URL('../image/founds/united-2x.png', import.meta.url),
   },
   {
     title: 'International Medical Corps',
@@ -37,6 +31,13 @@ export const nameFoundation = [
     img: new URL('../image/founds/AAH-2x.png', import.meta.url),
     
   },
+  
+  {
+    title: 'UNITED24',
+    url: 'https://u24.gov.ua/uk',
+    img: new URL('../image/founds/united-2x.png', import.meta.url),
+  },
+  
   {
     title: 'World vision',
     url: 'https://www.wvi.org/emergencies/ukraine',
@@ -47,6 +48,7 @@ export const nameFoundation = [
     url: 'https://prytulafoundation.org/en',
     img: new URL('../image/founds/prytula-2x.png', import.meta.url),
   },
+
 ]
 
 

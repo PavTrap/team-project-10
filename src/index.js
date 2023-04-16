@@ -1,4 +1,3 @@
-import './js/array_foundation';
 import './js/categories';
 import './shoppinglist';
 
@@ -8,8 +7,9 @@ import './js/start';
 
 import './js/header';
 
+import './js/array_foundation';
 import './js/markup-foundation';
-
+import './js/slider-foundation';
 
 import './js/bestsellers';
 
@@ -17,7 +17,6 @@ import './js/bestsellers';
 import './js/modal-window';
 
 import './js/theme-switch';
-
 
 
 
