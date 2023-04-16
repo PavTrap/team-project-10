@@ -1,11 +1,10 @@
 
-<!-- добавить is-hidden <div class="backdrop is-hidden" data-modal>-->
-<div class="backdrop is-hidden" data-modal>
-  <div class="modal">
-    <button class="modal__button" data-modal-close>
+<!-- добавить is-hidden <div class="backdrop is-hidden">-->
+<div class="backdrop" data-modal-start>
+  <div class="modal-start">
+    <button class="modal__button" data-modal-start-close>
       <svg class="modal__item"  width="14px" height="14px">
-        <!-- Добавить в use href для иконки -->
-        <use></use> 
+        <use href="./images/svg/start.svg#icon-close"></use> 
       </svg>
     </button>
 
@@ -14,15 +13,14 @@
         <div class="modal-form__group--input">
         <div class="modal-form__wrapper">
             <label class="modal-form__label-name" for="user_person">NAME</label>
-            <input class="modal-form__field-input" type="text" name="person" id="user_person" autofocus required>          
+            <input class="modal-form__field-input" type="text" name="person" id="user_person" required>
         </div>
 
         <div class="modal-form__wrapper">
             <label class="modal-form__label-name" for="user_email">EMAIL</label>
             <input class="modal-form__field-input" type="email" name="email" id="user_email" required>
             <svg class="modal-form__icon" width="28px" height="28px">
-                <!-- Добавить в use href для иконки -->
-                <use></use>
+                <use href="./images/svg/start.svg#icon-mail"></use>
             </svg>
         </div>
     
@@ -30,8 +28,7 @@
         <label class="modal-form__label-name" for="user_password">PASSWORD</label>
             <input class="modal-form__field-input" type="password" name="password" id="user_password" minlength="5" maxlength="12" required>
             <svg class="modal-form__icon" width="28px" height="28px">
-                <!-- Добавить в use href для иконки -->
-                <use></use>
+                <use href="./images/svg/start.svg#icon-lock"></use>
             </svg>
         </div>
       </div>
