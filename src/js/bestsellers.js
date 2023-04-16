@@ -5,15 +5,46 @@
 //------------------Змінні
 const refs = {
   allCategoryContainer: document.querySelector('.bestSellers__container'),
+  bestsellerContainer: document.querySelector('.bestSellers'),
+  sectionTitle: document.querySelector('.section-title'),
   cardsQuantityByCategory: 1,
   tabletWidth: 768,
+  pcWidth: 1440,
 };
+
 //------------------Змінні
 
 //------------------Додаткові функції
+function changeTitleColors(string) {
+  let arrayFromString = string.split(' ');
+  let tempString = string.substr(arrayFromString[0].length);
+  let result = `<span class="section-title">${arrayFromString[0]}</span><span class='section-title--highlight'>${tempString}</span>`;
+  return result;
+}
+
+function isCategorySelected() {
+  if (localStorage.getItem('selected-category')) {
+    return true;
+  }
+  return false;
+}
 function checkWindowWidth() {
   return document.documentElement.clientWidth;
 }
+function reloadPage() {
+  let currentRenderWidth = 375;
+
+  addEventListener('resize', event => {
+    // if (
+    //   (window.innerWidth > 767 && currentRenderWidth < 768) ||
+    //   (window.innerWidth > 1439 && currentRenderWidth < 1440) ||
+    //   (window.innerWidth < 1440 && currentRenderWidth > 1439) ||
+    //   (window.innerWidth < 768 && currentRenderWidth > 767)
+    // ) {
+    location.reload();
+  });
+}
+
 function seeMoreButtonsHandler() {
   let buttonsList = document.querySelectorAll('.button');
   for (button of buttonsList) {
@@ -23,6 +54,7 @@ function seeMoreButtonsHandler() {
         'Вибрана категорія:',
         localStorage.getItem('selected-category')
       );
+      renderDOM();
     });
   }
 }
@@ -39,58 +71,81 @@ function imageButtonsHandler() {
 
 //------------------Запрос на API
 const fetchBook = async () => {
-  const response = await fetch(
-    `https://books-backend.p.goit.global/books/top-books`
-  );
-  const book = await response.json();
-  return book;
+  if (isCategorySelected()) {
+    const response = await fetch(
+      `https://books-backend.p.goit.global/books/category?category=${localStorage.getItem(
+        'selected-category'
+      )}`
+    );
+    const book = await response.json();
+    return book;
+  } else {
+    const response = await fetch(
+      `https://books-backend.p.goit.global/books/top-books`
+    );
+    const book = await response.json();
+    return book;
+  }
 };
 //------------------Запрос на API
 
 //------------------Функція запроса даних по ТОП книгам в категорії
 const fetchedArrayByTop = async () => {
+  cardsQuantityByCategory = 1;
   if (checkWindowWidth() >= refs.tabletWidth) {
     refs.cardsQuantityByCategory = 3;
   }
-  const data = await fetchBook().then(item => {
-    const result = item.map(value => {
-      const filteredByRank = value.books.filter(data => {
-        return data.rank <= refs.cardsQuantityByCategory;
+  if (checkWindowWidth() >= refs.pcWidth) {
+    refs.cardsQuantityByCategory = 5;
+  }
+  if (isCategorySelected()) {
+    const data = await fetchBook().then(item => {
+      const result = item.map(value => {
+        return value;
       });
-      return filteredByRank;
+      return result;
     });
-    return result;
-  });
-  return data;
+    return data;
+  } else {
+    const data = await fetchBook().then(item => {
+      const result = item.map(value => {
+        const filteredByRank = value.books.filter(data => {
+          return data.rank <= refs.cardsQuantityByCategory;
+        });
+        return filteredByRank;
+      });
+      return result;
+    });
+    return data;
+  }
 };
 //------------------Функція запроса даних по ТОП книгам в категорії
 
 //------------------Шаблон рендера карток
-function mobileRenderByTop(obj) {
+function cardRenderByTop(obj) {
   return (refs.cardMarkup = `
-    <ul class='shop-card'>
-    <li class='shop-card__category'>${obj.list_name}</li>
+    <ul class='bestseller-card'>
     <li class='image-block'>
-        <img class='image-block__image' src='${obj.book_image}' data-id='${obj._id}'/>
+    <img class='image-block__image' src='${obj.book_image}' data-id='${obj._id}'/>
     </li>
-    <ul class='shop-card__meta'>
-      <li class='shop-card__title'>${obj.title}</li>
-      <li class='shop-card__author'>${obj.author}</li>
+    <ul class='bestseller-card__meta'>
+      <li class='bestseller-card__title'>${obj.title}</li>
+      <li class='bestseller-card__author'>${obj.author}</li>
     </ul
-    <li><button class='button' type='button' data-category='${obj.list_name}'>See more</button>
+    
     </li>
     </ul>
   `);
 }
-function tabletRenderByTop(obj) {
+function cardRenderByCat(obj) {
   return (refs.cardMarkup = `
-    <ul class='shop-card'>
+    <ul class='bestseller-card --margin'>
     <li class='image-block'>
     <img class='image-block__image' src='${obj.book_image}' data-id='${obj._id}'/>
     </li>
-    <ul class='shop-card__meta'>
-      <li class='shop-card__title'>${obj.title}</li>
-      <li class='shop-card__author'>${obj.author}</li>
+    <ul class='bestseller-card__meta'>
+      <li class='bestseller-card__title'>${obj.title}</li>
+      <li class='bestseller-card__author'>${obj.author}</li>
     </ul
     
     </li>
@@ -105,32 +160,32 @@ function renderButton(category) {
 //------------------Шаблон рендера карток
 
 //------------------Фукнція рендера карток
-async function renderFetch() {
+async function renderFetchByTop() {
   promise = await fetchedArrayByTop();
+  let currentCategory;
+  refs.sectionTitle.innerHTML = '';
+  refs.sectionTitle.insertAdjacentHTML(
+    'afterbegin',
+    `<span>BestSellers<span><span class="section-title--highlight">Books</span>`
+  );
   for (let i = 0; i < promise.length; i++) {
     categoryContainer = document.createElement('div');
     categoryContainer.classList.add('category-container');
-    let currentCategory;
+
     promise[i].map(obj => {
       currentCategory = obj.list_name;
-      if (checkWindowWidth() >= refs.tabletWidth) {
-        tabletRenderByTop(obj);
-        categoryContainer.insertAdjacentHTML('beforeend', refs.cardMarkup);
-      } else {
-        mobileRenderByTop(obj);
-        categoryContainer.insertAdjacentHTML('beforeend', refs.cardMarkup);
-      }
+      cardRenderByTop(obj);
+      categoryContainer.insertAdjacentHTML('beforeend', refs.cardMarkup);
     });
-    if (checkWindowWidth() >= refs.tabletWidth) {
-      categoryContainer.insertAdjacentHTML(
-        'afterbegin',
-        `<h3 class="category-title">${currentCategory}</h3>`
-      );
-      categoryContainer.insertAdjacentHTML(
-        'beforeend',
-        renderButton(currentCategory)
-      );
-    }
+    categoryContainer.insertAdjacentHTML(
+      'afterbegin',
+      `<h3 class="category-title">${currentCategory}</h3>`
+    );
+    categoryContainer.insertAdjacentHTML(
+      'beforeend',
+      renderButton(currentCategory)
+    );
+
     refs.allCategoryContainer.insertAdjacentElement(
       'beforeend',
       categoryContainer
@@ -139,6 +194,37 @@ async function renderFetch() {
   seeMoreButtonsHandler();
   imageButtonsHandler();
 }
+async function renderFetchByCat() {
+  promise = await fetchedArrayByTop();
+  categoryContainer = document.createElement('div');
+  categoryContainer.classList.add('category-container');
+  for (let i = 0; i < promise.length; i++) {
+    //console.log(promise[i].list_name);
+
+    cardRenderByCat(promise[i]);
+    categoryContainer.insertAdjacentHTML('beforeend', refs.cardMarkup);
+  }
+  refs.allCategoryContainer.insertAdjacentElement(
+    'beforeend',
+    categoryContainer
+  );
+  seeMoreButtonsHandler();
+  imageButtonsHandler();
+}
+async function renderDOM() {
+  refs.allCategoryContainer.innerHTML = '';
+  if (isCategorySelected()) {
+    refs.sectionTitle.innerHTML = '';
+    refs.sectionTitle.insertAdjacentHTML(
+      'afterbegin',
+      changeTitleColors(localStorage.getItem('selected-category'))
+    );
+    renderFetchByCat();
+  } else {
+    renderFetchByTop();
+  }
+}
 //------------------Фукнція рендера карток
 
-renderFetch();
+renderDOM();
+reloadPage();
