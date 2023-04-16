@@ -1,3 +1,9 @@
+.hide-on-mobile{
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+}
+
 .foundation{
     padding: 24px 40px;
     background: radial-gradient(183.6% 183.01% at 59.76% -23.42%, #4F2EE8 18.03%, #FFFFFF 100%);
