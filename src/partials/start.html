@@ -1,47 +1,79 @@
-
 <!-- добавить is-hidden <div class="backdrop is-hidden">-->
-<div class="backdrop" data-modal-start>
+<div class="backdrop is-hidden" data-modal-start>
   <div class="modal-start">
     <button class="modal__button" data-modal-start-close>
-      <svg class="modal__item"  width="14px" height="14px">
-        <use href="./images/svg/start.svg#icon-close"></use> 
+      <svg class="modal__item" width="14px" height="14px">
+        <use href="./images/svg/start.svg#icon-close"></use>
       </svg>
     </button>
 
     <form class="modal-start">
-    <div class="modal-form__group">
+      <div class="modal-form__group">
         <div class="modal-form__group--input">
-        <div class="modal-form__wrapper">
+          <div class="modal-form__wrapper">
             <label class="modal-form__label-name" for="user_person">NAME</label>
-            <input class="modal-form__field-input" type="text" name="person" id="user_person" required>
-        </div>
+            <input
+              class="modal-form__field-input"
+              type="text"
+              name="person"
+              id="user_person"
+              required
+            />
+          </div>
 
-        <div class="modal-form__wrapper">
+          <div class="modal-form__wrapper">
             <label class="modal-form__label-name" for="user_email">EMAIL</label>
-            <input class="modal-form__field-input" type="email" name="email" id="user_email" required>
+            <input
+              class="modal-form__field-input"
+              type="email"
+              name="email"
+              id="user_email"
+              required
+            />
             <svg class="modal-form__icon" width="28px" height="28px">
-                <use href="./images/svg/start.svg#icon-mail"></use>
+              <use href="./images/svg/start.svg#icon-mail"></use>
             </svg>
-        </div>
-    
-        <div class="modal-form__wrapper">
-        <label class="modal-form__label-name" for="user_password">PASSWORD</label>
-            <input class="modal-form__field-input" type="password" name="password" id="user_password" minlength="5" maxlength="12" required>
+          </div>
+
+          <div class="modal-form__wrapper">
+            <label class="modal-form__label-name" for="user_password"
+              >PASSWORD</label
+            >
+            <input
+              class="modal-form__field-input"
+              type="password"
+              name="password"
+              id="user_password"
+              minlength="5"
+              maxlength="12"
+              required
+            />
             <svg class="modal-form__icon" width="28px" height="28px">
-                <use href="./images/svg/start.svg#icon-lock"></use>
+              <use href="./images/svg/start.svg#icon-lock"></use>
             </svg>
+          </div>
         </div>
-      </div>
 
         <button class="modal-form__btn" type="submit">SIGN UP</button>
 
         <!-- Добавить ссылку -->
         <div class="modal-form__conteiner">
-          <a class="modal-form__link sing-up" href="" rel="noopener noreferrer" aria-label="link sing up">SIGN UP</a>
-          <a class="modal-form__link sing--in" href="" rel="noopener noreferrer" aria-label="link sing in">SIGN IN</a>
+          <a
+            class="modal-form__link sing-up"
+            href=""
+            rel="noopener noreferrer"
+            aria-label="link sing up"
+            >SIGN UP</a
+          >
+          <a
+            class="modal-form__link sing--in"
+            href=""
+            rel="noopener noreferrer"
+            aria-label="link sing in"
+            >SIGN IN</a
+          >
         </div>
-</div>
+      </div>
     </form>
   </div>
 </div>
-
