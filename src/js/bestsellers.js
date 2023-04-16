@@ -23,7 +23,10 @@ function changeTitleColors(string) {
 }
 
 function isCategorySelected() {
-  if (localStorage.getItem('selected-category')) {
+  if (
+    localStorage.getItem('selected-category') &&
+    localStorage.getItem('selected-category') != 'undefined'
+  ) {
     return true;
   }
   return false;
@@ -64,6 +67,20 @@ function imageButtonsHandler() {
     image.addEventListener('click', e => {
       localStorage.setItem('selected-id', e.target.dataset.id);
       console.log('Вибрана книга з ID:', localStorage.getItem('selected-id'));
+    });
+  }
+}
+function categoriesLinksHandler() {
+  let linksList = document.querySelectorAll('.categories__item');
+  for (link of linksList) {
+    link.addEventListener('click', e => {
+      console.log(e.target);
+      localStorage.setItem('selected-category', e.target.dataset.category);
+      console.log(
+        'Вибрана категорія:',
+        localStorage.getItem('selected-category')
+      );
+      renderDOM();
     });
   }
 }
@@ -193,6 +210,7 @@ async function renderFetchByTop() {
   }
   seeMoreButtonsHandler();
   imageButtonsHandler();
+  categoriesLinksHandler();
 }
 async function renderFetchByCat() {
   promise = await fetchedArrayByTop();
@@ -210,6 +228,7 @@ async function renderFetchByCat() {
   );
   seeMoreButtonsHandler();
   imageButtonsHandler();
+  categoriesLinksHandler();
 }
 async function renderDOM() {
   refs.allCategoryContainer.innerHTML = '';
