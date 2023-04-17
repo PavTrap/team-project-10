@@ -18,6 +18,8 @@ import './js/modal-window';
 
 import './js/theme-switch';
 
+import './js/firebase'
+
 
 
 

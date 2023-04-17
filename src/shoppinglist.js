@@ -44,7 +44,7 @@ function checkingShoppingListLenght(shoppingList) {
   }
 }
 // функція створення пустої сторінки
-function createEmptyPage() {
+export function createEmptyPage() {
   clearList();
   const emptyPage =
     '<li><p>"This page is empty, add some books and proceed to order."</p><img src="./images/IMG_9606 1.png" alt=""></li>';
