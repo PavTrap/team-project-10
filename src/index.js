@@ -9,7 +9,7 @@ import './js/start-open-close';
 
 import './js/array_foundation';
 import './js/markup-foundation';
-// import './js/slider-foundation';
+import './js/slider-foundation';
 
 import './js/bestsellers';
 import './js/shoppinglist';
