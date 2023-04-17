@@ -62,7 +62,7 @@ function reloadPage() {
 }
 
 function seeMoreButtonsHandler() {
-  let buttonsList = document.querySelectorAll('.button');
+  let buttonsList = document.querySelectorAll('.button__see-more');
   for (button of buttonsList) {
     button.addEventListener('click', e => {
       localStorage.setItem('selected-category', e.target.dataset.category);
