@@ -392,7 +392,7 @@ function createShoppingListPage(shoppingList) {
             <h2 class="shopping-carg-book-title">${shop.title}</h2>
             <p class="shopping-carg-book-categorie">${shop.list_name}</p>
           </div>
-          <button class="button card-delete" data-index="${shop._id}">
+          <button class="button shopbtn card-delete" data-index="${shop._id}">
             <img src="./image/shoppinglist/dump.png" alt="" />
           </button>
         </div>
@@ -442,7 +442,7 @@ function createShoppingListPage(shoppingList) {
   infoBlock.insertAdjacentHTML('afterbegin', arrrr.join(''));
 
   // видалення книг з масиву по кліку на кнопку
-  const buttons = document.querySelectorAll('.button');
+  const buttons = document.querySelectorAll('.shopbtn');
   buttons.forEach(button => {
     button.addEventListener('click', () => {
       const index = button.dataset.index;
