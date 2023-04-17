@@ -1,8 +1,10 @@
 'use strict';
-
 // элементы разметки
 const formEl = document.querySelector('.modal-start')
-const backdropEl = document.querySelector('.backdrop');
+const backdropEl = document.querySelector('.backdrop-start');
+const btnSingUp = document.querySelector('.login-btn');
+const btnCloseXEl = document.querySelector('.modal__button-x')
+const divDataModalStartEl = document.querySelector('div[data-modal-start]')
 
 const nameLabelEl = document.querySelector('label[for="user_person"]');
 console.log(nameLabelEl);
@@ -64,20 +66,67 @@ function handleOnSendForm(e) {
     console.log('Form send!');
 
     // Закрываем модальное окно
-    backdropEl.classList.add('is-hidden');
+    backdropEl.classList.add('is-hidden-start');
+    backdropEl.style.display = "none";
   } else {
     // Действия при ошибке валидации
     console.log('Error!');
   }
 };
 
-window.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-        formEl.style.display = "none";
-        backdropEl.style.display = "none";
-        // backdropEl.classList.toggle('is-hidden');
-    }
-});
+// Модальное окно
+btnSingUp.addEventListener('click', e => {
+  formEl.style.display = "block";
+})
+    
+// Закрытие формы при нажатии на х
+btnCloseXEl.addEventListener('click', e => {
+  formEl.style.display = 'none';
+})
+
+// // Закрытие формы при нажатии на Esc
+// window.addEventListener('keydown', e => {
+//     if (e.key === 'Escape') {
+//       formEl.style.display = "none";
+//       backdropEl.style.display = "none";
+//   }
+// });
+
+// Закрытие формы при нажатии на backdrop
+// backdropEl.addEventListener('click', e => {
+//   formEl.style.display = 'none';
+//   backdropEl.style.display = "none";
+// });
+
+// // Сбрасываем стиль дисплей none перед повторным открытием модалки с формой
+// btnSingUp.addEventListener('click', e => {
+//   if (divDataModalStartEl.style.display === "none") {
+//     divDataModalStartEl.removeAttribute('style');
+//     formEl.removeAttribute('style');
+//     }
+// })
+
+// функция для открытия модального окна
+function openModal() {
+  // устанавливаем стиль display в block и добавляем класс active
+  formEl.style.display = 'block';
+  formEl.classList.add('active');
+  // добавляем класс active к backdrop
+  backdropEl.classList.add('active');
+}
+
+function themeDark() {
+  if (body === theme - dark) {
+    document.documentElement.classList.add('theme-dark'); 
+  }
+}
+
+
+
+
+
+
+
 
 
 

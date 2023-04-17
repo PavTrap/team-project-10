@@ -2,9 +2,9 @@
     <div class="container header-container">
 
         <nav class="header-navigation">
-            <a href="index.html" class="logo link" lang="en"
-            >BOOK<svg class="logo-icon" width="25" height="25">
-                <!-- <use href=""></use></a> -->
+            <a href="index.html" class="logo link" lang="en">
+            <svg class="logo__link"><use xlink:href="./image/header/symbol-defs.svg#icon-logo-white"></use></svg>
+            </a>
             <ul class="nav-list list">
                 <li class="nav-item">
                     <a href="./index.html" class="nav-link link" data-href="index">Home</a>
@@ -19,20 +19,18 @@
         <div class="header-options">
             <div class="switches">
                 <label id="switch" class="switch">
-                    <input type="checkbox" class="switch_input" id="slider"/>
-                    <span class="switch_slider"></span>
+                    <input type="checkbox" class="switch__input" id="slider"/>
+                    <span class="switch__slider"></span>
                 </label>
             </div>
             
-            <button type="button" class="button button-menu-open" data-menu-open data-modal-start-open>
+            <button type="button" class="button button-menu-open" data-menu-open>
                 <!-- <svg class="button__meny-open-icon" width="54" height="36"> -->
                     <!-- <use href="./images/icons.svg#icon-sandwich"></use> -->
                 </svg>
             </button>
 
-            <button type="button" class="login-btn">Sign up <svg class="login-icon" width="20" height="20">
-                <use ></use></svg>
-            </button>
+            <button type="button" class="login-btn" data-modal-start-open--sing-up data-modal-start-open>Sign up</button>
         </div>
         
             
@@ -55,7 +53,7 @@
         </div>
 
         <div class="mobile-meny">
-            <button type="button" class="login-mob-btn">Sign up <svg class="login-mob-icon" width="20" height="20">
+            <button type="button" class="login-mob-btn " data-modal-start-open--sing-up data-modal-start-open>Sign up <svg class="login-mob-icon" width="20" height="20">
                 <use ></use></svg>
             </button>
             <!-- <ul class="mobile-list list">

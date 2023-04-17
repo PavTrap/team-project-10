@@ -1,0 +1,179 @@
+.shopping-list {
+  margin-left: auto;
+  margin-right: auto;
+  // width: 1200px;
+  padding: 0 15px;
+}
+.shopping-title {
+  margin-bottom: 40px;
+  margin-top: 40px;
+width: 193px;
+height: 38px;
+left: 20px;
+top: 104px;
+
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+line-height: 38px;
+letter-spacing: -0.04em;
+
+color: #111111;
+}
+
+.shopping-title span {
+  color:#4F2EE8
+}
+
+.shopping-carg {
+  box-sizing: border-box;
+
+  margin-bottom: 20px;
+/* Auto layout */
+
+// display: flex;
+// flex-direction: row;
+// align-items: flex-start;
+padding: 30px 24px;
+// gap: 48px;
+isolation: isolate;
+
+background: #FFFFFF;
+border: 2px solid rgba(79, 46, 232, 0.4);
+border-radius: 16px;
+
+  // @media screen and (min-width: 768px) {
+  //   max-width: 354px;
+  // }
+
+  // @media screen and (min-width: 1200px) {
+  //   max-width: 270px;
+  // }
+}
+
+.shopping-carg-image {
+  
+width: 98px;
+height: 139px;
+left: 20px;
+top: 20px;
+
+// background: url(image.png);
+border-radius: 8px;
+
+/* Inside auto layout */
+
+// flex: none;
+// order: 2;
+// flex-grow: 0;
+// z-index: 2;
+}
+
+.shopping-carg-book-title {
+//   width: 114px;
+// height: 18px;
+
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 18px;
+/* identical to box height, or 112% */
+
+letter-spacing: -0.04em;
+text-transform: uppercase;
+
+color: #111111;
+
+
+/* Inside auto layout */
+
+// flex: none;
+// order: 0;
+// flex-grow: 0;
+}
+
+.shopping-carg-book-categorie {
+  
+// width: 101px;
+// height: 14px;
+// left: 138px;
+// top: 42px;
+
+font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height, or 117% */
+
+letter-spacing: 0.03em;
+
+color: #B4AFAF;
+
+
+/* Inside auto layout */
+
+// flex: none;
+// order: 6;
+// flex-grow: 0;
+// z-index: 6;
+}
+
+.card-delete {
+  width: 28px;
+height: 28px;
+left: 0px;
+top: 0px;
+border-radius: 50%;
+background: #4F2EE8;
+border: 0;
+}
+
+.shopping-carg-book-description {
+  font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 18px;
+/* or 129% */
+
+letter-spacing: -0.04em;
+
+color: #111111;
+}
+
+.shopping-carg-book-author {
+  font-family: 'DM Sans';
+font-style: italic;
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height, or 117% */
+
+letter-spacing: -0.04em;
+
+color: #B4AFAF;
+}
+
+.shopping-carg-shops {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.shopping-carg-shop-amazon {
+//   width: 48px;
+// height: 15px;
+
+background: url(../image/shoppinglist/amazon.png);
+mix-blend-mode: luminosity;
+
+/* Inside auto layout */
+
+// flex: none;
+// order: 0;
+// flex-grow: 0;
+}

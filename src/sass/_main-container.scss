@@ -1,3 +1,33 @@
-.main-container{
-	display: flex;
+.main-container {
+  background-color: var(--color-background);
+
+  @media screen and (min-width: 768px) {
+    // display: flex;
+    // gap: 15px;
+  }
+  @media screen and (min-width: 1195px) {
+    display: flex;
+    // gap: 15px;
+  }
+}
+
+.main-container-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    align-items: start;
+  }
+  @media screen and (min-width: 1195px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    margin-left: 24px;
+  }
 }
