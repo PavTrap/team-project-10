@@ -14,6 +14,11 @@ import './js/slider-foundation';
 import './js/bestsellers';
 import './js/shoppinglist';
 
+
+
+
+
+
 import './js/modal-window';
 
 import './js/theme-switch';
