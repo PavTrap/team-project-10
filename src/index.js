@@ -17,4 +17,4 @@ import './js/shoppinglist';
 // import './js/modal-window';
 
 import './js/theme-switch';
-import './js/cards-books';
+import './js/card-books';

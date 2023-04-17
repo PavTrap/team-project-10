@@ -40,7 +40,7 @@ function cardRenderByCat(obj) {
 }
 function renderButton(category) {
   return (cardMarkup = `
-    <button class='button' type='button' data-category='${category}'>See more</button>
+    <button class='button__see-more' type='button' data-category='${category}'>See more</button>
   `);
 }
 function imageButtonsHandler() {
