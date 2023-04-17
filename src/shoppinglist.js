@@ -1,4 +1,7 @@
 import './js/theme-switch';
+import './js/start';
+import './js/start-open-close';
+import './js/firebase';
 // const infoBlock = document.querySelector('#info-block');
 // // задаємо масив ідентифікаторів для використання в пагінації та зберігаємо його в local storage
 // let listID = [
