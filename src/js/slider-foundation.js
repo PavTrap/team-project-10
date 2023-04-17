@@ -1,37 +1,50 @@
-import { markup } from './markup-foundation'
+// import { markup } from './markup-foundation'
+
 
 const sliderBtnEl = document.querySelector('.foundation__btn');
 const foundItemsEl = document.querySelectorAll('.foundation__item');
+const foundationListEl = document.querySelector(".foundation__list");
 
-console.log(1+2+4+1)
-
-const supportSlider = function () {
+// SLIDER
+const downSlider = function () {
   foundItemsEl.forEach(function (slide) {
-    slide.style.transform = `translateY(-${counter * 50}%)`;
+        slide.style.transform = `translateY(-${counter * 90}px)`;
+        // slide.style.transform = `translateY(-${counter * 80}px)`;
   });
-};
+}
+
+const upSlider = function () {
+  foundItemsEl.forEach(function (slide) {
+    slide.style.transform = `translateY(0px)`;
+    sliderBtnEl.querySelector('.btnLoadMore__icon').style.transform = '';  });
+}
+
 
 // BUTTON CLICK
 sliderBtnEl.addEventListener('click', movementSlide);
 
 let counter = 0;
-let moveDown = false;
+let down = false;
 
  function movementSlide () {
-  if (moveDown) {
-    counter -= 2;
-    if (counter < 0) {
-      counter = 0;
-      moveDown = false;
-      sliderBtnEl.querySelector('.btnLoadMore__icon').style.transform = '';
+  if (down) {
+    if (counter < 2) {
+      counter = 1;
+      down = false;
     }
   } else {
-    counter += 2;
-    if (counter >= imgSlides.length) {
-      counter = foundItemsEl.length - 1;
-      moveDown = true;
-      sliderBtnEl.querySelector('.btnLoadMore__icon').style.transform = 'rotate(180deg)';
+    counter += 1;
+    if (counter === 2) {
+      sliderBtnEl.querySelector('.btnLoadMore__icon').style.transform = 'rotate(270deg)';
     }
+        if (counter > 2) {
+        counter = +1;
+        down = true;       
+        return upSlider();
     }
-    supportSlider(markup);
+    
+   } 
+   downSlider();
 }
+
+
