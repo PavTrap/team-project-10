@@ -1,15 +1,14 @@
 import './js/theme-switch';
 
-
 const infoBlock = document.querySelector('#info-block');
 
 // перевіряємо наявність в local storage масиву книг
 // якщо нема то створюємо пустий масив та записуємо його у local storage
 if (localStorage.getItem('shoppingList') === null) {
-  console.log("5555555")
+  console.log('5555555');
   let shoppingList = [];
   localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
-} 
+}
 // Зчитуємо массив з local storage
 const storedArray = localStorage.getItem('shoppingList');
 shoppingList = JSON.parse(storedArray);
@@ -23,7 +22,7 @@ const fetchArray = fetch('https://books-backend.p.goit.global/books/top-books')
     data.map(({ books }) => {
       for (let i = 0; i < 2; i++) {
         let book = books[i];
-        
+
         shoppingList.push(book);
       }
     });
@@ -126,7 +125,7 @@ function createShoppingListPage(shoppingList) {
     </li>`;
     infoBlock.insertAdjacentHTML('afterbegin', listBooks);
   }
-// видалення книг з масиву по кліку на кнопку 
+  // видалення книг з масиву по кліку на кнопку
   const buttons = document.querySelectorAll('.button');
   buttons.forEach(button => {
     button.addEventListener('click', () => {
@@ -135,10 +134,19 @@ function createShoppingListPage(shoppingList) {
       localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
       console.log(shoppingList);
       checkingShoppingListLenght(shoppingList);
-      });
+    });
   });
 }
 // очистка сторінки
 function clearList() {
   infoBlock.innerHTML = '';
 }
+
+// function createEmptyPage() {
+//   clearList();
+//   const emptyPage =
+//     '<li><p>"This page is empty, add some books and proceed to order."</p><img src="./image/shoppinglist/emptypage.png" alt=""></li>';
+//   infoBlock.insertAdjacentHTML('afterbegin', emptyPage);
+// }
+
+// export { createEmptyPage };
