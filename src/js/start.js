@@ -76,7 +76,7 @@ function handleOnSendForm(e) {
 
 // Модальное окно
 btnSingUp.addEventListener('click', e => {
-    formEl.style.display = "block";
+  formEl.style.display = "block";
 })
     
 // Закрытие формы при нажатии на х
@@ -114,6 +114,14 @@ function openModal() {
   // добавляем класс active к backdrop
   backdropEl.classList.add('active');
 }
+
+function themeDark() {
+  if (body === theme - dark) {
+    document.documentElement.classList.add('theme-dark'); 
+  }
+}
+
+
 
 
 
