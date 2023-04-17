@@ -126,8 +126,9 @@ color: #B4AFAF;
 height: 28px;
 left: 0px;
 top: 0px;
-
-// background: #4F2EE8;
+border-radius: 50%;
+background: #4F2EE8;
+border: 0;
 }
 
 .shopping-carg-book-description {
@@ -161,4 +162,18 @@ color: #B4AFAF;
   justify-content: center;
   align-items: center;
   gap: 10px;
+}
+
+.shopping-carg-shop-amazon {
+//   width: 48px;
+// height: 15px;
+
+background: url(../image/shoppinglist/amazon.png);
+mix-blend-mode: luminosity;
+
+/* Inside auto layout */
+
+// flex: none;
+// order: 0;
+// flex-grow: 0;
 }
