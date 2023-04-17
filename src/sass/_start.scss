@@ -25,10 +25,10 @@ p {
   margin: 0;
 }
 
-.modal__button {
+.modal__button-x {
   position: absolute;
   top: 14px;
-  right: 14px;
+  left: 14px;
 
   padding: 0;
   display: flex;
@@ -198,6 +198,7 @@ p {
   left: 253px;
   transform: translateY(-50%);
   fill: var(--color-black);
+  z-index: 2;
 
   @media screen and (min-width: 768px) {
     top: 50%;
