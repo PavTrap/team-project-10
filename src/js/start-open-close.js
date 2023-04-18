@@ -18,26 +18,26 @@
 
 // Sing Up в мобилке
 
-// (() => {
-//     const refs = {
-//     openModalBtnSingUpMobile: document.querySelector("button[data-modal-start-open--sing-up-mobile]"),
-//     closeModalBtnXClose: document.querySelector("button[data-modal-start-close]"),
-//     formEl: document.querySelector("[data-modal-start-mobile]"),
-//   };
+(() => {
+    const refs = {
+    openModalBtnSingUpMobile: document.querySelector("button[data-modal-start-open--sing-up-mobile]"),
+    closeModalBtnXClose: document.querySelector("button[data-modal-start-close]"),
+    formEl: document.querySelector("[data-modal-start-mobile]"),
+  };
 
-//   refs.openModalBtnSingUpMobile.addEventListener("click", toggleModal);
-//   refs.closeModalBtnXClose.addEventListener("click", toggleModal);
+  refs.openModalBtnSingUpMobile.addEventListener("click", toggleModal);
+  refs.closeModalBtnXClose.addEventListener("click", toggleModal);
 
-//   function toggleModal() {
-//     refs.formEl.classList.toggle("is-hidden-start-mobile");
-//   }
+  function toggleModal() {
+    refs.formEl.classList.toggle("is-hidden-start-mobile");
+  }
 
-// })();
+})();
 
-// refs.openModalBtnSingUpMobile.addEventListener('click', e => {
-//   formEl.style.display = "block";
-//   formEl.style.zIndex = "5";
-// })
+refs.openModalBtnSingUpMobile.addEventListener('click', e => {
+  formEl.style.display = "block";
+  formEl.style.zIndex = "5";
+})
 
 
 
