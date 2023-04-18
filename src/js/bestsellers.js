@@ -147,7 +147,7 @@ const fetchedArrayByTop = async () => {
 
 //------------------Фукнція рендера карток
 async function renderFetchByTop() {
-  promise = await fetchedArrayByTop();
+  const promise = await fetchedArrayByTop();
 
   let currentCategory;
   refs.sectionTitle.innerHTML = '';
@@ -157,7 +157,7 @@ async function renderFetchByTop() {
     <span class="section-title--highlight">Books</span>`
   );
   for (let i = 0; i < promise.length; i++) {
-    categoryContainer = document.createElement('div');
+    const categoryContainer = document.createElement('div');
     categoryContainer.classList.add('category-container');
 
     promise[i].map(obj => {
@@ -185,7 +185,7 @@ async function renderFetchByTop() {
 }
 async function renderFetchByCat() {
   const promise = await fetchedArrayByTop();
-  categoryContainer = document.createElement('div');
+  const categoryContainer = document.createElement('div');
   categoryContainer.classList.add('category-container');
   for (let i = 0; i < promise.length; i++) {
     cardRenderByCat(promise[i]);
