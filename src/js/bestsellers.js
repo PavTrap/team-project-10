@@ -153,8 +153,7 @@ async function renderFetchByTop() {
   refs.sectionTitle.innerHTML = '';
   refs.sectionTitle.insertAdjacentHTML(
     'afterbegin',
-    `<span>BestSellers<span>
-    <span class="section-title--highlight">Books</span>`
+    `<span>BestSellers<span><span class="section-title--highlight">Books</span>`
   );
   for (let i = 0; i < promise.length; i++) {
     const categoryContainer = document.createElement('div');
