@@ -1,6 +1,6 @@
 .shopping-list {
   max-width: 100vh;
-  max-height: 100vh;
+  // max-height: 100vh;
   margin: 40px 0 0;
   // margin-top: 40px;
   background-color: var(--color-background);
@@ -52,6 +52,7 @@ margin-top: 40px;
 }
 
 .shopping-carg {
+  position: relative;
   box-sizing: border-box;
 
   margin-bottom: 20px;
@@ -148,13 +149,25 @@ color: #B4AFAF;
 }
 
 .card-delete {
-  width: 28px;
-height: 28px;
-left: 0px;
-top: 0px;
-border-radius: 50%;
-background: var(--color-blue);
-border: 0;
+
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 8px;
+  right: 8px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: var(--color-blue); 
+
 }
 
 .shopping-carg-book-description {
