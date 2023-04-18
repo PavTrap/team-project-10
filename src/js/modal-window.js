@@ -15,7 +15,7 @@ const amazonPic = new URL(import.meta.url);
 const applebooksPic = new URL(import.meta.url);
 const bookstore_shopPic = new URL(import.meta.url);
 
-const modalBtnAddRemove = document.querySelector('.pop__btn');
+const modalBtnAddRemove = document.querySelector('#pop-btn');
 
 // Функція для відкриття модального вікна та заповнення його даними з API
 export function openModal(id) {
@@ -132,10 +132,37 @@ window.addEventListener('keydown', event => {
 modalBtnAddRemove.addEventListener('click', event => {
   const dataFromLocalStorage = localStorage.getItem('User-name');
   const parsedDataFromLocalStorage = JSON.parse(dataFromLocalStorage);
-  console.log(parsedDataFromLocalStorage.listId);
+  //   console.log(parsedDataFromLocalStorage.listId);
+  console.log(parsedDataFromLocalStorage.name);
+  console.log(parsedDataFromLocalStorage.email);
+  const name = parsedDataFromLocalStorage.name;
+  const email = parsedDataFromLocalStorage.email;
   parsedDataFromLocalStorage.listId.push(idFromBook);
   localStorage.setItem(
     'User-name',
-    JSON.stringify({ listId: parsedDataFromLocalStorage.listId })
+    JSON.stringify({
+      name: name,
+      email: email,
+      listId: parsedDataFromLocalStorage.listId,
+    })
   );
+  let buttton = event.target.innerHTML;
+  //   console.log(buttton);
+  const addbtn = 'Add to shopping list';
+  const removebtn = 'Remove from the shopping list';
+
+  if (modalBtnAddRemove.innerHtml === addbtn) {
+    modalBtnAddRemove.innerHtml = removebtn;
+  } else {
+    modalBtnAddRemove.innerHtml = addbtn;
+  }
 });
+
+// modalBtnAddRemove.addEventListener('click', event => {
+//   //   modalBtnAddRemove.innerHTML = 'Remove from Shopping List';
+//   if (event.target.innerHtml === 'Add to shopping list') {
+//     event.target.innerHtml === 'Remove from the shopping list';
+//   } else {
+//     event.target.innerHtml = 'Add to shopping list';
+//   }
+// });
