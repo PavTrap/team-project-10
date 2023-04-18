@@ -10,12 +10,6 @@
     // gap: 15px;
   }
 }
-.hidden > section {
-  @media screen and (max-width: 1440px) {
-    display: none;
-    background-color: tomato;
-  }
-}
 .main-container-nav {
   display: flex;
   flex-direction: column;
@@ -34,5 +28,11 @@
     align-items: center;
     justify-content: start;
     margin-left: 24px;
+  }
+}
+.hidden > section {
+  @media screen and (max-width: 1200px) {
+    display: none;
+    background-color: tomato;
   }
 }

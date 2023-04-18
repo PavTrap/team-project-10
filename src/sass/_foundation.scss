@@ -1,8 +1,8 @@
-.hide-on-mobile {
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-}
+// .hide-on-mobile {
+//   @media screen and (min-width: 375px) {
+//     // display: none;
+//   }
+// }
 
 .foundation {
   margin-top: 0;
@@ -22,7 +22,7 @@
     // margin-left: 10px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1200px) {
     width: 356px;
     min-height: 500px;
     // margin-top: 86px;
@@ -104,8 +104,6 @@
   text-decoration: none;
   color: black;
 }
-
-
 
 .foundation__img {
   filter: brightness(0%) grayscale(100%) invert(100%);
