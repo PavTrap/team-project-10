@@ -51,20 +51,6 @@ function imageButtonsHandler() {
       console.log('dasdsadsa:', e.target.dataset.id);
       //console.log('Вибрана книга з ID:', localStorage.getItem('selected-id'));
       openModal(e.target.dataset.id);
-      const bookInfo = document.getElementById("bookInfo");
-      bookInfo.insertAdjacentHTML('beforeend',
-        `
-
-        <div class='pop_wrapper'>
-        <h2 class="pop_name">
-        ${e.target.dataset.title}
-        </h2>
-        <p class="pop_author">hello</p>
-        <p class="pop_description">
-        
-        </p>
-        <ul class="pop_shop list"></ul>
-        </div>`);
     });
   }
 }
