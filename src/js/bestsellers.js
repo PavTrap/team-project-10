@@ -115,7 +115,7 @@ const fetchBook = async () => {
 
 //------------------Функція запроса даних по ТОП книгам в категорії
 const fetchedArrayByTop = async () => {
-  cardsQuantityByCategory = 1;
+  refs.cardsQuantityByCategory = 1;
   if (checkWindowWidth() >= refs.tabletWidth) {
     refs.cardsQuantityByCategory = 3;
   }
