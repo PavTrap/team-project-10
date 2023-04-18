@@ -10,7 +10,12 @@
     // gap: 15px;
   }
 }
-
+.hidden > section {
+  @media screen and (max-width: 1440px) {
+    display: none;
+    background-color: tomato;
+  }
+}
 .main-container-nav {
   display: flex;
   flex-direction: column;

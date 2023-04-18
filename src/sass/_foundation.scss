@@ -16,7 +16,7 @@
   border-radius: 16px;
 
   width: 335px;
-  height: 352px;
+  min-height: 352px;
   @media screen and (min-width: 768px) {
     min-height: 472px;
     // margin-left: 10px;
@@ -105,9 +105,7 @@
   color: black;
 }
 
-// .slider-item.hidden {
-//   display: none;
-// }
+
 
 .foundation__img {
   filter: brightness(0%) grayscale(100%) invert(100%);
