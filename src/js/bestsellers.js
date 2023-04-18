@@ -29,11 +29,17 @@ function changeTitleColors(string) {
   return result;
 }
 
+// function isCategorySelected() {
+//   if (
+//     localStorage.getItem('selected-category') &&
+//     localStorage.getItem('selected-category') != 'undefined'
+//   ) {
+//     return true;
+//   }
+//   return false;
+// }
 function isCategorySelected() {
-  if (
-    localStorage.getItem('selected-category') &&
-    localStorage.getItem('selected-category') != 'undefined'
-  ) {
+  if (localStorage.getItem('selected-category') == 'null') {
     return true;
   }
   return false;
