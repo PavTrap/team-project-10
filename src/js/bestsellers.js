@@ -5,6 +5,7 @@ import {
   renderButton,
   imageButtonsHandler,
 } from './card-books.js';
+import { ref } from './categories.js';
 //------------------Імпорт пакетів/стилі/шаблонів
 
 //------------------Змінні
@@ -73,6 +74,9 @@ function seeMoreButtonsHandler() {
 
 function categoriesLinksHandler() {
   let linksList = document.querySelectorAll('.categories__item');
+  // document
+  //   .querySelector('.category-active')
+  //   .classList.remove('category-active');
   for (link of linksList) {
     link.addEventListener('click', e => {
       if (
@@ -82,6 +86,9 @@ function categoriesLinksHandler() {
       }
       localStorage.setItem('selected-category', e.target.dataset.category);
       renderDOM();
+      // for (const category of refs.categoriesList) {
+      //   category.classList.add('category-active');
+      // }
     });
   }
 }

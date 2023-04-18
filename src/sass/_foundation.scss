@@ -1,8 +1,8 @@
-.hide-on-mobile {
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-}
+// .hide-on-mobile {
+//   @media screen and (min-width: 375px) {
+//     // display: none;
+//   }
+// }
 
 .foundation {
   margin-top: 0;
@@ -16,13 +16,13 @@
   border-radius: 16px;
 
   width: 335px;
-  height: 352px;
+  min-height: 352px;
   @media screen and (min-width: 768px) {
     min-height: 472px;
     // margin-left: 10px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1200px) {
     width: 356px;
     min-height: 500px;
     // margin-top: 86px;
@@ -104,10 +104,6 @@
   text-decoration: none;
   color: black;
 }
-
-// .slider-item.hidden {
-//   display: none;
-// }
 
 .foundation__img {
   filter: brightness(0%) grayscale(100%) invert(100%);

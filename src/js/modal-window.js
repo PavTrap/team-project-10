@@ -108,15 +108,19 @@ export function openModal(id) {
   // Додати обробник події на кнопку закриття модального вікна
   const closeButton = document.getElementsByClassName('modal-btn')[0];
   closeButton.onclick = function () {
+    modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
     modal.style.display = 'none';
     bookInfoURL.innerHTML = '';
     bookInfo.innerHTML = '';
     bookInform.innerHTML = '';
   };
+
+  setHandler();
 }
 
 window.onclick = function (event) {
   if (event.target == modal) {
+    modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
     modal.style.display = 'none';
     // modalData.innerHTML = '';
     bookInfoURL.innerHTML = '';
@@ -127,6 +131,7 @@ window.onclick = function (event) {
 
 window.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
+    modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
     modal.style.display = 'none';
     // modalData.innerHTML = '';
     bookInfoURL.innerHTML = '';
@@ -135,14 +140,61 @@ window.addEventListener('keydown', event => {
 
   }
 });
+const buttonHandler = function (event) {
+  let currentCardId = modalBtnAddRemove.dataset.id;
+  let dataFromLocalStorage = localStorage.getItem('User-name');
+  let parsedDataFromLocalStorage = JSON.parse(dataFromLocalStorage);
+  let name = parsedDataFromLocalStorage.name;
+  let email = parsedDataFromLocalStorage.email;
+  console.log('ListId from LocalStorage:', parsedDataFromLocalStorage.listId);
+  console.log('CurrentId from Button', currentCardId);
+  if (parsedDataFromLocalStorage.listId.indexOf(currentCardId) == -1) {
+    parsedDataFromLocalStorage.listId.push(currentCardId);
+    localStorage.setItem(
+      'User-name',
+      JSON.stringify({
+        name: name,
+        email: email,
+        listId: parsedDataFromLocalStorage.listId,
+      })
+    );
+    console.log('Item was added');
+    event.target.innerHTML = 'remove from the shopping list';
+    modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
+    modalBtnAddRemove.addEventListener('click', buttonHandler, false);
+  } else {
+    let filteredArray = parsedDataFromLocalStorage.listId.filter(item => {
+      return item != currentCardId;
+    });
+    localStorage.setItem(
+      'User-name',
+      JSON.stringify({
+        name: name,
+        email: email,
+        listId: filteredArray,
+      })
+    );
+    console.log('Item was deleted');
+    event.target.innerHTML = 'Add to shopping list';
+    modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
+    modalBtnAddRemove.addEventListener('click', buttonHandler, false);
+  }
+};
+function setHandler() {
+  modalBtnAddRemove.dataset.id = idFromBook;
 
-modalBtnAddRemove.addEventListener('click', event => {
   const dataFromLocalStorage = localStorage.getItem('User-name');
   const parsedDataFromLocalStorage = JSON.parse(dataFromLocalStorage);
-  console.log(parsedDataFromLocalStorage.listId);
-  parsedDataFromLocalStorage.listId.push(idFromBook);
-  localStorage.setItem(
-    'User-name',
-    JSON.stringify({ listId: parsedDataFromLocalStorage.listId })
-  );
-});
+
+  const name = parsedDataFromLocalStorage.name;
+  const email = parsedDataFromLocalStorage.email;
+  if (parsedDataFromLocalStorage.listId.indexOf(idFromBook) == -1) {
+    console.log('ID:', idFromBook, 'not found');
+    modalBtnAddRemove.innerHTML = 'Add to shopping list';
+  } else {
+    console.log('ID:', idFromBook, 'found');
+    modalBtnAddRemove.innerHTML = 'remove from the shopping lis';
+  }
+
+  modalBtnAddRemove.addEventListener('click', buttonHandler, false);
+}
