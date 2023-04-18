@@ -6,6 +6,12 @@ import './js/theme-switch';
 // імпортуємо Pagination та стилі з бібліотеки 'tui-pagination'
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+
+import { bookShops } from './js/array_book_shops'
+console.log(bookShops)
+
+
+
 // знаходимо контейнер для пагінації та елемент для відображення інформації
 const paginationEl = document.querySelector('#tui-pagination-container');
 // додаємо прослуховання на картку з іформацією про книгу
@@ -179,7 +185,7 @@ function createShoppingListPage(shoppingList) {
             <p class="shopping-carg-book-categorie">${shop.list_name}</p>
           </div>
           <button class="button shopbtn card-delete" data-index="${shop._id}">
-            <img src="./image/shoppinglist/dump.png" alt="" />
+            <img src="${bookShops.dump}" alt="" />
           </button>
         </div>
         <p class="shopping-carg-book-description">${shop.description}</p>
@@ -194,7 +200,7 @@ function createShoppingListPage(shoppingList) {
                 rel="noopener noreferrer"
                 aria-label="Іконка Amazon"
               >
-                <img src="./images/amazon.png" alt="Іконка Amazon" />
+                <img src="${bookShops.amazon}" alt="Іконка Amazon" />
               </a>
             </li>
             <li>
@@ -205,7 +211,7 @@ function createShoppingListPage(shoppingList) {
                 rel="noopener noreferrer"
                 aria-label="Іконка Apple Books"
               >
-                <img src="./images/openbook.png" alt="Іконка Apple Books" />
+                <img src="${bookShops.openbook}" alt="Іконка Apple Books" />
               </a>
             </li>
             <li>
@@ -216,7 +222,7 @@ function createShoppingListPage(shoppingList) {
                 rel="noopener noreferrer"
                 aria-label="Іконка Bookshop"
               >
-                <img src="./images/bookshop.png" alt="Іконка Bookshop" />
+                <img src="${bookShops.bookshop}" alt="Іконка Bookshop" />
               </a>
             </li>
           </ul>
@@ -264,6 +270,6 @@ function clearList() {
 export function createEmptyPage() {
   clearList();
   const emptyPage =
-    '<li><p>"This page is empty, add some books and proceed to order."</p><img src="./image/shoppinglist/emptypage.png" alt=""></li>';
+    `<li><p>"This page is empty, add some books and proceed to order."</p><img src="${bookShops.emptypage}" alt=""></li>`;
   infoBlock.insertAdjacentHTML('afterbegin', emptyPage);
 }
