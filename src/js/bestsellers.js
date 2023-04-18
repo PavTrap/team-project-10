@@ -161,8 +161,8 @@ async function renderFetchByTop() {
 
     promise[i].map(obj => {
       currentCategory = obj.list_name;
-      cardRenderByTop(obj);
-      categoryContainer.insertAdjacentHTML('beforeend', cardMarkup);
+      // cardRenderByTop(obj);
+      categoryContainer.insertAdjacentHTML('beforeend', cardRenderByTop(obj));
     });
     categoryContainer.insertAdjacentHTML(
       'afterbegin',
@@ -187,8 +187,11 @@ async function renderFetchByCat() {
   const categoryContainer = document.createElement('div');
   categoryContainer.classList.add('category-container');
   for (let i = 0; i < promise.length; i++) {
-    cardRenderByCat(promise[i]);
-    categoryContainer.insertAdjacentHTML('beforeend', cardMarkup);
+    // cardRenderByCat(promise[i]);
+    categoryContainer.insertAdjacentHTML(
+      'beforeend',
+      cardRenderByCat(promise[i])
+    );
   }
   refs.allCategoryContainer.insertAdjacentElement(
     'beforeend',
