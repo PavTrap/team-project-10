@@ -11,13 +11,11 @@ const paginationEl = document.querySelector('#tui-pagination-container');
 // додаємо прослуховання на картку з іформацією про книгу
 const infoBlock = document.querySelector('#info-block');
 
-
 // Зчитуємо массив з даними userName з local storage
 let userName = JSON.parse(localStorage.getItem('User-name'));
-console.log(userName);
+// console.log(userName);
 
-
-const userName = localStorage.getItem('User-name');
+// const userName = localStorage.getItem('User-name');
 // ===========================================================================
 // // Проверка работоспособности
 // console.log(userName);
@@ -54,9 +52,6 @@ if (userName === null) {
 // Отрумуємо масив з списком id книг
 let listID = userName.listId;
 console.log(listID);
-
-
-
 
 // Налаштування параметрів для бібліотеки Pagination
 let options = {
@@ -245,14 +240,14 @@ function createShoppingListPage(shoppingList) {
       // Оновлюємо значення listId в масиві userName,
       // та перезаписуемо у local storage macuв userName
       userName.listId = listID;
-           
+
       localStorage.setItem('User-name', JSON.stringify(userName));
-      
+
       // оновлюємо значення для пагінації
-      
+
       pagination.reset();
       options.totalItems = listID.length;
-      
+
       options.visiblePages = Math.ceil(listID.length / 3 - 1);
       pagination = new Pagination(paginationEl, options);
       checkingShoppingListLenght(listID);
