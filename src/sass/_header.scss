@@ -376,9 +376,17 @@
   width: 86px;
   height: 28px;
 }
+
+
 .nav-list {
-  display: none;
+  position: absolute;
+  
+  z-index: 20;
+  top: 40vh;
+  left: 30vw;
+
   @media screen and (min-width: 768px) {
+    position: static;
     display: flex;
     gap: 16px;
     margin-left: 32px;
@@ -386,7 +394,35 @@
   }
 }
 
+.nav-hidden{
+  @media screen and (max-width: 768px) {
+  display: none;
+  }
+}
+
+.nav-item__shopping-bag {
+  height: 16px;
+  width: 13px;
+  fill: black;
+}
+
+.nav-item:nth-child(2){
+  display: flex;
+  align-items: center;
+}
+
 .nav-link {
+
+
+  @media screen and (max-width: 768px) {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+      
+        letter-spacing: -0.04em;
+        text-transform: uppercase;
+        color: #ffffff;
+    }
   display: block;
   padding: 8px 16px;
 
@@ -404,10 +440,17 @@
   &:hover,
   &:focus {
     background-color: var(--color-yellow);
+    
   }
 }
 
+.nav-list__button{
+  all: unset;
+}
+
+
 .nav-link-current {
+  color: #111111;
   background-color: var(--color-yellow);
 }
 
@@ -488,9 +531,9 @@
   //   align-items: center;
   //   justify-content: center;
   border: none;
-  background-color: var(--color-yellow);
-  width: 16px;
-  height: 16px;
+  // background-color: var(--color-yellow);
+  width: 28px;
+  height: 28px;
 
   //   color: #86e543;
 
@@ -498,16 +541,59 @@
     display: none;
   }
 
-  // transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  // &:hover,
-  // &:focus {
-  // background-color: #202024;
-  // }
+  background-color: #FFFFFF;
+  background-image: url(../images/svg/burger.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+  background-image: url(../images/svg/burger-hover.svg);
+  }
 }
 
 // .button__meny-open-icon {
 //   fill: currentColor;
 // }
+.log-out-btn{
+  @media screen and (max-width: 767px) {
+   position: absolute;
+   left: 10vw;
+   top: 85vh;
+  z-index: 2;
+
+  width: 118px;
+  height: 48px;
+
+  color: #111111;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+
+
+  letter-spacing: -0.04em;
+  background: #FFFFFF;
+  border: 1.5px solid #111111;
+  border-radius: 18px;
+
+  background-image: url(../images/svg/arrowright.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-x: 82px;  
+}
+@media screen and (min-width: 768px) {
+  display: none;
+}
+}
+
+
+.test-icon{
+  width: 150px;
+  height: 150px;
+  fill: black;
+}
 
 .login-btn {
   display: none;
@@ -544,11 +630,13 @@
 }
 
 .mobile {
-  position: fixed;
-  top: 0;
+  // position: fixed;
+  // top: 0;
+  position: relative;
+
   width: 100vw;
   height: 100vh;
-  z-index: 10;
+  // z-index: 10;
   background: radial-gradient(
       183.6% 183.01% at 59.76% -23.42%,
       #4f2ee8 18.03%,

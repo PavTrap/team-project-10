@@ -1,17 +1,22 @@
 <header class="header">
     <div class="container header-container">
-
         <nav class="header-navigation">
             <a href="index.html" class="logo link" lang="en">
             <svg class="logo__link"><use xlink:href="./image/header/symbol-defs.svg#icon-logo-white"></use></svg>
             </a>
-            <ul class="nav-list list">
+            <ul class="nav-list list nav-hidden">
                 <li class="nav-item">
-                    <a href="./index.html" class="nav-link link" data-href="index">Home</a>
+                    <button class=" nav-list__button">
+                        <a href="./index.html" class="nav-link link" data-href="index">Home</a> 
+                    </button>
                 </li>
                 <li class="nav-item">
-                    <a href="./shoppinglist.html" class="nav-link shoppinglist" data-href="shoppinglist">Shopping list <svg class="" width="16" height="12">
-                <use ></use></svg></a>
+                    <button class=" nav-list__button">
+                        <a href="./shoppinglist.html" class="nav-link shoppinglist" data-href="shoppinglist">
+                        Shopping list 
+                        <svg class="nav-item__shopping-bag"><use href="./images/svg/symbol-defs.svg#icon-bag"></use></svg>
+                    </a>
+                    </button>
                 </li>
             </ul>
         </nav>
@@ -25,6 +30,7 @@
             </div>
             
             <button type="button" class="button button-menu-open" data-menu-open>
+                <!-- <svg class="nav-item__shopping-bag"><use href="./images/svg/burger.svg"></use></svg> -->
                 <!-- <svg class="button__meny-open-icon" width="54" height="36"> -->
                     <!-- <use href="./images/icons.svg#icon-sandwich"></use> -->
                 </svg>
@@ -32,6 +38,11 @@
 
             <button type="button" class="login-btn" data-modal-start-open--sing-up data-modal-start-open>Sign up</button>
             <button type="button" class="login-btn sign-out">Sign out</button>
+
+            <button type="button" class="log-out-btn nav-hidden"> 
+                Log out
+                <svg class="nav-item__shopping-bag"><use href="./images/svg/burger.svg"></use></svg>
+            </button>
         </div>
         
             
@@ -42,21 +53,23 @@
     
     <div class="mobile mobile-is-hidden" data-menu>
         <div class="mobile-container">
-        <div class="header header-container">
+            
+        <!-- <div class="header header-container">
             <a href="index.html" class="logo link" lang="en"
             >BOOK
             </a>
-            <button type="button" class="mobile-menu-close-btn" data-menu-close>
+             <button type="button" class="mobile-menu-close-btn" data-menu-close>
             <svg class="mobile-menu-close-icon" width="36" height="36">
-                <!-- <use href="./images/icons.svg#icon-Main-menu-exit"></use> -->
-            </svg>
+                <use href="./images/icons.svg#icon-Main-menu-exit"></use> 
+            </svg> 
             </button>
-        </div>
+        </div> -->
 
         <div class="mobile-meny">
-            <button type="button" class="login-mob-btn " data-modal-start-open--sing-up data-modal-start-open>Sign up <svg class="login-mob-icon" width="20" height="20">
+             
+            <!-- <button type="button" class="login-mob-btn " data-modal-start-open--sing-up data-modal-start-open>Sign up <svg class="login-mob-icon" width="20" height="20">
                 <use ></use></svg>
-            </button>
+            </button> -->
             <!-- <ul class="mobile-list list">
             <li class="mobile-item">
                 <a href="index.html" class="mobile-link nav-link link">Home</a>
