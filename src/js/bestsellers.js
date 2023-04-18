@@ -5,7 +5,7 @@ import {
   renderButton,
   imageButtonsHandler,
 } from './card-books.js';
-import { ref } from './categories.js';
+import { categoriesList } from './categories.js';
 //------------------Імпорт пакетів/стилі/шаблонів
 
 //------------------Змінні
@@ -74,11 +74,13 @@ function seeMoreButtonsHandler() {
 
 function categoriesLinksHandler() {
   let linksList = document.querySelectorAll('.categories__item');
-  // document
-  //   .querySelector('.category-active')
-  //   .classList.remove('category-active');
+  let linkItem = document.querySelectorAll('.categories__link');
   for (link of linksList) {
     link.addEventListener('click', e => {
+      for (item of linkItem) {
+        item.classList.remove('category-active');
+      }
+      e.target.classList.add('category-active');
       if (
         localStorage.getItem('selected-category') === e.target.dataset.category
       ) {
@@ -86,9 +88,6 @@ function categoriesLinksHandler() {
       }
       localStorage.setItem('selected-category', e.target.dataset.category);
       renderDOM();
-      // for (const category of refs.categoriesList) {
-      //   category.classList.add('category-active');
-      // }
     });
   }
 }
@@ -154,7 +153,8 @@ async function renderFetchByTop() {
   refs.sectionTitle.innerHTML = '';
   refs.sectionTitle.insertAdjacentHTML(
     'afterbegin',
-    `<span>BestSellers<span><span class="section-title--highlight">Books</span>`
+    `<span>BestSellers<span>
+    <span class="section-title--highlight">Books</span>`
   );
   for (let i = 0; i < promise.length; i++) {
     categoryContainer = document.createElement('div');
