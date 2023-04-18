@@ -1,5 +1,9 @@
 <header class="header">
+
     <div class="container header-container">
+
+    <!-- <div class="header-container"> -->
+
         <nav class="header-navigation">
             <a href="index.html" class="logo link" lang="en">
             <svg class="logo__link"><use xlink:href="./image/header/symbol-defs.svg#icon-logo-white"></use></svg>
@@ -20,7 +24,6 @@
                 </li>
             </ul>
         </nav>
-
         <div class="header-options">
             <div class="switches">
                 <label id="switch" class="switch">
@@ -28,8 +31,8 @@
                     <span class="switch__slider"></span>
                 </label>
             </div>
-            
             <button type="button" class="button button-menu-open" data-menu-open>
+
                 <!-- <svg class="nav-item__shopping-bag"><use href="./images/svg/burger.svg"></use></svg> -->
                 <!-- <svg class="button__meny-open-icon" width="54" height="36"> -->
                     <!-- <use href="./images/icons.svg#icon-sandwich"></use> -->
@@ -43,16 +46,21 @@
                 Log out
                 <svg class="nav-item__shopping-bag"><use href="./images/svg/burger.svg"></use></svg>
             </button>
+
+                <!-- <svg class="btn-menu" width="28px" height="28px">
+                    <use href="./images/svg/symbol-defs.svg#icon-menu"></use>
+                </svg>
+            </button> -->
+
         </div>
-        
-            
-            
-
-
     </div>
-    
-    <div class="mobile mobile-is-hidden" data-menu>
+     <button type="button" class="login-btn login-btn-mobile" data-modal-start data-modal-start-open--sing-up>Sign up</button>
+     <button type="button" class="login-btn sign-out">Sign out</button>
+     <script type="module" src="./js/current-page.js"></script>
+</header>
+    <div class="mobile mobile-is-hidden" data-menu data-menu-open data-menu-close>
         <div class="mobile-container">
+
             
         <!-- <div class="header header-container">
             <a href="index.html" class="logo link" lang="en"
@@ -84,3 +92,7 @@
     </div>
     <script type="module" src="./js/current-page.js"></script>
 </header>
+
+        </div>
+    </div>
+

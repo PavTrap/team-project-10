@@ -9,6 +9,7 @@
   --color-scroll: #e0e0e0;
   --color-grey-light: #b4afaf;
   --color-grey-lighter: #f6f6f6;
+  --color-white-dark: #f3f3f3;
 
   // Цвета для светлой темы (по умолчанию)
 
@@ -40,6 +41,12 @@
 
   --color-auth-form-background: var(--color-grey-lighter);
   --color-auth-form-border: var(--color-black);
+
+  // текст на btn модалка старт
+  --color-text-btn-modal: var(--color-white-dark);
+
+  // label и input на модалке start, иконки
+  --color-label-input: var(--color-black);
 
   // Misc
 
@@ -73,4 +80,9 @@
   --color-background: var(--color-grey-darker);
   --color-auth-form-background: #202024;
   --color-auth-form-border: var(--color-grey-lighter);
+
+  // текст на btn модалка старт
+  --color-text-btn-modal: var(--color-grey-darker);
+  // label и input на модалке start, иконки
+  --color-label-input: var(--color-grey-lighter);
 }

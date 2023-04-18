@@ -1,7 +1,3 @@
-:root {
-  --light-grey: #f6f6f6;
-  --dark-white: #f3f3f3;
-}
 
 .list {
   list-style: none;
@@ -35,33 +31,27 @@ p {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: var(--light-grey);
+  background-color: var(--color-background);
   border: 0;
-
-  // display: inline-block;
-  // stroke-width: 0;
-  // stroke: currentColor;
-  // fill: currentColor;
 
   @media screen and (min-width: 768px) {
     top: 24px;
     right: 24px;
   }
-
 }
-
 
 .modal__item {
   display: inline-block;
   stroke-width: 0;
-  stroke: currentColor;
+  stroke: var(--color-label-input);
   fill: currentColor;
 
-  transition: fill 250ms var(--transition-timing-func);
+  transition: opacity 250ms var(--transition-timing-func),
+            visibility 250ms var(--transition-timing-func);
 
   &:focus,
   &:hover {
-    stroke: var(--color-blue);
+    stroke: var(--color-category-active);
   }
 }
 
@@ -72,11 +62,11 @@ p {
 
   width: 100%;
   height: 100%;
-  background-color: var(--color-blue);
+  background-color: var(--color-category-active);
   overflow: scroll;
 
-  transition: opacity 250ms var(--transition-timing-func),
-    visibility 250ms var(--transition-timing-func);
+  transition: opacity 250ms var(--transition-timing-func);
+    visibility: 250ms var(--transition-timing-func);
 
   &.is-hidden-start {
     opacity: 0;
@@ -93,12 +83,12 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  border: 2px solid var(--color-black);
-  background-color: var(--light-grey);
+  border: 2px solid var(--color-label-input);
+  background-color: var(--color-background);
   border-radius: 18px;
 
-  transition: transform 250ms var(--transition-timing-func),
-    opacity 250ms var(--transition-timing-func);
+  transition: opacity 250ms var(--transition-timing-func),
+      visibility 250ms var(--transition-timing-func);
 
   @media screen and (min-width: 768px) {
     min-width: 579px;
@@ -139,7 +129,7 @@ p {
   letter-spacing: -0.01em;
   text-transform: uppercase;
 
-  color: var(--color-black);
+  color: var(--color-label-input);
 
   flex: none;
   order: 0;
@@ -153,8 +143,6 @@ p {
 
     font-size: 18px;
     line-height: calc(24 / 18);
-
-    color: var(--color-black);
   }
 }
 
@@ -172,8 +160,9 @@ p {
   width: 295px;
   height: 50px;
 
-  background-color: var(--light-grey);
-  border: 2px solid var(--color-black);
+  color: var(--color-label-input);
+  background-color: var(--color-background);
+  border: 2px solid var(--color-label-input);
   border-radius: 40px;
 
   flex: none;
@@ -189,7 +178,7 @@ p {
 
   &:hover,
   &:focus {
-    border: 2px solid var(--color-blue);
+    border: 2px solid var(--color-category-active);
   }
 }
 
@@ -204,7 +193,9 @@ p {
   top: 50%;
   left: 253px;
   transform: translateY(-50%);
-  fill: var(--light-grey);
+  stroke: var(--color-label-input);
+  // stroke: var(--color-background);
+  fill: var(--color-background);
 
   display: inline-block;
   stroke-width: 0;
@@ -227,7 +218,7 @@ p {
   width: 294px;
   height: 50px;
 
-  background: var(--color-black);
+  background: var(--color-label-input);
   border-radius: 40px;
 
   font-family: 'DM Sans';
@@ -239,7 +230,7 @@ p {
   letter-spacing: -0.01em;
   text-transform: uppercase;
 
-  color: var(--dark-white);
+  color: var(--color-text-btn-modal);
 
   flex: none;
   order: 0;
@@ -256,7 +247,7 @@ p {
 
   &:hover,
   &:focus {
-    background: var(--color-blue);
+    background: var(--color-category-active);
   }
 }
 
@@ -273,7 +264,7 @@ p {
   text-decoration-line: underline;
   text-transform: uppercase;
 
-  color: var(--color-blue);
+  color: var(--color-category-active);
 
   flex: none;
   order: 0;
@@ -299,7 +290,7 @@ p {
   text-decoration-line: underline;
   text-transform: uppercase;
 
-  color: var(--color-blue);
+  color: var(--color-category-active);
 
   flex: none;
   order: 0;
@@ -312,12 +303,4 @@ p {
     font-size: 18px;
     line-height: calc(24 / 18);
   }
-}
-
-.modal-form__link .sing-up {
-  width: 54px;
-}
-
-.modal-form__link .sing-in {
-  width: 50px;
 }

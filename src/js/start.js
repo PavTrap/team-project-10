@@ -7,9 +7,7 @@ const btnCloseXEl = document.querySelector('.modal__button-x')
 const divDataModalStartEl = document.querySelector('div[data-modal-start]')
 
 const nameLabelEl = document.querySelector('label[for="user_person"]');
-console.log(nameLabelEl);
 const nameInputEl = document.querySelector('#user_person');
-console.log(nameInputEl);
 
 const emailLabelEl = document.querySelector('label[for="user_email"]');
 const emailInputEl = document.querySelector('#user_email')
@@ -84,42 +82,34 @@ btnCloseXEl.addEventListener('click', e => {
   formEl.style.display = 'none';
 })
 
-// // Закрытие формы при нажатии на Esc
-// window.addEventListener('keydown', e => {
-//     if (e.key === 'Escape') {
-//       formEl.style.display = "none";
-//       backdropEl.style.display = "none";
-//   }
-// });
+// Закрытие формы при нажатии на Esc
+window.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    if (e.key === 'Escape' && !formEl.contains(document.activeElement)) {
+      formEl.classList.add('is-hidden-start');
+      backdropEl.classList.add('is-hidden-start');
+    }
+  }
+});
 
 // Закрытие формы при нажатии на backdrop
-// backdropEl.addEventListener('click', e => {
-//   formEl.style.display = 'none';
-//   backdropEl.style.display = "none";
-// });
-
-// // Сбрасываем стиль дисплей none перед повторным открытием модалки с формой
-// btnSingUp.addEventListener('click', e => {
-//   if (divDataModalStartEl.style.display === "none") {
-//     divDataModalStartEl.removeAttribute('style');
-//     formEl.removeAttribute('style');
-//     }
-// })
-
-// функция для открытия модального окна
-function openModal() {
-  // устанавливаем стиль display в block и добавляем класс active
-  formEl.style.display = 'block';
-  formEl.classList.add('active');
-  // добавляем класс active к backdrop
-  backdropEl.classList.add('active');
-}
-
-function themeDark() {
-  if (body === theme - dark) {
-    document.documentElement.classList.add('theme-dark'); 
+backdropEl.addEventListener('click', e => {
+  if (formEl && e.target === backdropEl) {
+    formEl.classList.add('is-hidden-start');
+    backdropEl.classList.add('is-hidden-start');
   }
-}
+});
+
+// Сбрасываем стиль дисплей none перед повторным открытием модалки с формой
+btnSingUp.addEventListener('click', e => {
+  if (divDataModalStartEl.style.display === "none") {
+    divDataModalStartEl.removeAttribute('style');
+    formEl.removeAttribute('style');
+    }
+})
+
+
+
 
 
 

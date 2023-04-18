@@ -1,3 +1,5 @@
+// Функція для відкриття модального вікна та заповнення його даними з API
+
 let idFromBook;
 
 const fetchUsers = async id => {
@@ -11,44 +13,53 @@ const fetchUsers = async id => {
   return users;
 };
 
-const amazonPic = new URL(import.meta.url);
-const applebooksPic = new URL(import.meta.url);
-const bookstore_shopPic = new URL(import.meta.url);
+const amazonPic = new URL('../images/shop-icons/amazon.jpg', import.meta.url);
+const applebooksPic = new URL(
+  '../images/shop-icons/applebooks.jpg',
+  import.meta.url
+);
+const bookstore_shopPic = new URL(
+  '../images/shop-icons/bookstore.jpg',
+  import.meta.url
+);
 
-const modalBtnAddRemove = document.querySelector('#pop-btn');
+const modalBtnAddRemove = document.querySelector('.pop__btn');
+// const modalData = document.getElementById('modal')
+const bookInfoURL = document.getElementById('bookInfoUrl');
+const bookInfo = document.getElementById('bookInfo');
+const bookInform = document.getElementById('bookInform');
 
 // Функція для відкриття модального вікна та заповнення його даними з API
 export function openModal(id) {
-  // const bookInfo = document.getElementById('bookInfo')
   const bookId = fetchUsers(id);
   bookId.then(id => {
     bookInfo.insertAdjacentHTML(
       'afterbegin',
-      `<li class="shopping-carg ${id._id}" >
-                    <img class="shopping-carg-image" src="${
-                      id.book_image
-                    }" alt="" />
-                    <div class="">
-                        <div class="">
-                            <div>
-                                <h2 class="shopping-carg-book-title">${
-                                  id.title
-                                }</h2>
-                                <p class="shopping-carg-book-author">${
-                                  id.author
-                                }</p>
-                                <p class="shopping-carg-book-description">${
-                                  id.description || 'There is no description'
-                                }</p>
-                            </div>
-                        </div>
-                    </div>
-                </li>`
+      `<li ${id._id}" >
+        <div class="modal-card__flex">
+          <div class="modal-card">
+          <img class="modal-card__image" src="${id.book_image}" alt="" />
+          
+        </div>
+        
+        </div>
+      </li>`
+    );
+    bookInform.insertAdjacentHTML(
+      'afterbegin',
+      `<div>
+          <h2 class="modal-card__title">${id.title}</h2>
+          <p class="modal-card__author">${id.author}</p>
+          <p class="modal-card__description">${
+            id.description || 'There is no description'
+          }</p>
+        </div>`
     );
 
+    // Відобразити модальне вікно
     id.buy_links.map(el => {
       if (el.name === 'Amazon') {
-        bookInfo.insertAdjacentHTML(
+        bookInfoURL.insertAdjacentHTML(
           'beforeend',
           `<li class="pop_shop-item">
                             <a
@@ -57,7 +68,7 @@ export function openModal(id) {
                             target="_blank"
                             rel="noopener noreferrer"
                             ><img
-                                class="pop_list-img"
+                                class="modal_list-img"
                                 src="${amazonPic}" 
                                 alt="amazon_shop_icon"/>
                             </a>
@@ -65,7 +76,7 @@ export function openModal(id) {
         );
       }
       if (el.name === 'Apple Books') {
-        bookInfo.insertAdjacentHTML(
+        bookInfoURL.insertAdjacentHTML(
           'beforeend',
           `<li class="pop_shop-item">
                     <a
@@ -83,7 +94,7 @@ export function openModal(id) {
         );
       }
       if (el.name === 'Bookshop') {
-        bookInfo.insertAdjacentHTML(
+        bookInfoURL.insertAdjacentHTML(
           'beforeend',
           `<li class="pop_shop-item">
                     <a
@@ -108,61 +119,94 @@ export function openModal(id) {
   modal.style.display = 'block';
 
   // Додати обробник події на кнопку закриття модального вікна
-  const closeButton = document.getElementsByClassName('close')[0];
+  const closeButton = document.getElementsByClassName('modal-btn')[0];
   closeButton.onclick = function () {
+    modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
     modal.style.display = 'none';
+    bookInfoURL.innerHTML = '';
     bookInfo.innerHTML = '';
+    bookInform.innerHTML = '';
   };
+
+  setHandler();
 }
 
 window.onclick = function (event) {
   if (event.target == modal) {
+    modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
     modal.style.display = 'none';
+    // modalData.innerHTML = '';
+    bookInfoURL.innerHTML = '';
     bookInfo.innerHTML = '';
+    bookInform.innerHTML = '';
   }
 };
 
 window.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
+    modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
     modal.style.display = 'none';
+    // modalData.innerHTML = '';
+    bookInfoURL.innerHTML = '';
     bookInfo.innerHTML = '';
+    bookInform.innerHTML = '';
   }
 });
+const buttonHandler = function (event) {
+  let currentCardId = modalBtnAddRemove.dataset.id;
+  let dataFromLocalStorage = localStorage.getItem('User-name');
+  let parsedDataFromLocalStorage = JSON.parse(dataFromLocalStorage);
+  let name = parsedDataFromLocalStorage.name;
+  let email = parsedDataFromLocalStorage.email;
+  console.log('ListId from LocalStorage:', parsedDataFromLocalStorage.listId);
+  console.log('CurrentId from Button', currentCardId);
+  if (parsedDataFromLocalStorage.listId.indexOf(currentCardId) == -1) {
+    parsedDataFromLocalStorage.listId.push(currentCardId);
+    localStorage.setItem(
+      'User-name',
+      JSON.stringify({
+        name: name,
+        email: email,
+        listId: parsedDataFromLocalStorage.listId,
+      })
+    );
+    console.log('Item was added');
+    event.target.innerHTML = 'remove from the shopping list';
+    modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
+    modalBtnAddRemove.addEventListener('click', buttonHandler, false);
+  } else {
+    let filteredArray = parsedDataFromLocalStorage.listId.filter(item => {
+      return item != currentCardId;
+    });
+    localStorage.setItem(
+      'User-name',
+      JSON.stringify({
+        name: name,
+        email: email,
+        listId: filteredArray,
+      })
+    );
+    console.log('Item was deleted');
+    event.target.innerHTML = 'Add to shopping list';
+    modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
+    modalBtnAddRemove.addEventListener('click', buttonHandler, false);
+  }
+};
+function setHandler() {
+  modalBtnAddRemove.dataset.id = idFromBook;
 
-modalBtnAddRemove.addEventListener('click', event => {
   const dataFromLocalStorage = localStorage.getItem('User-name');
   const parsedDataFromLocalStorage = JSON.parse(dataFromLocalStorage);
-  //   console.log(parsedDataFromLocalStorage.listId);
-  console.log(parsedDataFromLocalStorage.name);
-  console.log(parsedDataFromLocalStorage.email);
+
   const name = parsedDataFromLocalStorage.name;
   const email = parsedDataFromLocalStorage.email;
-  parsedDataFromLocalStorage.listId.push(idFromBook);
-  localStorage.setItem(
-    'User-name',
-    JSON.stringify({
-      name: name,
-      email: email,
-      listId: parsedDataFromLocalStorage.listId,
-    })
-  );
-  let buttton = event.target.innerHTML;
-  //   console.log(buttton);
-  const addbtn = 'Add to shopping list';
-  const removebtn = 'Remove from the shopping list';
-
-  if (modalBtnAddRemove.innerHtml === addbtn) {
-    modalBtnAddRemove.innerHtml = removebtn;
+  if (parsedDataFromLocalStorage.listId.indexOf(idFromBook) == -1) {
+    console.log('ID:', idFromBook, 'not found');
+    modalBtnAddRemove.innerHTML = 'Add to shopping list';
   } else {
-    modalBtnAddRemove.innerHtml = addbtn;
+    console.log('ID:', idFromBook, 'found');
+    modalBtnAddRemove.innerHTML = 'remove from the shopping lis';
   }
-});
 
-// modalBtnAddRemove.addEventListener('click', event => {
-//   //   modalBtnAddRemove.innerHTML = 'Remove from Shopping List';
-//   if (event.target.innerHtml === 'Add to shopping list') {
-//     event.target.innerHtml === 'Remove from the shopping list';
-//   } else {
-//     event.target.innerHtml = 'Add to shopping list';
-//   }
-// });
+  modalBtnAddRemove.addEventListener('click', buttonHandler, false);
+}
