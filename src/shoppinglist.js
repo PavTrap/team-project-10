@@ -13,43 +13,20 @@ const paginationEl = document.querySelector('#tui-pagination-container');
 // додаємо прослуховання на картку з іформацією про книгу
 const infoBlock = document.querySelector('#info-block');
 
-const userName = localStorage.getItem('User-name');
-// ===========================================================================
-// Проверка работоспособности
+// Зчитуємо массив з даними userName з local storage
+let userName = JSON.parse(localStorage.getItem('User-name'));
 console.log(userName);
 
-const tttttt = {
-  name: userName,
-  email: 'ffffffffffff',
-  listId: [
-    '643282b1e85766588626a080',
-    '643282b1e85766588626a0ba',
-    '643282b1e85766588626a085',
-    '643282b1e85766588626a0b2',
-    '643282b1e85766588626a086',
-    '643282b1e85766588626a0b4',
-    '643282b1e85766588626a087',
-    '643282b1e85766588626a0b6',
-    '643282b1e85766588626a081',
-    '643282b1e85766588626a0aa',
-    '643282b1e85766588626a07a',
-    '643282b1e85766588626a0a8',
-  ],
-};
-localStorage.setItem(userName, JSON.stringify(tttttt));
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// конец проверки
-
-// перевіряє наявність User-name в Local storage
-// якщо нема, виводимо порожню сторінку
 if (userName === null) {
   createEmptyPage();
 }
 
-// Зчитуємо массив з даними userName з local storage
-let userInfo = JSON.parse(localStorage.getItem(userName));
 // Отрумуємо масив з списком id книг
-let listID = userInfo.listId;
+let listID = userName.listId;
+console.log(listID);
+
+
+
 
 // Налаштування параметрів для бібліотеки Pagination
 let options = {
@@ -235,13 +212,17 @@ function createShoppingListPage(shoppingList) {
       if (index !== -1) {
         listID.splice(indexID, 1);
       }
-      // Оновлюємо значення listId в масиві userInfo,
+      // Оновлюємо значення listId в масиві userName,
       // та перезаписуемо у local storage macuв userName
-      userInfo.listId = listID;
-      localStorage.setItem(userName, JSON.stringify(userInfo));
+      userName.listId = listID;
+           
+      localStorage.setItem('User-name', JSON.stringify(userName));
+      
       // оновлюємо значення для пагінації
+      
       pagination.reset();
       options.totalItems = listID.length;
+      
       options.visiblePages = Math.ceil(listID.length / 3 - 1);
       pagination = new Pagination(paginationEl, options);
       checkingShoppingListLenght(listID);
