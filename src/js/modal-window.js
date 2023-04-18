@@ -16,7 +16,7 @@ const applebooksPic = new URL('../images/shop-icons/applebooks.jpg', import.meta
 const bookstore_shopPic = new URL('../images/shop-icons/bookstore.jpg', import.meta.url);
 
 const modalBtnAddRemove = document.querySelector('.pop__btn');
-const modalData = document.getElementById('modal')
+// const modalData = document.getElementById('modal')
 const bookInfoURL = document.getElementById('bookInfoUrl')
 const bookInfo = document.getElementById('bookInfo')
 const bookInform = document.getElementById('bookInform')
@@ -109,8 +109,8 @@ export function openModal(id) {
   const closeButton = document.getElementsByClassName('modal-btn')[0];
   closeButton.onclick = function () {
     modal.style.display = 'none';
+    bookInfoURL.innerHTML = '';
     bookInfo.innerHTML = '';
-    // bookInfoURL.innerHTML = '';
     bookInform.innerHTML = '';
   };
 }
@@ -119,8 +119,8 @@ window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = 'none';
     // modalData.innerHTML = '';
+    bookInfoURL.innerHTML = '';
     bookInfo.innerHTML = '';
-    // bookInfoURL.innerHTML = '';
     bookInform.innerHTML = '';
   }
 };
@@ -129,9 +129,10 @@ window.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
     modal.style.display = 'none';
     // modalData.innerHTML = '';
+    bookInfoURL.innerHTML = '';
     bookInfo.innerHTML = '';
-    // bookInfoURL.innerHTML = '';
     bookInform.innerHTML = '';
+
   }
 });
 
