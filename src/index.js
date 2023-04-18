@@ -1,23 +1,19 @@
-import './js/array_foundation';
 import './js/categories';
-import './shoppinglist';
-
-// import './js/header';
-import './js/modal-window';
-import './js/start';
 
 import './js/header';
 
-import './js/markup-foundation';
+import './js/start';
+import './js/start-open-close';
 
+import './js/array_foundation';
+import './js/markup-foundation';
+import './js/slider-foundation';
 
 import './js/bestsellers';
 
+import './js/firebase';
 
 import './js/modal-window';
 
-import './js/selected-category';
-
-
-
-
+import './js/theme-switch';
+import './js/card-books';

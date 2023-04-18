@@ -2,16 +2,17 @@
 @import './start';
 @import './foundation.scss';
 @import './categories';
-// @import './header';
+@import './header';
 
-@import './bestsellers.scss';
-
+@import './card-books.scss';
 
 @import './presets';
-
-
-
-@import './modal-window';
+@import './main-container';
 
 @import './selected-category';
 
+@import './modal-window';
+
+@import './shoppinglist';
+
+@import './pagination';
