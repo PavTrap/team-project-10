@@ -66,10 +66,6 @@ function seeMoreButtonsHandler() {
   for (button of buttonsList) {
     button.addEventListener('click', e => {
       localStorage.setItem('selected-category', e.target.dataset.category);
-      console.log(
-        'Вибрана категорія:',
-        localStorage.getItem('selected-category')
-      );
       renderDOM();
     });
   }
@@ -79,12 +75,12 @@ function categoriesLinksHandler() {
   let linksList = document.querySelectorAll('.categories__item');
   for (link of linksList) {
     link.addEventListener('click', e => {
-      console.log(e.target);
+      if (
+        localStorage.getItem('selected-category') === e.target.dataset.category
+      ) {
+        return;
+      }
       localStorage.setItem('selected-category', e.target.dataset.category);
-      console.log(
-        'Вибрана категорія:',
-        localStorage.getItem('selected-category')
-      );
       renderDOM();
     });
   }
@@ -185,8 +181,6 @@ async function renderFetchByCat() {
   categoryContainer = document.createElement('div');
   categoryContainer.classList.add('category-container');
   for (let i = 0; i < promise.length; i++) {
-    //console.log(promise[i].list_name);
-
     cardRenderByCat(promise[i]);
     categoryContainer.insertAdjacentHTML('beforeend', cardMarkup);
   }
