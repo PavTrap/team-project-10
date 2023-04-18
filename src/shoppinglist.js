@@ -7,10 +7,8 @@ import './js/theme-switch';
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
-import { bookShops } from './js/array_book_shops'
-console.log(bookShops)
-
-
+import { bookShops } from './js/array_book_shops';
+console.log(bookShops);
 
 // знаходимо контейнер для пагінації та елемент для відображення інформації
 const paginationEl = document.querySelector('#tui-pagination-container');
@@ -185,7 +183,7 @@ function createShoppingListPage(shoppingList) {
             <p class="shopping-carg-book-categorie">${shop.list_name}</p>
           </div>
           <button class="button shopbtn card-delete" data-index="${shop._id}">
-            <img src="${bookShops.dump}" alt="" />
+            <img src="${bookShops.dump}" alt="" width=26px/>
           </button>
         </div>
         <p class="shopping-carg-book-description">${shop.description}</p>
@@ -269,7 +267,9 @@ function clearList() {
 // функція створення пустої сторінки
 export function createEmptyPage() {
   clearList();
-  const emptyPage =
-    `<li><p>"This page is empty, add some books and proceed to order."</p><img src="${bookShops.emptypage}" alt=""></li>`;
+  const emptyPage = `<li class="shopping-list-emptypage">
+  <p>"This page is empty, add some books and proceed to order."</p>
+  <img src="${bookShops.emptypage}" alt="">
+  </li>`;
   infoBlock.insertAdjacentHTML('afterbegin', emptyPage);
 }

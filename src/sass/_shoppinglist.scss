@@ -1,19 +1,21 @@
 .shopping-list {
-  max-width: 335px;
+  max-width: 100vh;
+  max-height: 100vh;
   margin: 40px 0 0;
   // margin-top: 40px;
   background-color: var(--color-background);
   
   padding: 0 15px;
+  
 
   @media screen and (min-width: 768px) {
-    max-width: none;
+    
     display: flex;
     flex-direction: column;
-    max-width: 704px;
+    
   }
   @media screen and (min-width: 1440px) {
-    max-width: none;
+    
     display: flex;
     flex-direction: column;
     // max-width: 996px;
@@ -41,6 +43,11 @@ color: #111111;
   color:#4F2EE8
 }
 .shopping-carg-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 100vh;
+  width: 100vh;
 margin-top: 40px;
 }
 
@@ -131,6 +138,7 @@ letter-spacing: 0.03em;
 color: #B4AFAF;
 
 
+
 /* Inside auto layout */
 
 // flex: none;
@@ -145,7 +153,7 @@ height: 28px;
 left: 0px;
 top: 0px;
 border-radius: 50%;
-background: #4F2EE8;
+background: var(--color-blue);
 border: 0;
 }
 
@@ -174,7 +182,6 @@ letter-spacing: -0.04em;
 
 color: #B4AFAF;
 }
-
 .shopping-carg-shops {
   display: flex;
   justify-content: center;
@@ -182,16 +189,24 @@ color: #B4AFAF;
   gap: 10px;
 }
 
-.shopping-carg-shop-amazon {
-//   width: 48px;
-// height: 15px;
+.shopping-list-emptypage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // height: 100vh;
+  
+  margin: auto;
+}
 
-background: url(../image/shoppinglist/amazon.png);
-mix-blend-mode: luminosity;
-
-/* Inside auto layout */
-
-// flex: none;
-// order: 0;
-// flex-grow: 0;
+.shopping-list-emptypage p {
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 244px;
+} 
+.shopping-list-emptypage img {
+  margin-top: 14px;
+  margin-left: auto;
+  margin-right: auto;
 }
