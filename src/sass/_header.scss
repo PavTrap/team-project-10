@@ -8,26 +8,34 @@
 }
 
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: var(--color-header-background);
   border: 1.5px solid var(--color-header-border);
   border-radius: 0px 0px 8px 8px;
+  width: 100%;
+  height: 64px;
+  padding: 20px;
   position: sticky;
   top: 0px;
-  z-index: 1;
-}
-
-.mobile.mobile-is-hidden {
-  display: none;
+  z-index: 13;
+  @media screen and (min-width: 768px) {
+    z-index: 4;
+    padding: 19px 24px;
+    gap: 24px;
+    height: 72px;
+  }
 }
 
 .header-container {
+  flex-grow: 3;
   display: flex;
-  padding: 18px 20px;
   align-items: center;
   justify-content: space-between;
 
   @media screen and (min-width: 768px) {
-    padding: 14px 32px;
+    justify-content: space-between;
   }
 }
 
@@ -53,6 +61,9 @@
     gap: 16px;
     margin-left: 32px;
     align-items: center;
+  }
+  @media screen and (min-width: 1200px) {
+    margin-left: 99px;
   }
 }
 
@@ -175,20 +186,24 @@
   // }
 }
 
-// .button__meny-open-icon {
-//   fill: currentColor;
-// }
+// // .button__meny-open-icon {
+// //   fill: currentColor;
+// // }
 
 .login-btn {
   display: none;
   @media screen and (min-width: 768px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    // position: absolute;
+    // top: 14px;
+    // right: 14px;
+    display: block;
+    // align-items: center;
+    // justify-content: center;
     width: 184px;
-    height: 48px;
-    margin-left: 24px;
-    padding: 14px;
+    height: 45px;
+    position: inherit;
+    // margin-left: 24px;
+    // padding: 14px;
 
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -210,18 +225,31 @@
   }
 }
 
+// .login-btn-mobile {
+//   @media screen and (max-width: 767px) {
+//     display: block;
+//     position: absolute;
+//     top: 200px;
+//   }
+// }
+
+.mobile-is-hidden {
+  display: none;
+}
+
 .mobile {
-  position: fixed;
+  position: absolute;
+  z-index: 5;
   top: 0;
+  left: 0;
   width: 100vw;
-  height: 100vh;
-  z-index: 10;
+  height: 100%;
+
   background: radial-gradient(
-      183.6% 183.01% at 59.76% -23.42%,
-      #4f2ee8 18.03%,
-      #ffffff 100%
-    )
-    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+    183.6% 183.01% at 59.76% -23.42%,
+    #4f2ee8 18.03%,
+    #ffffff 100%
+  );
 
   @media screen and (min-width: 768px) {
     display: none;
@@ -229,101 +257,5 @@
 }
 
 .mobile-container {
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-
-  //   @media screen and (min-width: 480px) {
-  //   width: 480px;
-  // }
-  // @media screen and (min-width: 768px) {
-  //   width: 768px;
-  // }
-  // @media screen and (min-width: 1280px) {
-  //   width: 1280px;
-  // }
+  padding-top: 200px;
 }
-
-.mobile-menu-close-btn {
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-color: var(--color-yellow);
-  width: 16px;
-  height: 16px;
-
-  //   color: #86e543;
-  //   border: none;
-  //   background-color: transparent;
-
-  // transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  // &:hover,
-  // &:focus {
-  //   color: #ffffff;
-  // }
-}
-
-// .mobile-menu-close-icon {
-//   fill: currentColor;
-// }
-
-.login-mob-btn {
-  display: flex;
-  width: 184px;
-  height: 48px;
-  margin-top: 40px;
-  margin-left: 20px;
-  padding: 14px;
-
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  background: #4f2ee8;
-  border: 1.5px solid #111111;
-  border-radius: 18px;
-  font-family: 'DM Sans';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.29;
-  letter-spacing: -0.04em;
-
-  &:hover,
-  &:focus {
-    background-color: var(--color-grey-darker);
-  }
-
-  color: var(--color-white);
-}
-
-// .mobile-meny {
-//   margin-left: auto;
-//   margin-right: auto;
-// //   background-color: #001414;
-//   max-width: 480px;
-//   height: 464px;
-// }
-
-// .mobile-list {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   gap: 40px;
-//   padding-top: 64px;
-// }
-
-// .mobile-link {
-// font-weight: 500;
-// font-size: 14px;
-// line-height: 1.29;
-// letter-spacing: -0.04em;
-// text-transform: uppercase;
-
-// color: #FFFFFF;
-// }
-
-// .mobile__link.current {
-//   color: #86e543;
-// }
