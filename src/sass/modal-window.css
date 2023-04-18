@@ -68,5 +68,6 @@
   background-color: var(--color-blue);
   color: var(--color-white);
   /* border: none; */
-  transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1), background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
-}/*# sourceMappingURL=modal-window.css.map */
+  transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+} /*# sourceMappingURL=modal-window.css.map */

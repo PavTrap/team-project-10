@@ -1,4 +1,7 @@
-import './theme-switch';
+import './js/theme-switch';
+import './js/start';
+import './js/start-open-close';
+import './js/firebase';
 // const infoBlock = document.querySelector('#info-block');
 // // задаємо масив ідентифікаторів для використання в пагінації та зберігаємо його в local storage
 // let listID = [
@@ -209,7 +212,6 @@ import './theme-switch';
 //   infoBlock.insertAdjacentHTML('afterbegin', emptyPage);
 // }
 
-
 // імпортуємо Pagination та стилі з бібліотеки 'tui-pagination'
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
@@ -284,7 +286,7 @@ let options = {
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</a>', // шаблон для кнопки "перейти на попередню/наступну сторінку"
     disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-page-btn tui-is-disabled tui-{{type}}" style="background-color: #111111">' +
       '<span class="tui-ico-{{type}}">{{type}}</span>' +
       '</span>', // шаблон для вимкненої кнопки "перейти на попередню/наступну сторінку"
     moreButton:
@@ -469,7 +471,7 @@ function clearList() {
 }
 
 // функція створення пустої сторінки
-function createEmptyPage() {
+export function createEmptyPage() {
   clearList();
   const emptyPage =
     '<li><p>"This page is empty, add some books and proceed to order."</p><img src="./image/shoppinglist/emptypage.png" alt=""></li>';

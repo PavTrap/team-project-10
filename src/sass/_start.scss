@@ -25,7 +25,7 @@ p {
   margin: 0;
 }
 
-.modal__button {
+.modal__button-x {
   position: absolute;
   top: 14px;
   right: 14px;
@@ -35,16 +35,33 @@ p {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  fill: var(--color-black);
+  background-color: var(--light-grey);
+  border: 0;
+
+  // display: inline-block;
+  // stroke-width: 0;
+  // stroke: currentColor;
+  // fill: currentColor;
 
   @media screen and (min-width: 768px) {
     top: 24px;
     right: 24px;
   }
 
+}
+
+
+.modal__item {
+  display: inline-block;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+
+  transition: fill 250ms var(--transition-timing-func);
+
   &:focus,
   &:hover {
-    fill: var(--color-blue);
+    stroke: var(--color-blue);
   }
 }
 
@@ -91,16 +108,6 @@ p {
   .backdrop-start.is-hidden-start & {
     opacity: 0;
     transform: scale(0.75);
-  }
-}
-
-.modal__item {
-  fill: var(--color-black);
-  transition: fill 250ms var(--transition-timing-func);
-
-  &:hover,
-  &:focus {
-    fill: var(--color-blue);
   }
 }
 
@@ -197,7 +204,10 @@ p {
   top: 50%;
   left: 253px;
   transform: translateY(-50%);
-  fill: var(--color-black);
+  fill: var(--light-grey);
+
+  display: inline-block;
+  stroke-width: 0;
 
   @media screen and (min-width: 768px) {
     top: 50%;
