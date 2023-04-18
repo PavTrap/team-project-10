@@ -5,7 +5,7 @@ import {
   renderButton,
   imageButtonsHandler,
 } from './card-books.js';
-import { ref } from './categories.js';
+import { categoriesList } from './categories.js';
 //------------------Імпорт пакетів/стилі/шаблонів
 
 //------------------Змінні
@@ -29,11 +29,17 @@ function changeTitleColors(string) {
   return result;
 }
 
+// function isCategorySelected() {
+//   if (
+//     localStorage.getItem('selected-category') &&
+//     localStorage.getItem('selected-category') != 'undefined'
+//   ) {
+//     return true;
+//   }
+//   return false;
+// }
 function isCategorySelected() {
-  if (
-    localStorage.getItem('selected-category') &&
-    localStorage.getItem('selected-category') != 'undefined'
-  ) {
+  if (localStorage.getItem('selected-category') == 'null') {
     return true;
   }
   return false;
@@ -74,11 +80,13 @@ function seeMoreButtonsHandler() {
 
 function categoriesLinksHandler() {
   let linksList = document.querySelectorAll('.categories__item');
-  // document
-  //   .querySelector('.category-active')
-  //   .classList.remove('category-active');
+  let linkItem = document.querySelectorAll('.categories__link');
   for (link of linksList) {
     link.addEventListener('click', e => {
+      for (item of linkItem) {
+        item.classList.remove('category-active');
+      }
+      e.target.classList.add('category-active');
       if (
         localStorage.getItem('selected-category') === e.target.dataset.category
       ) {
@@ -86,9 +94,6 @@ function categoriesLinksHandler() {
       }
       localStorage.setItem('selected-category', e.target.dataset.category);
       renderDOM();
-      // for (const category of refs.categoriesList) {
-      //   category.classList.add('category-active');
-      // }
     });
   }
 }
@@ -116,7 +121,7 @@ const fetchBook = async () => {
 
 //------------------Функція запроса даних по ТОП книгам в категорії
 const fetchedArrayByTop = async () => {
-  cardsQuantityByCategory = 1;
+  refs.cardsQuantityByCategory = 1;
   if (checkWindowWidth() >= refs.tabletWidth) {
     refs.cardsQuantityByCategory = 3;
   }
@@ -148,7 +153,7 @@ const fetchedArrayByTop = async () => {
 
 //------------------Фукнція рендера карток
 async function renderFetchByTop() {
-  promise = await fetchedArrayByTop();
+  const promise = await fetchedArrayByTop();
 
   let currentCategory;
   refs.sectionTitle.innerHTML = '';
@@ -157,13 +162,13 @@ async function renderFetchByTop() {
     `<span>BestSellers<span><span class="section-title--highlight">Books</span>`
   );
   for (let i = 0; i < promise.length; i++) {
-    categoryContainer = document.createElement('div');
+    const categoryContainer = document.createElement('div');
     categoryContainer.classList.add('category-container');
 
     promise[i].map(obj => {
       currentCategory = obj.list_name;
-      cardRenderByTop(obj);
-      categoryContainer.insertAdjacentHTML('beforeend', cardMarkup);
+      // cardRenderByTop(obj);
+      categoryContainer.insertAdjacentHTML('beforeend', cardRenderByTop(obj));
     });
     categoryContainer.insertAdjacentHTML(
       'afterbegin',
@@ -184,12 +189,15 @@ async function renderFetchByTop() {
   categoriesLinksHandler();
 }
 async function renderFetchByCat() {
-  promise = await fetchedArrayByTop();
-  categoryContainer = document.createElement('div');
+  const promise = await fetchedArrayByTop();
+  const categoryContainer = document.createElement('div');
   categoryContainer.classList.add('category-container');
   for (let i = 0; i < promise.length; i++) {
-    cardRenderByCat(promise[i]);
-    categoryContainer.insertAdjacentHTML('beforeend', cardMarkup);
+    // cardRenderByCat(promise[i]);
+    categoryContainer.insertAdjacentHTML(
+      'beforeend',
+      cardRenderByCat(promise[i])
+    );
   }
   refs.allCategoryContainer.insertAdjacentElement(
     'beforeend',

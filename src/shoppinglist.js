@@ -5,10 +5,12 @@ import './js/theme-switch';
 
 // імпортуємо Pagination та стилі з бібліотеки 'tui-pagination'
 import Pagination from 'tui-pagination';
+
 import 'tui-pagination/dist/tui-pagination.css';
 
 import { bookShops } from './js/array_book_shops';
 console.log(bookShops);
+
 
 // знаходимо контейнер для пагінації та елемент для відображення інформації
 const paginationEl = document.querySelector('#tui-pagination-container');
@@ -61,8 +63,8 @@ console.log(listID);
 let options = {
   totalItems: listID.length, // загальна кількість елементів у списку
   itemsPerPage: 3, // кількість елементів, що будуть відображатись на одній сторінці
-  visiblePages: Math.ceil(listID.length / 3 - 1), // кількість видимих сторінок
-  centerAlign: true, // вирівнювання по центру
+  visiblePages: 2, // кількість видимих сторінок
+  centerAlign: false, // вирівнювання по центру
   firstItemClassName: 'tui-first-child', // клас для першого елементу
   lastItemClassName: 'tui-last-child', // клас для останнього елементу
   template: {

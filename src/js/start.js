@@ -7,9 +7,7 @@ const btnCloseXEl = document.querySelector('.modal__button-x')
 const divDataModalStartEl = document.querySelector('div[data-modal-start]')
 
 const nameLabelEl = document.querySelector('label[for="user_person"]');
-console.log(nameLabelEl);
 const nameInputEl = document.querySelector('#user_person');
-console.log(nameInputEl);
 
 const emailLabelEl = document.querySelector('label[for="user_email"]');
 const emailInputEl = document.querySelector('#user_email')
@@ -109,6 +107,7 @@ btnSingUp.addEventListener('click', e => {
     formEl.removeAttribute('style');
     }
 })
+
 
 
 

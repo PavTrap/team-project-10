@@ -1,6 +1,4 @@
-export const refs = {
-  categoriesList: document.querySelector('.categories__list'),
-};
+export const categoriesList = document.querySelector('.categories__list');
 
 const fetchArray = fetch(
   'https://books-backend.p.goit.global/books/category-list'
@@ -19,7 +17,7 @@ const fetchArray = fetch(
       .map(({ list_name }) => {
         return `<li class = "categories__item"><a href = "#" data-category = "${list_name}" class = "categories__link">${list_name}</a></li>`;
       });
-    refs.categoriesList.insertAdjacentHTML('beforeend', array.join(''));
+    categoriesList.insertAdjacentHTML('beforeend', array.join(''));
     console.log(array);
     return array;
   });
