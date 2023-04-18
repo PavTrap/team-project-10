@@ -3,6 +3,7 @@ export { cardRenderByTop, cardRenderByCat, renderButton, imageButtonsHandler };
 
 //------------------Шаблон рендера карток
 function cardRenderByTop(obj) {
+  let cardMarkup;
   return (cardMarkup = `
       <ul class='bestseller-card'>
       <div class = 'thumb'>
@@ -21,6 +22,7 @@ function cardRenderByTop(obj) {
     `);
 }
 function cardRenderByCat(obj) {
+  let cardMarkup;
   return (cardMarkup = `
       <ul class='bestseller-card --margin'>
       <div class = 'thumb'>
@@ -39,6 +41,7 @@ function cardRenderByCat(obj) {
     `);
 }
 function renderButton(category) {
+  let cardMarkup;
   return (cardMarkup = `
     <button class='button__see-more' type='button' data-category='${category}'>See more</button>
   `);
