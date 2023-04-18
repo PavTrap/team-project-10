@@ -499,7 +499,7 @@
   //   align-items: center;
   //   justify-content: center;
   border: none;
-  background-color: var(--color-yellow);
+  background-color: rgba(0, 0, 0, 0);
   width: 16px;
   height: 16px;
 
@@ -514,6 +514,23 @@
   // &:focus {
   // background-color: #202024;
   // }
+}
+
+.btn-menu {
+  display: block;
+  stroke: var(--color-label-input);
+
+  transition: opacity 250ms var(--transition-timing-func),
+      visibility 250ms var(--transition-timing-func);
+
+    &:hover,
+    &:focus {
+        border: 2px solid var(--color-category-active);
+      }
+
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
 }
 
 // // .button__meny-open-icon {
