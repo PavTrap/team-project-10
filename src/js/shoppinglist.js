@@ -59,7 +59,7 @@ import './theme-switch';
 //   if (listID.length === 0) {
 //     createEmptyPage();
 //   } else if (listID.length > 0) {
-    
+
 //     // Якщо listID не порожній
 
 //     const fetchID = async () => {
@@ -70,7 +70,7 @@ import './theme-switch';
 //         console.log(shoppingList);
 //       } catch (error) {
 //         console.log(error.message);
-        
+
 //       }
 //     };
 
