@@ -6,11 +6,8 @@ import './js/theme-switch';
 // імпортуємо Pagination та стилі з бібліотеки 'tui-pagination'
 import Pagination from 'tui-pagination';
 
-import 'tui-pagination/dist/tui-pagination.css';
-
 import { bookShops } from './js/array_book_shops';
 console.log(bookShops);
-
 
 // знаходимо контейнер для пагінації та елемент для відображення інформації
 const paginationEl = document.querySelector('#tui-pagination-container');
