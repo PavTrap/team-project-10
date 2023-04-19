@@ -126,7 +126,7 @@ const logoutInterval = setInterval(logout, 1000);
 if (localStorage.getItem(STORAGE_KEY)) {
   const dataFromLocalStorage = localStorage.getItem(STORAGE_KEY);
   const parsedDataFromLocalStorage = JSON.parse(dataFromLocalStorage);
-  if (parsedDataFromLocalStorage.name !== null) {
+  if (parsedDataFromLocalStorage.name !== 'Not Authorized') {
     signOutBtn.style.display = 'block';
     shopListBtn.style.display = 'inline';
     document.querySelector('.login-btn').innerHTML =

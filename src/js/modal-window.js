@@ -195,11 +195,18 @@ const buttonHandler = function (event) {
 function setHandler() {
   modalBtnAddRemove.dataset.id = idFromBook;
 
+  if (localStorage.getItem('User-name') == null) {
+    localStorage.setItem(
+      'User-name',
+      JSON.stringify({
+        name: 'Not Authorized',
+        email: 'Not Authorized',
+        listId: [],
+      })
+    );
+  }
   const dataFromLocalStorage = localStorage.getItem('User-name');
   const parsedDataFromLocalStorage = JSON.parse(dataFromLocalStorage);
-
-  const name = parsedDataFromLocalStorage.name;
-  const email = parsedDataFromLocalStorage.email;
   if (parsedDataFromLocalStorage.listId.indexOf(idFromBook) == -1) {
     console.log('ID:', idFromBook, 'not found');
     modalBtnAddRemove.innerHTML = 'Add to shopping list';
