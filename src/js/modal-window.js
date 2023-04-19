@@ -50,9 +50,7 @@ export function openModal(id) {
       `<div>
           <h2 class="modal-card__title">${id.title}</h2>
           <p class="modal-card__author">${id.author}</p>
-          <p class="modal-card__description">${
-            id.description || 'There is no description'
-          }</p>
+          <p class="modal-card__description">${id.description || 'There is no description'}</p>
         </div>`
     );
 
@@ -128,6 +126,17 @@ export function openModal(id) {
     bookInform.innerHTML = '';
   };
 
+  window.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
+      modal.style.display = 'none';
+      // modalData.innerHTML = '';
+      bookInfoURL.innerHTML = '';
+      bookInfo.innerHTML = '';
+      bookInform.innerHTML = '';
+    }
+  });
+
   setHandler();
 }
 
@@ -142,16 +151,16 @@ window.onclick = function (event) {
   }
 };
 
-window.addEventListener('keydown', event => {
-  if (event.key === 'Escape') {
-    modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
-    modal.style.display = 'none';
-    // modalData.innerHTML = '';
-    bookInfoURL.innerHTML = '';
-    bookInfo.innerHTML = '';
-    bookInform.innerHTML = '';
-  }
-});
+// window.addEventListener('keydown', event => {
+//   if (event.key === 'Escape') {
+//     modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
+//     modal.style.display = 'none';
+//     // modalData.innerHTML = '';
+//     bookInfoURL.innerHTML = '';
+//     bookInfo.innerHTML = '';
+//     bookInform.innerHTML = '';
+//   }
+// });
 const buttonHandler = function (event) {
   let currentCardId = modalBtnAddRemove.dataset.id;
   let dataFromLocalStorage = localStorage.getItem('User-name');
