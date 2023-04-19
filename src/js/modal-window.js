@@ -140,7 +140,6 @@ export function openModal(id) {
     }
   });
 
-
   setHandler();
 }
 
@@ -186,7 +185,8 @@ const buttonHandler = function (event) {
     );
     console.log('Item was added');
     event.target.innerHTML = 'remove from the shopping list';
-    popTextEl.innerHTML = 'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
+    popTextEl.innerHTML =
+      'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
     modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
     modalBtnAddRemove.addEventListener('click', buttonHandler, false);
   } else {
@@ -203,7 +203,7 @@ const buttonHandler = function (event) {
     );
     console.log('Item was deleted');
     event.target.innerHTML = 'Add to shopping list';
-    popTextEl.innerHTML = ''
+    popTextEl.innerHTML = '';
     modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
     modalBtnAddRemove.addEventListener('click', buttonHandler, false);
   }
@@ -211,11 +211,20 @@ const buttonHandler = function (event) {
 function setHandler() {
   modalBtnAddRemove.dataset.id = idFromBook;
 
+  if (localStorage.getItem('User-name') == null) {
+    localStorage.setItem(
+      'User-name',
+      JSON.stringify({
+        name: 'Not Authorized',
+        email: 'Not Authorized',
+        listId: [],
+      })
+    );
+  }
+
   const dataFromLocalStorage = localStorage.getItem('User-name');
   const parsedDataFromLocalStorage = JSON.parse(dataFromLocalStorage);
 
-  const name = parsedDataFromLocalStorage.name;
-  const email = parsedDataFromLocalStorage.email;
   if (parsedDataFromLocalStorage.listId.indexOf(idFromBook) == -1) {
     console.log('ID:', idFromBook, 'not found');
     modalBtnAddRemove.innerHTML = 'Add to shopping list';
@@ -223,7 +232,8 @@ function setHandler() {
   } else {
     console.log('ID:', idFromBook, 'found');
     modalBtnAddRemove.innerHTML = 'remove from the shopping lis';
-    popTextEl.innerHTML = 'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
+    popTextEl.innerHTML =
+      'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
   }
 
   modalBtnAddRemove.addEventListener('click', buttonHandler, false);
