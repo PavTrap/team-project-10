@@ -67,10 +67,8 @@ const nameInputEl = document.querySelector('#user_person');
 const emailInputEl = document.querySelector('#user_email');
 const passwordInputEl = document.querySelector('#user_password');
 const formEl = document.querySelector('.modal-start');
-const shopListBtn = document.querySelector('.shoppinglist');
+const shopListBtn = document.querySelector('.shopBtn');
 const signOutBtn = document.querySelector('.sign-out');
-
-shopListBtn.style.display = 'none';
 
 formEl.addEventListener('submit', SingUpHandler);
 
@@ -85,7 +83,7 @@ function SingUpHandler() {
   createUserWithEmailAndPassword(auth, emailInputElVal, passwordInputElVal)
     .then(userCredential => {
       const user = userCredential.user;
-      shopListBtn.style.display = 'inline';
+      shopListBtn.classList.add('shopBtn--visible');
       localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify({
@@ -128,13 +126,14 @@ if (localStorage.getItem(STORAGE_KEY)) {
   const parsedDataFromLocalStorage = JSON.parse(dataFromLocalStorage);
   if (parsedDataFromLocalStorage.name !== 'Not Authorized') {
     signOutBtn.style.display = 'block';
-    shopListBtn.style.display = 'inline';
+    shopListBtn.classList.add('shopBtn--visible');
     document.querySelector('.login-btn').innerHTML =
       parsedDataFromLocalStorage.name;
 
     document.querySelector('.sign-out').addEventListener('click', () => {
       signOut(auth)
         .then(() => {
+          shopListBtn.classList.remove('shopBtn--visible');
           localStorage.removeItem(STORAGE_KEY);
           location.href = '../index.html';
         })
@@ -142,4 +141,5 @@ if (localStorage.getItem(STORAGE_KEY)) {
     });
   }
 }
+
 //------------------Перевірка на наявність даних про користувача в localstorage і активації функціонала
