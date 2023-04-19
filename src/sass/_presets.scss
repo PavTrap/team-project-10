@@ -29,16 +29,14 @@ img {
 //     background-color: var(--body-color);
 // }
 
-// body {
-//   --bkg-color: #d0d0d0;
-// }
-// body.dark-theme {
-//   --bkg-color: #202024;
-// }
 
-body {
-  background: var(--bkg-color);
+.button.button-menu-open {
+  background-color: var(--color-header-background);
+  background-image: url(../images/svg/burger-hover.svg);
 }
+
+
+
 
 ul {
   padding: 0;

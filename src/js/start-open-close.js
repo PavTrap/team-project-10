@@ -7,6 +7,10 @@
       'button[data-modal-start-close]'
     ),
     formEl: document.querySelector('[data-modal-start]'),
+    // Mobile menu 
+    menu: document.querySelector('[data-menu]'),
+    menuList: document.querySelector('.nav-list'),
+    logOutBtn: document.querySelector('.login-btn'),
   };
 
   refs.openModalBtnSingUp.addEventListener('click', toggleModal);
@@ -15,8 +19,19 @@
   function toggleModal() {
     refs.formEl.classList.toggle('is-hidden-start');
     refs.formEl.classList.toggle('display');
+    
+    console.log(refs.menuList)
+    if (refs.formEl.classList.contains('display')) {
+      refs.logOutBtn.classList.add('nav-hidden');
+      refs.menuList.classList.add('nav-hidden');
+      refs.menu.classList.add('mobile-is-hidden');
+}
   }
 })();
+
+
+
+
 
 // Sing Up в мобилке
 

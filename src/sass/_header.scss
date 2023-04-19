@@ -410,10 +410,19 @@
   }
 }
 
+.nav-item{
+  margin-bottom: 7px;
+}
+
+
+
 .nav-item__shopping-bag {
   height: 16px;
   width: 13px;
-  fill: black;
+  fill: rgb(255, 255, 255);
+  // position: absolute;
+  // left: 115px;
+  // bottom: 16px;
 }
 
 .nav-item:nth-child(2) {
@@ -453,11 +462,17 @@
 
 .nav-list__button {
   all: unset;
+  display: flex;
+  align-items: center;
 }
 
 .nav-link-current {
   color: #111111;
   background-color: var(--color-yellow);
+  &.nav-item__shopping-bag{
+  fill: #111111;
+  }
+  
 }
 
 .header-options {
@@ -533,68 +548,26 @@
   padding: 0;
   margin-left: 14px;
   margin-right: auto;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
+
   border: none;
 
-  // background-color: var(--color-yellow);
   width: 28px;
   height: 28px;
 
-  // background-color: rgba(0, 0, 0, 0);
-  // width: 16px;
-  // height: 16px;
-
-  //   color: #86e543;
-
   @media screen and (min-width: 768px) {
     display: none;
   }
 
-  background-color: #ffffff;
+  
   background-image: url(../images/svg/burger.svg);
+    background-color:rgba(255, 255, 255);
   background-repeat: no-repeat;
   background-size: contain;
-
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      
   &:hover,
   &:focus {
     background-image: url(../images/svg/burger-hover.svg);
-  }
-}
-
-// .button__meny-open-icon {
-//   fill: currentColor;
-// }
-.log-out-btn {
-  @media screen and (max-width: 767px) {
-    position: absolute;
-    left: 10vw;
-    top: 85vh;
-    z-index: 2;
-
-    width: 118px;
-    height: 48px;
-
-    color: #111111;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-
-    letter-spacing: -0.04em;
-    background: #ffffff;
-    border: 1.5px solid #111111;
-    border-radius: 18px;
-
-    background-image: url(../images/svg/arrowright.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-position-x: 82px;
-  }
-  @media screen and (min-width: 768px) {
-    display: none;
+    background-color: rgba(255, 255, 255, 0.5);
   }
 }
 
@@ -604,41 +577,34 @@
   fill: black;
 }
 
-// .btn-menu {
-//   display: block;
-//   stroke: var(--color-label-input);
-
-//   transition: opacity 250ms var(--transition-timing-func),
-//       visibility 250ms var(--transition-timing-func);
-
-//     &:hover,
-//     &:focus {
-//         border: 2px solid var(--color-category-active);
-//       }
-
-//       @media screen and (min-width: 768px) {
-//         display: none;
-//       }
-// }
-
-// // .button__meny-open-icon {
-// //   fill: currentColor;
-// // }
-
 .login-btn {
-  display: none;
+    position: absolute;
+    top: 85vh;
+    left: 10vw;
+
+    z-index: 2;
+    width: 118px;
+    height: 48px;
+    color: #111;
+    letter-spacing: -.04em;
+    background: #fff url(../images/svg/arrow-narrow-right.svg) 82px no-repeat;
+    border: 1.5px solid #111;
+    border-radius: 18px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    
+ 
+
   @media screen and (min-width: 768px) {
-    // position: absolute;
-    // top: 14px;
-    // right: 14px;
+    position: static;
     display: block;
-    // align-items: center;
-    // justify-content: center;
+
     width: 184px;
     height: 45px;
     position: inherit;
-    // margin-left: 24px;
-    // padding: 14px;
+
 
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -673,29 +639,25 @@
 
 .mobile-is-hidden {
   display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 250ms var(--transition-timing-func);
+    visibility: 250ms var(--transition-timing-func);
 }
 
 .mobile {
-  // position: fixed;
-  // top: 0;
   position: relative;
 
   width: 100vw;
   height: 100vh;
-  // z-index: 10;
-
-  //   position: absolute;
-  //   z-index: 5;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100vw;
-  //   height: 100%;
 
   background: radial-gradient(
     183.6% 183.01% at 59.76% -23.42%,
     #4f2ee8 18.03%,
     #ffffff 100%
   );
+
+  opacity: 1;
 
   @media screen and (min-width: 768px) {
     display: none;
