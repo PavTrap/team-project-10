@@ -35,7 +35,13 @@ body {
 }
 body.dark-theme {
   --bkg-color: #202024;
+  
 }
+.button.button-menu-open {
+  background-color: var(--color-header-background);
+  background-image: url(../images/svg/burger-hover.svg);
+}
+
 
 body {
   background: var(--bkg-color);
