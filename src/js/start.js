@@ -108,6 +108,72 @@ btnSingUp.addEventListener('click', e => {
     }
 })
 
+// обращаемся к элементам кнопок sing up и sing in
+const singUpEl = document.querySelector('button[aria-label="link sing up"]');
+const singInEl = document.querySelector('button[aria-label="link sing in"]');
+
+// При открытии модалки sing up активна
+singUpEl.classList.add('active');
+
+// Вешаем слушателя на sing up
+singUpEl.addEventListener('click', handleOnBtnSingUp);
+
+function handleOnBtnSingUp(e) {
+  e.preventDefault();
+  formEl.style.height = "516px";
+  singUpEl.classList.add('active');
+  singInEl.classList.remove('active');
+  formEl.classList.remove('sing-in');
+  nameLabelEl.style.display = "block";
+  nameInputEl.style.display = "block";
+  nameInputEl.parentElement.parentElement.classList.remove('is-invalid');
+  nameInputEl.parentElement.parentElement.classList.add('is-valid');
+   formEl.style.height = "516px";
+}
+
+// Вешаем слушателя на sing in
+singInEl.addEventListener('click', handleOnBtnSingIn);
+
+function handleOnBtnSingIn(e) {
+  e.preventDefault();
+  singInEl.classList.add('active');
+  singUpEl.classList.remove('active');
+  formEl.classList.remove('sing-in');
+  
+  formEl.style.height = "450px";
+  nameLabelEl.style.display = "none";
+  nameInputEl.style.display = "none";
+  nameInputEl.parentElement.parentElement.classList.add('is-invalid');
+  nameInputEl.parentElement.parentElement.classList.remove('is-valid');
+  validateForm()
+}
+ 
+  function validateForm() {
+    let isValid = true;
+    
+// Проверяем поле Name
+  if (nameLabelEl.style.display === "none") {
+    isValid = true;
+  }
+
+// Проверяем поле Email
+  if (emailInputEl.value.trim() === '' || !emailInputEl.checkValidity()) {
+    emailInputEl.classList.add('modal-form__field-input--error');
+    isValid = false;
+  } else {
+    emailInputEl.classList.remove('modal-form__field-input--error');
+    }
+    
+  // Проверяем поле Password
+  if (passwordInputEl.value.trim() === '' || passwordInputEl.length < 5 || passwordInputEl.value.length > 12) {
+    passwordInputEl.classList.add('modal-form__field-input--error');
+    isValid = false;
+  } else {
+    passwordInputEl.classList.remove('modal-form__field-input--error');
+  }
+
+  return isValid;
+}
 
 
 
