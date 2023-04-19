@@ -9,7 +9,7 @@ const foundationListEl = document.querySelector(".foundation__list");
         
         return `<li class= 'foundation__item'> 
         <p class = "foundation__count"> ${countNumber} </p>
-        <a href="${url}" "foundation__link">
+        <a href="${url}" "foundation__link" target="_blank" rel="noopener noreferrer">
         <img class="foundation__img" src="${img}" alt="${title}" width=110 height=33>
         </a>
         </li>`
