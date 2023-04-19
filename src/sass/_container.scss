@@ -1,0 +1,16 @@
+.container {
+  // background-color: var(--color-background);
+  width: 375px;
+  padding: 0px 20px;
+  margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    // background-color: var(--color-background);
+    width: 768px;
+    padding: 0px 32px;
+  }
+  @media screen and (min-width: 1440px) {
+    // background-color: var(--color-background);
+    width: 1440px;
+    padding: 0px 24px;
+  }
+}

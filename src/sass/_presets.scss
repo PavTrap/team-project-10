@@ -17,35 +17,26 @@ button {
 img {
   display: block;
   max-width: 100%;
-  height: auto;  
+  height: auto;
 }
 
 .no-scroll {
   overflow-y: none;
 }
 
-
 // body{
 //     font-family: 'DM Sans';
 //     background-color: var(--body-color);
 // }
 
-body {
-  --bkg-color: #D0D0D0;
-}
-body.dark-theme {
-  --bkg-color: #202024;
-  
-}
+
 .button.button-menu-open {
   background-color: var(--color-header-background);
   background-image: url(../images/svg/burger-hover.svg);
 }
 
 
-body {
-  background: var(--bkg-color);
-}
+
 
 ul {
   padding: 0;
@@ -56,7 +47,10 @@ li {
   list-style: none;
   padding: 0px;
 }
-
+body {
+  background-color: var(--color-background);
+  transition: background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .visually-hidden {
   position: absolute;
   white-space: nowrap;
@@ -73,7 +67,6 @@ li {
 .no-scroll {
   overflow-y: hidden;
 }
-
 
 // .theme-light {
 //   --body-color: #D0D0D0;
