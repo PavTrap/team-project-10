@@ -10,6 +10,8 @@
   --color-grey-light: #b4afaf;
   --color-grey-lighter: #f6f6f6;
   --color-white-dark: #f3f3f3;
+  --color-btn-not-active-ligth-theme: rgba(17, 17, 17, 0.5);
+  --color-btn-not-active-dark-theme: rgba(246, 246, 246, 0.5);
 
   // Цвета для светлой темы (по умолчанию)
 
@@ -48,6 +50,9 @@
   // label и input на модалке start, иконки
   --color-label-input: var(--color-black);
 
+  // не активная кнопка на модалке
+  --color-btn-not-active: var(--color-btn-not-active-ligth-theme);
+
   // Misc
 
   --font-family-primary: 'DM Sans', sans-serif;
@@ -85,4 +90,7 @@
   --color-text-btn-modal: var(--color-grey-darker);
   // label и input на модалке start, иконки
   --color-label-input: var(--color-grey-lighter);
+
+    // не активная кнопка на модалке
+    --color-btn-not-active: var(--color-btn-not-active-dark-theme);
 }

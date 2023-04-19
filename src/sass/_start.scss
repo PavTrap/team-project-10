@@ -51,7 +51,7 @@ p {
 
   &:focus,
   &:hover {
-    stroke: var(--color-category-active);
+    stroke: var(--color-blue);
   }
 }
 
@@ -62,7 +62,7 @@ p {
 
   width: 100%;
   height: 100%;
-  background-color: var(--color-category-active);
+  background-color: var(--color-blue);
   overflow: scroll;
 
   transition: opacity 250ms var(--transition-timing-func);
@@ -178,7 +178,7 @@ p {
 
   &:hover,
   &:focus {
-    border: 2px solid var(--color-category-active);
+    border: 2px solid var(--color-blue);
   }
 }
 
@@ -247,7 +247,7 @@ p {
 
   &:hover,
   &:focus {
-    background: var(--color-category-active);
+    background: var(--color-blue);
   }
 }
 
@@ -264,7 +264,7 @@ p {
   text-decoration-line: underline;
   text-transform: uppercase;
 
-  color: var(--color-category-active);
+  color: var(--color-blue);
 
   flex: none;
   order: 0;
@@ -275,10 +275,11 @@ p {
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-direction: row;
 }
 
-.modal-form__link {
-  width: 60px;
+.modal-form__btn--sing-up {
+  min-width: 60px;
   height: 18px;
 
   font-family: 'DM Sans';
@@ -287,20 +288,63 @@ p {
   line-height: calc(18 / 14);
 
   letter-spacing: -0.01em;
-  text-decoration-line: underline;
+  text-decoration-line: none;
   text-transform: uppercase;
 
-  color: var(--color-category-active);
+  color: var(--color-btn-not-active);
 
   flex: none;
   order: 0;
   flex-grow: 0;
+  background-color: var(--color-background);
+  border: 0;
 
   @media screen and (min-width: 768px) {
-    width: 69px;
+    min-width: 69px;
     height: 24px;
 
     font-size: 18px;
     line-height: calc(24 / 18);
   }
 }
+
+.modal-form__btn--sing-up.active {
+color: var(--color-blue);
+text-decoration-line: underline;
+
+}
+
+.modal-form__btn--sing-in {
+  min-width: 60px;
+    height: 18px;
+  
+    font-family: 'DM Sans';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: calc(18 / 14);
+  
+    letter-spacing: -0.01em;
+    text-decoration-line: none;
+    text-transform: uppercase;
+  
+    color: var(--color-btn-not-active);
+  
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    background-color: var(--color-background);
+    border: 0;
+  
+    @media screen and (min-width: 768px) {
+      min-width: 69px;
+      height: 24px;
+  
+      font-size: 18px;
+      line-height: calc(24 / 18);
+    }
+  }
+
+.modal-form__btn--sing-in.active {
+    color: var(--color-blue);
+    text-decoration-line: underline;
+  }
