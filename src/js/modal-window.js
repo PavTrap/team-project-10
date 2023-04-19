@@ -26,6 +26,7 @@ const modalBtnAddRemove = document.querySelector('.pop__btn');
 const bookInfoURL = document.getElementById('bookInfoUrl');
 const bookInfo = document.getElementById('bookInfo');
 const bookInform = document.getElementById('bookInform');
+const popTextEl = document.querySelector('.pop-text');
 
 // Функція для відкриття модального вікна та заповнення його даними з API
 export function openModal(id) {
@@ -124,7 +125,21 @@ export function openModal(id) {
     bookInfoURL.innerHTML = '';
     bookInfo.innerHTML = '';
     bookInform.innerHTML = '';
+    // popTextEl.innerHTML = '';
   };
+
+  window.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
+      modal.style.display = 'none';
+      // modalData.innerHTML = '';
+      bookInfoURL.innerHTML = '';
+      bookInfo.innerHTML = '';
+      bookInform.innerHTML = '';
+      // popTextEl.innerHTML = '';
+    }
+  });
+
 
   setHandler();
 }
@@ -137,6 +152,7 @@ window.onclick = function (event) {
     bookInfoURL.innerHTML = '';
     bookInfo.innerHTML = '';
     bookInform.innerHTML = '';
+    // popTextEl.innerHTML = '';
   }
 };
 
@@ -170,6 +186,7 @@ const buttonHandler = function (event) {
     );
     console.log('Item was added');
     event.target.innerHTML = 'remove from the shopping list';
+    popTextEl.innerHTML = 'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
     modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
     modalBtnAddRemove.addEventListener('click', buttonHandler, false);
   } else {
@@ -186,6 +203,7 @@ const buttonHandler = function (event) {
     );
     console.log('Item was deleted');
     event.target.innerHTML = 'Add to shopping list';
+    popTextEl.innerHTML = ''
     modalBtnAddRemove.removeEventListener('click', buttonHandler, false);
     modalBtnAddRemove.addEventListener('click', buttonHandler, false);
   }
@@ -193,24 +211,19 @@ const buttonHandler = function (event) {
 function setHandler() {
   modalBtnAddRemove.dataset.id = idFromBook;
 
-  if (localStorage.getItem('User-name') == null) {
-    localStorage.setItem(
-      'User-name',
-      JSON.stringify({
-        name: 'Not Authorized',
-        email: 'Not Authorized',
-        listId: [],
-      })
-    );
-  }
   const dataFromLocalStorage = localStorage.getItem('User-name');
   const parsedDataFromLocalStorage = JSON.parse(dataFromLocalStorage);
+
+  const name = parsedDataFromLocalStorage.name;
+  const email = parsedDataFromLocalStorage.email;
   if (parsedDataFromLocalStorage.listId.indexOf(idFromBook) == -1) {
     console.log('ID:', idFromBook, 'not found');
     modalBtnAddRemove.innerHTML = 'Add to shopping list';
+    popTextEl.innerHTML = ' ';
   } else {
     console.log('ID:', idFromBook, 'found');
     modalBtnAddRemove.innerHTML = 'remove from the shopping lis';
+    popTextEl.innerHTML = 'Сongratulations! You have added the book to the shopping list. To delete, press the button “Remove from the shopping list”.';
   }
 
   modalBtnAddRemove.addEventListener('click', buttonHandler, false);
