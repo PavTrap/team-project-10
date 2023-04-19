@@ -81,9 +81,9 @@ function seeMoreButtonsHandler() {
 function categoriesLinksHandler() {
   let linksList = document.querySelectorAll('.categories__item');
   let linkItem = document.querySelectorAll('.categories__link');
-  for (link of linksList) {
+  for (const link of linksList) {
     link.addEventListener('click', e => {
-      for (item of linkItem) {
+      for (const item of linkItem) {
         item.classList.remove('category-active');
       }
       e.target.classList.add('category-active');
