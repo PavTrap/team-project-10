@@ -473,7 +473,10 @@
 
 .header-options {
   display: flex;
-  gap: 24px;
+  gap: 14px;
+  @media screen and(min-width:768px) {
+    gap: 24px;
+  }
 }
 
 .switch {
@@ -542,12 +545,7 @@
 }
 
 .button-menu-open {
-  padding: 0;
-  margin-left: 14px;
-  margin-right: auto;
-
   border: none;
-
   width: 28px;
   height: 28px;
 
@@ -562,7 +560,7 @@
 
   &:hover,
   &:focus {
-    background-image: url(../images/svg/burger-hover.svg);
+    // background-image: url(../images/svg/burger-hover.svg);
     background-color: rgba(255, 255, 255, 0.5);
   }
 }
@@ -619,12 +617,13 @@
   }
 }
 .login-btn-out {
-  // position: absolute;
+  position: absolute;
   top: 85vh;
   left: 10vw;
 
   z-index: 2;
   width: 118px;
+  // width: 48px;
   height: 48px;
   color: #111;
   letter-spacing: -0.04em;
@@ -637,7 +636,7 @@
   line-height: 18px;
 
   @media screen and (min-width: 768px) {
-    // position: static;
+    position: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -688,8 +687,10 @@
 }
 
 .mobile {
-  position: relative;
-
+  position: absolute;
+  top:0;
+  z-index: 10;
+  left: 0px;
   width: 100vw;
   height: 100vh;
 
@@ -706,6 +707,6 @@
   }
 }
 
-.mobile-container {
-  padding-top: 200px;
-}
+// .mobile-container {
+//   padding-top: 200px;
+// }
