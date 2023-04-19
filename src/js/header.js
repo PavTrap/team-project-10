@@ -26,8 +26,12 @@
 const refs = {
   openMenuBtn: document.querySelector('[data-menu-open]'),
   // closeMenuBtn: document.querySelector('[data-menu-close]'),
+
+  openModalBtnSingUp: document.querySelector(
+      'button[data-modal-start-open--sing-up]'
+    ),
   navBtn: document.querySelector('.nav-list__button'),
-  logOutBtn: document.querySelector('.log-out-btn'),
+  logOutBtn: document.querySelector('.login-btn'),
   menu: document.querySelector('[data-menu]'),
   body: document.querySelector('body'),
   menuList: document.querySelector('.nav-list'),
@@ -46,6 +50,11 @@ refs.navBtn.addEventListener('click', () => {
   refs.menuList.classList.toggle('nav-hidden');
 });
 
+// refs.openModalBtnSingUp.addEventListener('click', () => {
+//   refs.logOutBtn.classList.toggle('nav-hidden');
+//   refs.menuList.classList.toggle('nav-hidden');
+// }
+// )
 console.log(refs.menuList);
 
 // function toggleMenu() {

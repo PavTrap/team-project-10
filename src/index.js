@@ -2,8 +2,8 @@ import './js/categories';
 
 import './js/header';
 
-import './js/start';
-import './js/start-open-close';
+//import './js/start';
+//import './js/start-open-close';
 
 import './js/array_foundation';
 import './js/markup-foundation';

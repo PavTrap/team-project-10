@@ -1,14 +1,16 @@
 .main-container {
-  background-color: var(--color-background);
+  // background-color: var(--color-background);
   min-height: 100vh;
-
-  @media screen and (min-width: 768px) {
-    // display: flex;
-    // gap: 15px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  gap: 40px;
+  @media screen and(min-width: 768px) {
+    gap: 100px;
   }
-  @media screen and (min-width: 1195px) {
-    display: flex;
-    // gap: 15px;
+  @media screen and(min-width: 1440px) {
+    flex-direction: row;
+    gap: 40px;
   }
 }
 .main-container-nav {
@@ -16,23 +18,23 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 40px;
+  // padding-top: 40px;
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
     gap: 32px;
     align-items: start;
   }
-  @media screen and (min-width: 1195px) {
+  @media screen and (min-width: 1440px) {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    margin-left: 24px;
+    gap: 80px;
   }
 }
 .hidden > section {
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 768px) {
     display: none;
     background-color: tomato;
   }
