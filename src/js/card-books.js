@@ -48,7 +48,7 @@ function renderButton(category) {
 }
 function imageButtonsHandler() {
   let imageList = document.querySelectorAll('.thumb__image');
-  for (image of imageList) {
+  for (const image of imageList) {
     image.addEventListener('click', e => {
       // localStorage.setItem('selected-id', e.target.dataset.id);
       console.log('dasdsadsa:', e.target.dataset.id);
