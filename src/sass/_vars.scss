@@ -16,7 +16,7 @@
   // Цвета для светлой темы (по умолчанию)
 
   // основной цвет фона
-  --color-background: var(--color-grey-lighter);
+  --color-background: var(--color-white);
   // цвет фона хедера
   --color-header-background: var(--color-white);
   // цвет рамки хедера
@@ -91,6 +91,6 @@
   // label и input на модалке start, иконки
   --color-label-input: var(--color-grey-lighter);
 
-    // не активная кнопка на модалке
-    --color-btn-not-active: var(--color-btn-not-active-dark-theme);
+  // не активная кнопка на модалке
+  --color-btn-not-active: var(--color-btn-not-active-dark-theme);
 }
