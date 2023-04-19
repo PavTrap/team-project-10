@@ -29,6 +29,18 @@ function changeTitleColors(string) {
   return result;
 }
 
+function isCategorySelected() {
+  if (
+    localStorage.getItem('selected-category') != null &&
+    localStorage.getItem('selected-category') !== 'undefined'
+  ) {
+    //localStorage.setItem('selected-category', undefined);
+    return true;
+  } else if (localStorage.getItem('selected-category') == 'undefined') {
+    return false;
+  }
+  return false;
+}
 // function isCategorySelected() {
 //   if (
 //     localStorage.getItem('selected-category') &&
@@ -38,12 +50,12 @@ function changeTitleColors(string) {
 //   }
 //   return false;
 // }
-function isCategorySelected() {
-  if (localStorage.getItem('selected-category') == 'null') {
-    return true;
-  }
-  return false;
-}
+// function isCategorySelected() {
+//   if (localStorage.getItem('selected-category') == 'null') {
+//     return true;
+//   }
+//   return false;
+// }
 function checkWindowWidth() {
   return document.documentElement.clientWidth;
 }
