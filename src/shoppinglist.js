@@ -9,37 +9,10 @@ import Pagination from 'tui-pagination';
 import { bookShops } from './js/array_book_shops';
 console.log(bookShops);
 
-// var width = window.innerWidth;
-// var description = document.querySelector('#mobile-description');
-
-// if (width < 768) {
-//   description.classList.add('description-hidden');
-// } else {
-// description.classList.remove('description-hidden');
-// }
-
-// console.log(width)
-
 var shoppingCartBlock = document.querySelector(
   '.shopping-carg-book-description-block'
 );
 var description = document.querySelector('.shopping-carg-book-description');
-
-// function checkWindowSize() {
-//   if (window.innerWidth < 343) {
-//     // удаляем элемент на маленьких экранах
-//     if (description.parentNode === shoppingCartBlock) {
-//       shoppingCartBlock.removeChild(description);
-//     }
-//   } else {
-//     // добавляем элемент на больших экранах
-//     if (description.parentNode !== shoppingCartBlock) {
-//       shoppingCartBlock.appendChild(description);
-//     }
-//   }
-// }
-
-//window.addEventListener('resize', checkWindowSize);
 
 // знаходимо контейнер для пагінації та елемент для відображення інформації
 const paginationEl = document.querySelector('#tui-pagination-container');
@@ -194,38 +167,95 @@ function createShoppingListPage(shoppingList) {
 
     // розмітка списку карток
     arrrr.push(`<li class="shopping-carg ${shop._id}" >
-      <ul class='card-container'>
-        <li class='card-container__image'>
-          <ul>
-            <li><img src="${shop.book_image}" alt="${shop.title}" /></li>
-            <li class='card-container__author'>${shop.author}</li>
-          </ul>
-        </li>
-        <li class='card-container__book-data'>
-          <ul class='card-container__meta'>
-            <li class='meta__title'>${shop.title}</li>
-            <li class='meta__category'>${shop.list_name}</li>
-          </ul>
-          <ul class='card-container__icons'>
-            <li><a
+    <ul class="card-container">
+    <li class="card-container__image">
+      <ul>
+      <div class="card-container__image-conteiner">
+        <li><img src="${shop.book_image}" alt="${shop.title}" /></li>
+      </div>
+        <li class="card-container__author">${shop.author}</li>
+      </ul>
+    </li>
+    <li class="card-container__book-data">
+      <ul class="card-container__meta">
+        <li class="meta__title">${shop.title}</li>
+        <li class="meta__category">${shop.list_name}</li>
+      </ul>
+      <ul class="card-container__icons">
+        <li>
+          <a
             class="shopping-carg-shop"
             href="${amazonUrl}"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Іконка Amazon"
-            >
+          >
             <img src="${bookShops.amazon}" alt="Іконка Amazon" />
-              </a>
-            </li>
-            <li><a
+          </a>
+        </li>
+        <li>
+          <a
             class="book-shop"
             href="${appleUrl}"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Іконка Apple Books"
-            >
+          >
             <img src="${bookShops.openbook}" alt="Іконка Apple Books" />
-            </a>
+          </a>
+        </li>
+        <li>
+          <a
+            class="book-shop"
+            href="${bookshopUrl}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Іконка Bookshop"
+          >
+            <img src="${bookShops.bookshop}" alt="Іконка Bookshop" />
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="card-container__desc">${shop.description}</li>
+  </ul>
+  <ul class="card-container-nm">
+  
+    <li class="card-container__image-nm">
+    <div class="card-container__div_image-nm">
+      <img class="margin-img" src="${shop.book_image}" alt="${shop.title}"  height="165"/></li>
+    </div>
+    </li>
+    <li class="card-container__book-data-nm">
+      <ul class="card-container__meta-nm">
+        <li class="meta__title-nm">${shop.title}</li>
+        <li class="meta__category-nm">${shop.list_name}</li>
+        <li class="card-container__desc-nm">${shop.description}</li>
+        <div class="card-container__futer-nm">
+          <p class="card-container__author-nm">${shop.author}</class=>
+          <ul class="card-container__icons-nm">
+            <li>
+              <a
+                class="shopping-carg-shop-nm"
+                href="${amazonUrl}"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Іконка Amazon"
+              >
+                <img src="${bookShops.amazon}" alt="Іконка Amazon" />
+              </a>
+            </li>
+            <li>
+              <a
+                class="book-shop"
+                href="${appleUrl}"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Іконка Apple Books"
+              >
+                <img src="${bookShops.openbook}" alt="Іконка Apple Books" />
+              </a>
             </li>
             <li>
               <a
@@ -239,11 +269,10 @@ function createShoppingListPage(shoppingList) {
               </a>
             </li>
           </ul>
-          <li class='card-container__desc'>
-          ${shop.description}
-          </li>
-          </li>
-          </ul>
+        </div>
+      </ul>
+    </li>
+  </ul>
           <button class="button shopbtn card-delete" data-index="${shop._id}">
             <img src="${bookShops.dump}" alt="" width=26px/>
           </button>
@@ -251,17 +280,6 @@ function createShoppingListPage(shoppingList) {
   }
   // Додавання HTML-коду всіх книжок зі списку до відповідного блоку на стор
   infoBlock.insertAdjacentHTML('afterbegin', arrrr.join(''));
-
-  // // Перевірка розміру єкрану
-  // var myDiv = document.querySelector("shopping-carg-book-description");
-  // function checkWindowSize() {
-  //   if (window.innerWidth < 768) { // скрываем элемент на маленьких экранах
-  //     myDiv.style.display = "none";
-  //   } else { // показываем элемент на больших экранах
-  //     myDiv.style.display = "block";
-  //   }
-  // }
-  // window.addEventListener('resize', checkWindowSize);
 
   // видалення книг з масиву по кліку на кнопку
   const buttons = document.querySelectorAll('.shopbtn');
@@ -307,14 +325,3 @@ export function createEmptyPage() {
   </div>`;
   infoBlock.insertAdjacentHTML('afterbegin', emptyPage);
 }
-
-// Зміна розмітки
-// function checkWindowSize() {
-//   if (window.innerWidth < 768) {
-//     // скрываем элемент на маленьких экранах
-//     myDiv.style.display = 'none';
-//   } else {
-//     // показываем элемент на больших экранах
-//     myDiv.style.display = 'block';
-//   }
-// }
