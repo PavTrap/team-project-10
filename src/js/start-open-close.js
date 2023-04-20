@@ -10,7 +10,8 @@
     // Mobile menu 
     menu: document.querySelector('[data-menu]'),
     menuList: document.querySelector('.nav-list'),
-    logOutBtn: document.querySelector('.login-btn'),
+    loginBtn: document.querySelector('.login-btn'),
+    logOutBtn: document.querySelector('.login-btn-out'),
   };
 
   refs.openModalBtnSingUp.addEventListener('click', toggleModal);
@@ -23,6 +24,7 @@
     console.log(refs.menuList)
     if (refs.formEl.classList.contains('display')) {
       refs.logOutBtn.classList.add('nav-hidden');
+      refs.loginBtn.classList.add('nav-hidden');
       refs.menuList.classList.add('nav-hidden');
       refs.menu.classList.add('mobile-is-hidden');
 }
