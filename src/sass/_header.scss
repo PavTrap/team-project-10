@@ -658,9 +658,7 @@
   font-weight: 500;
   line-height: 18px;
   // display:none;
-  @media screen and (min-width: 375px) and(max-width: 767px) {
-    display:none;
-  }
+ 
 
   @media screen and (min-width: 768px) {
     position: inherit;
@@ -693,11 +691,7 @@
     }
   }
 }
-.login-btn-out-menu{
-  @media screen and(max-width:767px){
-    position: absolute;
-    top: 85vh;
-    left: 10vw;
+
 
     z-index: 2;
     width: 118px;
@@ -714,6 +708,7 @@
     line-height: 18px;
   }
 }
+
 .sign-out {
   display: none;
 }
