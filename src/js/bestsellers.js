@@ -95,6 +95,7 @@ function categoriesLinksHandler() {
   let linkItem = document.querySelectorAll('.categories__link');
   for (const link of linksList) {
     link.addEventListener('click', e => {
+      e.preventDefault();
       for (const item of linkItem) {
         item.classList.remove('category-active');
       }
