@@ -85,7 +85,7 @@
 .nav-item__shopping-bag {
   height: 16px;
   width: 13px;
-  fill: rgb(255, 255, 255);
+  fill: var(--color-text-primary);
   // position: absolute;
   // left: 115px;
   // bottom: 16px;
@@ -155,6 +155,11 @@
   &.nav-item__shopping-bag {
     fill: #111111;
   }
+}
+.nav-link-current .nav-item__shopping-bag {
+  color: #111111;
+  background-color: var(--color-yellow);
+  fill: #111111;
 }
 // .shoppinglist {
 //   display: flex;
@@ -396,9 +401,9 @@
 .sign-out {
   display: none;
 }
-.sign-out--visible{
-  display: block;
-}
+// .sign-out--visible{
+//   display: block;
+// }
 
 // .login-btn-mobile {
 //   @media screen and (max-width: 767px) {
