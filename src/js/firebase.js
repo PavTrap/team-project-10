@@ -134,7 +134,7 @@ if (localStorage.getItem(STORAGE_KEY)) {
         .then(() => {
           shopListBtn.classList.remove('shopBtn--visible');
           localStorage.removeItem(STORAGE_KEY);
-          location.href = '../index.html';
+          location.href = './index.html';
         })
         .catch(error => {});
     });
