@@ -336,7 +336,12 @@
   // display: block;
   text-decoration: none;
 }
-
+.align-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .header {
   display: flex;
   align-items: center;
@@ -353,6 +358,9 @@
     gap: 24px;
     height: 72px;
   }
+  // @media screen and (min-width: 1440px) {
+  //   width: 1440px;
+  // }
 }
 
 .header-container {
