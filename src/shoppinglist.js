@@ -9,6 +9,38 @@ import Pagination from 'tui-pagination';
 import { bookShops } from './js/array_book_shops';
 console.log(bookShops);
 
+// var width = window.innerWidth;
+// var description = document.querySelector('#mobile-description');
+
+// if (width < 768) {
+//   description.classList.add('description-hidden');
+// } else {
+// description.classList.remove('description-hidden');
+// }
+
+// console.log(width)
+
+var shoppingCartBlock = document.querySelector(
+  '.shopping-carg-book-description-block'
+);
+var description = document.querySelector('.shopping-carg-book-description');
+
+// function checkWindowSize() {
+//   if (window.innerWidth < 343) {
+//     // удаляем элемент на маленьких экранах
+//     if (description.parentNode === shoppingCartBlock) {
+//       shoppingCartBlock.removeChild(description);
+//     }
+//   } else {
+//     // добавляем элемент на больших экранах
+//     if (description.parentNode !== shoppingCartBlock) {
+//       shoppingCartBlock.appendChild(description);
+//     }
+//   }
+// }
+
+//window.addEventListener('resize', checkWindowSize);
+
 // знаходимо контейнер для пагінації та елемент для відображення інформації
 const paginationEl = document.querySelector('#tui-pagination-container');
 // додаємо прослуховання на картку з іформацією про книгу
@@ -16,34 +48,6 @@ const infoBlock = document.querySelector('#info-block');
 
 // Зчитуємо массив з даними userName з local storage
 let userName = JSON.parse(localStorage.getItem('User-name'));
-// console.log(userName);
-
-// const userName = localStorage.getItem('User-name');
-// ===========================================================================
-// // Проверка работоспособности
-// console.log(userName);
-
-// const tttttt = {
-//   name: userName,
-//   email: 'ffffffffffff',
-//   listId: [
-//     '643282b1e85766588626a080',
-//     '643282b1e85766588626a0ba',
-//     '643282b1e85766588626a085',
-//     '643282b1e85766588626a0b2',
-//     '643282b1e85766588626a086',
-//     '643282b1e85766588626a0b4',
-//     '643282b1e85766588626a087',
-//     '643282b1e85766588626a0b6',
-//     '643282b1e85766588626a081',
-//     '643282b1e85766588626a0aa',
-//     '643282b1e85766588626a07a',
-//     '643282b1e85766588626a0a8',
-//   ],
-// };
-// localStorage.setItem(userName, JSON.stringify(tttttt));
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// конец проверки
 
 // перевіряє наявність User-name в Local storage
 // якщо нема, виводимо порожню сторінку
@@ -171,45 +175,57 @@ function createShoppingListPage(shoppingList) {
         bookshopUrl = buyLinks[j].url;
       }
     }
+    function makeHTML() {
+      if (1 > 2) {
+        arrrr.push(renderCard);
+      } else {
+        arrrr.push(renderCardMobile);
+      }
+    }
+
+    function renderCard() {
+      const cardMarkup = `adsad`;
+      return cardMarkup;
+    }
+    function renderCardMobile() {
+      const cardMarkup = `adsad`;
+      return cardMarkup;
+    }
 
     // розмітка списку карток
     arrrr.push(`<li class="shopping-carg ${shop._id}" >
-      <img class="shopping-carg-image" src="${shop.book_image}" alt="" />
-      <div class="">
-        <div class="">
-          <div>
-            <h2 class="shopping-carg-book-title">${shop.title}</h2>
-            <p class="shopping-carg-book-categorie">${shop.list_name}</p>
-          </div>
-          <button class="button shopbtn card-delete" data-index="${shop._id}">
-            <img src="${bookShops.dump}" alt="" width=26px/>
-          </button>
-        </div>
-        <p class="shopping-carg-book-description">${shop.description}</p>
-        <div class="footer-card">
-          <p class="shopping-carg-book-author">${shop.author}</p>
-          <ul class="shopping-carg-shops">
-            <li>
-              <a
-                class="shopping-carg-shop"
-                href="${amazonUrl}"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Іконка Amazon"
-              >
-                <img src="${bookShops.amazon}" alt="Іконка Amazon" />
+      <ul class='card-container'>
+        <li class='card-container__image'>
+          <ul>
+            <li><img src="${shop.book_image}" alt="${shop.title}" /></li>
+            <li class='card-container__author'>${shop.author}</li>
+          </ul>
+        </li>
+        <li class='card-container__book-data'>
+          <ul class='card-container__meta'>
+            <li class='meta__title'>${shop.title}</li>
+            <li class='meta__category'>${shop.list_name}</li>
+          </ul>
+          <ul class='card-container__icons'>
+            <li><a
+            class="shopping-carg-shop"
+            href="${amazonUrl}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Іконка Amazon"
+            >
+            <img src="${bookShops.amazon}" alt="Іконка Amazon" />
               </a>
             </li>
-            <li>
-              <a
-                class="book-shop"
-                href="${appleUrl}"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Іконка Apple Books"
-              >
-                <img src="${bookShops.openbook}" alt="Іконка Apple Books" />
-              </a>
+            <li><a
+            class="book-shop"
+            href="${appleUrl}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Іконка Apple Books"
+            >
+            <img src="${bookShops.openbook}" alt="Іконка Apple Books" />
+            </a>
             </li>
             <li>
               <a
@@ -223,12 +239,29 @@ function createShoppingListPage(shoppingList) {
               </a>
             </li>
           </ul>
-        </div>
-      </div>
-    </li>`);
+          <li class='card-container__desc'>
+          ${shop.description}
+          </li>
+          </li>
+          </ul>
+          <button class="button shopbtn card-delete" data-index="${shop._id}">
+            <img src="${bookShops.dump}" alt="" width=26px/>
+          </button>
+        </li>`);
   }
   // Додавання HTML-коду всіх книжок зі списку до відповідного блоку на стор
   infoBlock.insertAdjacentHTML('afterbegin', arrrr.join(''));
+
+  // // Перевірка розміру єкрану
+  // var myDiv = document.querySelector("shopping-carg-book-description");
+  // function checkWindowSize() {
+  //   if (window.innerWidth < 768) { // скрываем элемент на маленьких экранах
+  //     myDiv.style.display = "none";
+  //   } else { // показываем элемент на больших экранах
+  //     myDiv.style.display = "block";
+  //   }
+  // }
+  // window.addEventListener('resize', checkWindowSize);
 
   // видалення книг з масиву по кліку на кнопку
   const buttons = document.querySelectorAll('.shopbtn');
@@ -266,9 +299,22 @@ function clearList() {
 // функція створення пустої сторінки
 export function createEmptyPage() {
   clearList();
-  const emptyPage = `<li class="shopping-list-emptypage">
+  const emptyPage = `<div class="shopping-emptypage-list">
+  <li class="shopping-list-emptypage">
   <p>"This page is empty, add some books and proceed to order."</p>
-  <img src="${bookShops.emptypage}" alt="">
-  </li>`;
+  <img src="${bookShops.emptypage}" alt="dump button">
+  </li>
+  </div>`;
   infoBlock.insertAdjacentHTML('afterbegin', emptyPage);
 }
+
+// Зміна розмітки
+// function checkWindowSize() {
+//   if (window.innerWidth < 768) {
+//     // скрываем элемент на маленьких экранах
+//     myDiv.style.display = 'none';
+//   } else {
+//     // показываем элемент на больших экранах
+//     myDiv.style.display = 'block';
+//   }
+// }
