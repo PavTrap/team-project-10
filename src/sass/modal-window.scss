@@ -2,7 +2,7 @@
 .modals {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 20;
   left: 0;
   top: 0;
   width: 100%;
@@ -13,10 +13,8 @@
 
 .modals-content {
   position: relative;
-  max-height: 762px;
   padding: 40px 24px;
   width: 335px;
-  margin-top: 20px;
   height: 90%;
 
   background: #ffffff;
@@ -31,8 +29,9 @@
   }
 
   @media screen and (min-width: 768px) {
+    height: auto;
     width: 579px;
-    height: 465px;
+    min-height: 465px;
     padding: 40px;
   }
 }
