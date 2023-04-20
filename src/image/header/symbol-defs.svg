@@ -25,5 +25,15 @@
 				d="M85.678 6.286v19.029h2.859v-4.924l1.933-1.783 4.384 6.707h3.431l-5.854-8.543 5.283-5.057h-3.513l-5.664 5.456v-10.885h-2.859z">
 			</path>
 		</symbol>
+		<symbol id="icon-burger" viewBox="0 0 98 32" width="28" height="28" >
+			<path fill="var(--color-header-border)" style="fill: var(--color-header-border)" 
+				d="M19.833 11.667H3.5M24.5 7h-21M24.5 16.333h-21M19.833 21H3.5"/>
+		</symbol>
+		<symbol id="icon-menu-burger" viewBox="0 0 28 28">
+			<path fill="var(--color-header-border)" style="fill: var(--color-header-border)" d="M22.667 13.333h-18.667"></path>
+			<path fill="var(--color-header-border)" style="fill: var(--color-header-border)" d="M28 8h-24"></path>
+			<path fill="var(--color-header-border)" style="fill: var(--color-header-border)" d="M28 18.667h-24"></path>
+			<path fill="var(--color-header-border)" style="fill: var(--color-header-border)" d="M22.667 24h-18.667"></path>
+		</symbol>
 	</defs>
 </svg>
