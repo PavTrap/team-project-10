@@ -173,7 +173,7 @@
   text-align: center;
   letter-spacing: -0.04em;
   
-  color: rgba(17, 17, 17, 0.5);
+  color: var(--color-btn-not-active);
   @media screen and (min-width: 768px) {
     font-size: 12px;
     line-height: 14px;
