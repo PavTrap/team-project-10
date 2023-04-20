@@ -17,6 +17,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-header-background);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   border: 1.5px solid var(--color-header-border);
   border-radius: 0px 0px 8px 8px;
   height: 64px;
