@@ -35,11 +35,18 @@ const refs = {
   menu: document.querySelector('[data-menu]'),
   body: document.querySelector('body'),
   menuList: document.querySelector('.nav-list'),
+  logOutBurger: document.querySelector('.login-btn-out'),
 };
 
 refs.openMenuBtn.addEventListener('click', () => {
   refs.menu.classList.toggle('mobile-is-hidden');
   refs.body.classList.toggle('no-scroll');
+  // refs.logOutBurger.classList.toggle('mobile-is-hidden');
+  if (refs.logOutBurger.classList.contains('sign-out--visible')) {
+    refs.logOutBurger.classList.remove('sign-out--visible');
+  }else{
+    refs.logOutBurger.classList.add('sign-out--visible');
+  }
 
   refs.menuList.classList.toggle('nav-hidden');
   refs.logOutBtn.classList.toggle('nav-hidden');

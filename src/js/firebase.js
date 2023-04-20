@@ -93,7 +93,8 @@ function SingUpHandler() {
         })
       );
       document.querySelector('.login-btn').innerHTML = nameInputElVal;
-      signOutBtn.style.display = 'block';
+      // signOutBtn.style.display = 'block';
+      signOutBtn.classList.add('sign-out--visible');
       createEmptyPage();
     })
     .catch(error => {
@@ -125,7 +126,7 @@ if (localStorage.getItem(STORAGE_KEY)) {
   const dataFromLocalStorage = localStorage.getItem(STORAGE_KEY);
   const parsedDataFromLocalStorage = JSON.parse(dataFromLocalStorage);
   if (parsedDataFromLocalStorage.name !== 'Not Authorized') {
-    signOutBtn.style.display = 'block';
+    signOutBtn.classList.add('sign-out--visible');
     shopListBtn.classList.add('shopBtn--visible');
     document.querySelector('.login-btn').innerHTML =
       parsedDataFromLocalStorage.name;

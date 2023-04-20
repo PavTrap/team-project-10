@@ -459,7 +459,6 @@
 }
 .shopBtn {
   display: none;
-  color: red;
 }
 .shopBtn--visible {
   display: flex;
@@ -657,6 +656,10 @@
   font-style: normal;
   font-weight: 500;
   line-height: 18px;
+  // display:none;
+  @media screen and (min-width: 375px) and(max-width: 767px) {
+    display:none;
+  }
 
   @media screen and (min-width: 768px) {
     position: inherit;
@@ -689,8 +692,32 @@
     }
   }
 }
+.login-btn-out-menu{
+  @media screen and(max-width:767px){
+    position: absolute;
+    top: 85vh;
+    left: 10vw;
+
+    z-index: 4;
+    width: 118px;
+    // width: 48px;
+    height: 48px;
+    color: #111;
+    letter-spacing: -0.04em;
+    background: #fff url(../images/svg/arrow-narrow-right.svg) 82px no-repeat;
+    border: 1.5px solid #111;
+    border-radius: 18px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+  }
+}
 .sign-out {
   display: none;
+}
+.sign-out--visible{
+  display: block;
 }
 
 // .login-btn-mobile {
