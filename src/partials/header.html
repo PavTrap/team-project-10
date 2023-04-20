@@ -1,87 +1,112 @@
 <div class="align-header">
-<header class="header">
-  <div class="container">
-    <div class="header-container">
-      <nav class="header-navigation">
-        <a href="index.html" class="logo link" lang="en">
-          <svg class="logo__link">
-            <use
-              xlink:href="./image/header/symbol-defs.svg#icon-logo-white"
-            ></use>
-          </svg>
-        </a>
-        <ul class="nav-list list nav-hidden">
-          <li class="nav-item">
-            <button class="nav-list__button">
-              <a href="./index.html" class="nav-link link" data-href="index"
-                >Home</a
-              >
-            </button>
-          </li>
-          <li class="nav-item">
-            <button class="nav-list__button shopBtn">
-              <a
-                href="./shoppinglist.html"
-                class="nav-link shoppinglist"
-                data-href="shoppinglist"
-              >
-                Shopping list
-                <svg class="nav-item__shopping-bag">
-                  <use href="./images/svg/symbol-defs.svg#icon-bag"></use>
-                </svg>
-              </a>
-            </button>
-          </li>
-        </ul>
-      </nav>
-      <div class="header-options">
-        <div class="switches">
-          <label id="switch" class="switch">
-            <input type="checkbox" class="switch__input" id="slider" />
-            <span class="switch__slider"></span>
-          </label>
-        </div>
-        <button
-          type="button"
-          class="button button-menu-open"
-          data-menu-open
-        >
-            <svg class="burger-menu" width="28" height="28">
-                <use xlink:href="./image/header/symbol-defs.svg#icon-menu-burger">
-                    <symbol id="icon-mobile-menu" viewBox="0 0 28 28">
-                        <path d="M19.8333 11.6666H4.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M24.5 7H4.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M24.5 16.3334H4.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M19.8333 21H4.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </symbol>
-                </use>
+  <header class="header">
+    <div class="container">
+      <div class="header-container">
+        <nav class="header-navigation">
+          <a href="index.html" class="logo link" lang="en">
+            <svg class="logo__link">
+              <use
+                xlink:href="./image/header/symbol-defs.svg#icon-logo-white"
+              ></use>
             </svg>
-        </button>
-        <button
-          type="button"
-          class="login-btn nav-hidden"
-          data-modal-start-open--sing-up
-          data-modal-start-open
-        >
-          Sign up
-        </button>
-        <button type="button" class="login-btn-out sign-out">Log out</button>
+          </a>
+          <ul class="nav-list list nav-hidden">
+            <li class="nav-item">
+              <button class="nav-list__button">
+                <a href="./index.html" class="nav-link link" data-href="index"
+                  >Home</a
+                >
+              </button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-list__button shopBtn">
+                <a
+                  href="./shoppinglist.html"
+                  class="nav-link shoppinglist"
+                  data-href="shoppinglist"
+                >
+                  Shopping list
+                  <svg class="nav-item__shopping-bag">
+                    <use href="./images/svg/symbol-defs.svg#icon-bag"></use>
+                  </svg>
+                </a>
+              </button>
+            </li>
+          </ul>
+        </nav>
+        <div class="header-options">
+          <div class="switches">
+            <label id="switch" class="switch">
+              <input type="checkbox" class="switch__input" id="slider" />
+              <span class="switch__slider"></span>
+            </label>
+          </div>
+          <button type="button" class="button button-menu-open" data-menu-open>
+            <svg class="burger-menu" width="28" height="28">
+              <use xlink:href="./image/header/symbol-defs.svg#icon-menu-burger">
+                <symbol id="icon-mobile-menu" viewBox="0 0 28 28">
+                  <path
+                    d="M19.8333 11.6666H4.5"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M24.5 7H4.5"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M24.5 16.3334H4.5"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M19.8333 21H4.5"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </symbol>
+              </use>
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="login-btn nav-hidden"
+            data-modal-start-open--sing-up
+            data-modal-start-open
+          >
+            Sign up
+          </button>
+          <button type="button" class="login-btn-out sign-out">Log out</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- <div class="mobile mobile-is-hidden" data-menu data-menu-open data-menu-close>
+    <!-- <div class="mobile mobile-is-hidden" data-menu data-menu-open data-menu-close>
     <div class="mobile-container">
       <div class="mobile-meny"></div>
     </div>
   </div> -->
 
-  <script type="module" src="./js/current-page.js"></script>
-</header>
+    <script type="module" src="./js/current-page.js"></script>
+  </header>
 </div>
-<div class="mobile mobile-is-hidden" data-menu data-menu-open data-menu-close>
-    <div class="mobile-container">
-      <div class="mobile-meny">
-      </div>
-    </div>
+<div
+  class="mobile container mobile-is-hidden"
+  data-menu
+  data-menu-open
+  data-menu-close
+>
+  <img
+    src="./image/header/books-header2x.png"
+    alt="books"
+    class="mobile__books"
+  />
+  <div class="mobile-container">
+    <div class="mobile-meny"></div>
   </div>
+</div>
