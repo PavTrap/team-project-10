@@ -61,7 +61,7 @@
   position: absolute;
 
   z-index: 20;
-  top: 35vh;
+  top: 250px;
   left: 20vw;
 
   @media screen and (min-width: 768px) {
@@ -280,16 +280,17 @@
 
 .login-btn {
   position: absolute;
-  top: 85vh;
-  left: 10vw;
+  top: 80px;
+  left: 20px;
 
   z-index: 2;
   width: 118px;
   height: 48px;
   color: #111;
   letter-spacing: -0.04em;
-  background: #fff url(../images/svg/arrow-narrow-right.svg) 82px no-repeat;
+  // background: #fff url(../images/svg/arrow-narrow-right.svg) 82px no-repeat;
   border: 1.5px solid #111;
+
   border-radius: 18px;
   font-size: 14px;
   font-style: normal;
@@ -327,7 +328,7 @@
 .login-btn-out {
   position: absolute;
   top: 85vh;
-  left: 10vw;
+  left: 20px;
 
   z-index: 2;
   width: 118px;
@@ -394,7 +395,7 @@
   
 
 .sign-out {
-  display: none;
+  // display: none;
 }
 .sign-out--visible{
   display: block;
