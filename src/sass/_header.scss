@@ -62,7 +62,8 @@
 
   z-index: 20;
   top: 250px;
-  left: 20vw;
+
+  left: 129px;
 
   @media screen and (min-width: 768px) {
     position: static;
@@ -85,7 +86,7 @@
 .nav-item__shopping-bag {
   height: 16px;
   width: 13px;
-  fill: rgb(255, 255, 255);
+  fill: var(--color-text-primary);
   // position: absolute;
   // left: 115px;
   // bottom: 16px;
@@ -155,6 +156,11 @@
   &.nav-item__shopping-bag {
     fill: #111111;
   }
+}
+.nav-link-current .nav-item__shopping-bag {
+  color: #111111;
+  background-color: var(--color-yellow);
+  fill: #111111;
 }
 // .shoppinglist {
 //   display: flex;
@@ -249,17 +255,7 @@
     display: none;
   }
 
-  // background-image: url(../images/svg/burger.svg);
-  // background-color: rgba(255, 255, 255);
-  // fill: var(--color-header-border);
-  // background-repeat: no-repeat;
-  // background-size: contain;
 
-  // &:hover,
-  // &:focus {
-  //   // background-image: url(../images/svg/burger-hover.svg);
-  //   // background-color: rgba(255, 255, 255, 0.5);
-  // }
 }
 .burger-menu{
   display: flex;
@@ -272,18 +268,15 @@
   stroke: var(--color-category-active);
 }
 
-.test-icon {
-  width: 150px;
-  height: 150px;
-  fill: black;
-}
 
 .login-btn {
   position: absolute;
+
   top: 80px;
+
   left: 20px;
 
-  z-index: 2;
+  z-index: 666;
   width: 118px;
   height: 48px;
   color: #111;
@@ -296,7 +289,17 @@
   font-style: normal;
   font-weight: 500;
   line-height: 18px;
-
+  
+  // &::before {
+    
+  //     content: url(../images/svg/user.svg);
+  //     width: 30px;
+  //     height: 30px;
+  //     padding: 7px;
+  //     background-color: #cdcdcd;
+  //     border-radius: 50%;
+  //     margin-right: 10px;
+  //   }
   @media screen and (min-width: 768px) {
     position: static;
     display: block;
@@ -317,13 +320,16 @@
     line-height: 1.29;
     letter-spacing: -0.04em;
 
+    
     &:hover {
       background-color: var(--color-yellow);
     }
 
     color: #ffffff;
   }
+   
 }
+
 
 .login-btn-out {
   position: absolute;
@@ -360,24 +366,51 @@
 
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    background: #4f2ee8 url(../images/svg/arrow-narrow-right.svg) 50% no-repeat;
-    // border: none;
-    // border-radius: 36px;
-    // font-family: 'DM Sans';
-    // font-style: normal;
-    // font-weight: 500;
-    // font-size: 14px;
-    // line-height: 1.29;
-    // letter-spacing: -0.04em;
 
-    &:hover {
-      background-color: var(--color-yellow);
+// }
 
-      color: var(--color-yellow);
+.sign-out{
+  position: absolute;
+    top: 85vh;
+    left: 20px;
+  
+    z-index: 2;
+    width: 118px;
+
+    height: 48px;
+    color: #111;
+    letter-spacing: -0.04em;
+    background: #fff url(../images/svg/arrow-narrow-right.svg) 82px no-repeat;
+    border: 1.5px solid #111;
+    border-radius: 18px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;  
+  
+    @media screen and (min-width: 768px) {
+      position: inherit;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      width: 45px;
+      height: 45px;
+      position: inherit;
+      border-radius: 50%;
+      color: #4f2ee8;
+  
+      transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+      background: #4f2ee8 url(../images/svg/arrow-narrow-right.svg) 50% no-repeat;
+  
+      &:hover {
+        background-color: var(--color-yellow);
+  
+        color: var(--color-yellow);
+      }
     }
-  }
 }
-
 
     // z-index: 2;
     // width: 118px;
@@ -393,6 +426,7 @@
     // font-weight: 500;
     // line-height: 18px;
   
+
 
 .sign-out {
   // display: none;
@@ -426,12 +460,19 @@
   width: 375px;
   height: 100%;
   
-  background: radial-gradient(
+  background:
+    url(../image/header/books-header2x.png),
+
+     radial-gradient(
     183.6% 183.01% at 59.76% -23.42%,
     #4f2ee8 18.03%,
     #ffffff 100%
   );
 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  
   opacity: 1;
   transition: all 3s;
   @media screen and (min-width: 768px) {
@@ -439,15 +480,4 @@
   }
 }
 
-.mobile__books {
-  width: 100%;
-  height: auto;
-  position: absolute;
-  z-index: 5;
-  bottom: 0;
-  left: 0;
-}
 
-// .mobile-container {
-//   padding-top: 200px;
-// }
