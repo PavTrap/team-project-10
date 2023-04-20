@@ -31,6 +31,7 @@
 
 .foundation__title {
   margin-bottom: 40px;
+  text-align: center;
 
   font-style: normal;
   font-weight: 700;
@@ -93,6 +94,7 @@
 }
 
 .foundation__item {
+  
   display: flex;
   align-items: center;
   margin-bottom: 20px;
@@ -106,6 +108,7 @@
 }
 
 .foundation__img {
+  height: 30px;
   filter: brightness(0%) grayscale(100%) invert(100%);
 }
 

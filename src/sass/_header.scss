@@ -638,6 +638,7 @@
     color: #ffffff;
   }
 }
+
 .login-btn-out {
   position: absolute;
   top: 85vh;
@@ -688,6 +689,23 @@
 
       color: var(--color-yellow);
     }
+  }
+}
+
+
+    z-index: 2;
+    width: 118px;
+    // width: 48px;
+    height: 48px;
+    color: #111;
+    letter-spacing: -0.04em;
+    background: #fff url(../images/svg/arrow-narrow-right.svg) 82px no-repeat;
+    border: 1.5px solid #111;
+    border-radius: 18px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
   }
 }
 
