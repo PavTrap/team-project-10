@@ -35,8 +35,7 @@
   }
 }
 .hidden > section {
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1439px) {
     display: none;
-    background-color: tomato;
-  }
+    }
 }
