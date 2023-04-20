@@ -84,6 +84,7 @@ function SingUpHandler() {
     .then(userCredential => {
       const user = userCredential.user;
       shopListBtn.classList.add('shopBtn--visible');
+      signOutBtn.classList.add('sign-out--visible');
       localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify({
@@ -126,6 +127,8 @@ if (localStorage.getItem(STORAGE_KEY)) {
   const parsedDataFromLocalStorage = JSON.parse(dataFromLocalStorage);
   if (parsedDataFromLocalStorage.name !== 'Not Authorized') {
     shopListBtn.classList.add('shopBtn--visible');
+    signOutBtn.classList.add('sign-out--visible');
+
     document.querySelector('.login-btn').innerHTML =
       parsedDataFromLocalStorage.name;
 
